@@ -27,7 +27,7 @@ hello Hello     HELLO
 
 int main() {
     char c;
-    int word_count = 0, char_count = 0, line_count = 0;
+    int word_count = 0, char_count = 0, line_count = 0, i= 0;
     int in_word = 0;  // 标记是否在一个单词/汉字内
 
     while ((c = getchar()) != EOF) {
@@ -39,7 +39,11 @@ int main() {
         // 统计字符数（不包括空白符）
         if (c != ' ' && c != '\n' && c != '\t') {
             if (c & 0x80) {  // 检查高位是否为1，判断是否为中文字符
-                char_count += 1;  // 中文字符占3个字节
+                ++i;
+                if((i%3) == 0)
+                {
+                    char_count += 1;
+                }   // 中文字符占3个字节
             } else {
                 char_count += 1;  // 西文字符占1个字节
             }
@@ -47,7 +51,11 @@ int main() {
             // 统计字数
             if (!in_word || c & 0x80) {  // 如果之前不在单词/汉字内，现在进入一个单词/汉字
                 in_word = 1;
-                word_count++;
+
+                if((i%3) == 0) 
+                {
+                    word_count += 1;
+                } 
             }
         } else {
             in_word = 0;  // 遇到空白符时，标记为不在单词/汉字内
