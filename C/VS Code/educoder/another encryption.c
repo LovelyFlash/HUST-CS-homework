@@ -1,4 +1,8 @@
 #include<stdio.h>
+int encryption(char REAL[])
+{
+    
+}
 
 int main(){
     char REAL[1000];
