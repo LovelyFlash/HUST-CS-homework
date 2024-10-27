@@ -36,6 +36,6 @@ void main() {
     vendingmachineitem[channels - 1].item = item;
     vendingmachineitem[channels - 1].price = price;
     vendingmachineitem[channels - 1].item = item;
-    printf("AAA");
+    printf("AA");
     
 }

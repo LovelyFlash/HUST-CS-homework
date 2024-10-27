@@ -2,6 +2,7 @@
 
 typedef struct 
 {
+    /*建立列表*/
     char name;
     int place;
     int price;
@@ -13,7 +14,7 @@ int main()
     char name;
     int place;
     int price;
-    int quantity;
+    int quantity;/*引入暂存数据*/
     int i = 0;
     SellingMachine SellingMachine[100];
     while(i++ <= 100)
@@ -24,6 +25,7 @@ int main()
         getchar();
         if(input != 'F')
         {
+            int n = 0, m = 0;
             name = input;
             scanf("%d", &place);
             getchar ();
@@ -31,10 +33,18 @@ int main()
             getchar();
             scanf("%d", &quantity);
             getchar();
-            SellingMachine[place - 1].name = name;
+            SellingMachine[place - 1].name = name;              /*将暂存数据转移到格式表*/
             SellingMachine[place - 1].place = place;
             SellingMachine[place - 1].price = price;
             SellingMachine[place - 1].quantity = quantity;
+            if(place > n)
+            {
+                n = place;                                      /*为后续顺序读取做准备*/
+            }
+            else
+            {
+                m = 0;
+            }
         
         }
         else
@@ -47,6 +57,7 @@ int main()
     for(i = 0; i < place; i++) 
     {
         printf("在%d号通道，摆放了%d个%c货物，单价为%d元\n", SellingMachine[i].place, SellingMachine[i].quantity, SellingMachine[i].name, SellingMachine[i].price);
+        /*按货道顺序输出*/
     }
     return 0;
 }
