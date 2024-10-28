@@ -1,5 +1,5 @@
 #include<stdio.h>
-int encryption(char REAL[])
+int encryption(char REAL[1000])
 {
     
 }
