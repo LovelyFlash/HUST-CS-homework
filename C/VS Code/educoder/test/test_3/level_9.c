@@ -35,8 +35,8 @@
 int main() {
     int n;
     scanf("%d", &n);
-    int triangle[10][10] = {0};
-    for (int i = 0; i < n; i++) 
+    int triangle[11][11] = {0};
+    for (int i = 0; i <= n; i++) 
     {
         triangle[i][0] = 1;
         triangle[i][i] = 1;
@@ -45,15 +45,16 @@ int main() {
             triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
         }
     }
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i <= n; i++) 
     {
-        for (int k = 0; k < n - i - 1; k++) {
+        for (int k = 0; k < n - i; k++) {
             printf("  ");
         }
-
-        for (int j = 0; j <= i; j++) {
-            printf("%4d", triangle[i][j]);
+        for (int j = 0; j <= i; j++) 
+        {
+                printf("%-4d", triangle[i][j]);
         }
+        if(i < n)
         printf("\n");
     }
     return 0;
