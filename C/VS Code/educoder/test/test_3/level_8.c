@@ -18,6 +18,34 @@
 
 int main()
 {
-    char sentence[1000], c;
-    
+    char word[1000], c;
+    int i, ch = 1;
+    for(i = 0; (c = getchar()) != EOF; i++)
+    {
+            word[i] = c;
+    }
+    for(int j = 0; j < i; j++)
+    {
+        switch(ch)
+        {
+            case 1:
+            {
+                putchar(word[j]);
+                if(word[j] == ' ') ch = 0;
+                else ch = 1;
+                break;
+            }
+            case 0:
+            {
+                if(word[j] == ' ') ch = 0;
+                else
+                {
+                    putchar(word[j]);
+                    ch = 1;
+                }
+                break;
+            }
+        }
+    }
+    return 0;
 }
