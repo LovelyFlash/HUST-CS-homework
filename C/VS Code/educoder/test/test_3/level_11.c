@@ -28,3 +28,40 @@
 
 开始你的任务吧，祝你成功！
 */
+#include <stdio.h>
+
+void is_Prime(int n, int num[])
+{
+    for (int i = 2; i * i <= n; i++)
+    {
+        if (num[i] != 0)
+        {
+            for (int j = i * i; j <= n; j += i)
+            {
+                num[j] = 0; // 将非质数标记为0
+            }
+        }
+    }
+};
+
+void number(int n)
+{
+    int num[100000] = {0};
+    for (int i = 2; i <= n; i++)
+    {
+        num[i] = i;
+    }
+    is_Prime(n, num);
+    for(int i = 2; i <= n; i++)
+    {
+        if(num[i] != 0 && num[i+2] != 0) printf("(%d,%d) ", num[i], num[i+2]);
+    }
+};
+
+int main()
+{
+    int n; 
+    scanf("%d", &n);
+    number(n);
+    return 0;
+}
