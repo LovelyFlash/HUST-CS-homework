@@ -15,7 +15,7 @@ VWI K MTZIL GIG,CWK VIA MMN ZWDMZM
 开始你的任务吧，祝你成功！
 */
 #include<stdio.h>
-int encryption(char REAL[1000])
+void encryption(char REAL[])
 {
     
 }
@@ -24,7 +24,7 @@ int main(){
     char REAL[1000];
     int i;
     scanf("%s", REAL);
-    for(i = 0; REAL[i] != 0; i++)
+    for(i = 0; i <= 1000; i++)
     {
         
     }
