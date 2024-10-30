@@ -25,8 +25,8 @@ int main() {
     {
         if(real[i] != 0)
         {
-            char temp = ( ( (real[i]&0x2a )>>1 ) | ( (real[i]&0x15)<<1) );//0,2,4与1,3,5位交换
-            real[i] = (real[i]&0xc0) | (( temp<<(int)( (real[i]&0xc0)>>6 ) & 0x3f ) | (temp<<(int)( 8 - (real[i]&0xc0)>>6 ) & 0x3f));
+            char temp1 = ( ( (real[i]&0x2a )>>1 ) | ( (real[i]&0x15)<<1) );//0,2,4与1,3,5位交换
+            real[i] = (real[i]&0xc0) | (( temp1<<(int)( (real[i]&0xc0)>>6 ) & 0x3f ) | (temp1<<(int)( 8 - (real[i]&0xc0)>>6 ) & 0x3f));
         }
     }
     printf("%s", real);

@@ -13,13 +13,13 @@
 
 开始你的任务吧，祝你成功！
 */
-#include <stdio.h>
+ #include <stdio.h>
 
 int main()
 {
     unsigned short a, m, n;
-    scanf("%hu %hu %hu", &a, &m, &n);
+    scanf("%hx %hu %hu", &a, &m, &n);
     a = (a >> m) << (16-n);
-    printf("%04x", a);
+    printf("%hx", a);
     return 0;
 }
