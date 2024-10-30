@@ -24,17 +24,18 @@ Sn = Sn-1 + n!
 开始你的任务吧，祝你成功！
 */
 #include<stdio.h>
+unsigned long long sum_fac(int k, int n, unsigned long long s, unsigned long long fac)
+{
+    fac *= n;
+	if(k >= n) return sum_fac(k, n+1, s + fac, fac);
+	else return s;
+};
+
 int main(void)
 {
-	int k;
-    unsigned long long s = 0, fac = 0;
+	int k, n = 1;
+    unsigned long long s = 0, fac = 1;
 	for(k=1; k<=20; k++)
-		printf("k=%d the sum is %llu\n",k,sum_fac(k, s, fac));
+		printf("k=%d the sum is %llu\n",k,sum_fac(k, n, s, fac));
 	return 0;
-}
-unsigned long long sum_fac(int n, unsigned long long s, unsigned long long fac)
-{
-	int k = 0;
-    fac = fac;
-
 }
