@@ -15,17 +15,37 @@ VWI K MTZIL GIG,CWK VIA MMN ZWDMZM
 开始你的任务吧，祝你成功！
 */
 #include<stdio.h>
-void encryption(char REAL[])
+void encryption(char REAL[], int n)
 {
+    for(int i = 0; i<1000 && REAL[i] != '\0'; i++)
+    {
+        if (REAL[i] != ' ' && REAL[i] >= 'A' && REAL[i] <= 'Z')
+        {
+            if(REAL[i] + n > 'Z') 
+                REAL[i] -= 26-n;
+            else 
+                REAL[i] += n;
+        }
+    }
     
+    for(int i = 0; (REAL[i]!= '\0')&&(REAL[i+1]!= '\0'); i += 2)
+    {
+        char temp = REAL[i];
+        REAL[i] = REAL[i+1];
+        REAL[i+1] = temp;
+    }
+    printf("%s", REAL);
 }
 
 int main(){
-    char REAL[1000];
-    int i;
-    scanf("%s", REAL);
-    for(i = 0; i <= 1000; i++)
+    char REAL[1000]={0}, c;
+    int n, i = 0;
+    while((c = getchar()) != '\n')
     {
-        
+        REAL[i++] = c;
     }
+    REAL[i] = '\0';
+    scanf("%d", &n);
+    encryption(REAL, n);
+    return 0;
 }
