@@ -14,7 +14,7 @@ VWI K MTZIL GIG,CWK VIA MMN ZWDMZM
 
 开始你的任务吧，祝你成功！
 */
-#include<stdio.h>
+ #include<stdio.h>
 void encryption(char REAL[], int n)
 {
     for(int i = 0; i<1000 && REAL[i] != '\0'; i++)
@@ -46,6 +46,6 @@ int main(){
     }
     REAL[i] = '\0';
     scanf("%d", &n);
-    encryption(REAL, n);
+    encryption(REAL, n-1);
     return 0;
 }
