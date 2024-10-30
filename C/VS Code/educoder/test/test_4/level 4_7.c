@@ -24,3 +24,29 @@
 输出后不用换行
 开始你的任务吧，祝你成功！
 */
+#include <stdio.h>
+
+int main()
+{
+    int n, num[100000] = {0};
+    scanf("%d", &n);
+    int i , sum = 0;
+    for(i= 2; i <= n/2; i++)
+    {
+        if(n % i == 0) 
+        {
+            sum += i;
+            num[i] = 1;
+            num[n/i] = 1;
+        }
+    }
+    if(++sum == n)
+    {
+        printf("%d=1", n);
+        for(i=2; i < n; i++)
+        {
+            if(num[i]== 1) printf("+%d", i);
+        }
+    }
+    else printf("%d is not a perfect number", n);
+}
