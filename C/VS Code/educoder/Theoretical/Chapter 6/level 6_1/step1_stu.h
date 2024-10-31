@@ -59,20 +59,41 @@ windows环境
 'Round 5:  Score:7  Failed!'
 开始你的任务吧，祝你成功！
 */
+/***在下面Begin至End间，按原型 void diceGame(int randSeed) 定义函数***/
+/********** Begin **********/
 #include<stdio.h>
-#include<stdlib.h>
+#include<time.h>
 
-void diceGame(int randSeed)
-{
-    int a[100];
-    srand((unsigned) randSeed);
-    for(int i=0; ; i++)
-    {
-        a[i] = rand() %13;
-        if((a[0] == 7 || a[0] == 11) && i == 0)
-            printf("'Round 1:  Score:%d  Continue!'", a[0]);
-        else if()
-        
+void diceGame(int randSeed);
+int roll(); 
+
+void diceGame(int randSeed) {
+    srand(randSeed);
+    int score1 = roll(randSeed);
+    if (score1 == 7 || score1 == 11) printf("Round 1:  Score:%d  Success!", score1);
+    else if (score1 == 2 || score1 == 3 || score1 == 12) printf("Round 1:  Score:%d  Failed!\n", score1);
+    else {
+        printf("Round 1:  Score:%d  Continue!\n", score1);
+        printf("Next rounds: Score %d:Success, Score 7:Failed, others:Continue\n", score1);
+        for (int i = 2;; i++) {
+            int score = roll(randSeed);
+            if (score == score1) {
+                printf("Round %d:  Score:%d  Success!", i, score); 
+                break;
+            }
+            else if (score == 7) {
+                printf("Round %d:  Score:%d  Failed!\n", i, score); 
+                break;
+            }
+            else printf("Round %d:  Score:%d  Continue!\n", i, score);
+        }
     }
-
 }
+
+int roll(int seed) {
+    int a, b;
+    a = (rand() % 6) + 1;
+    b = (rand() % 6) + 1;
+    return a + b;
+}
+/**********End **********/
