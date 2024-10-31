@@ -3,14 +3,11 @@
 //请根据step3_main.cpp中的主函数流程，补全此函数
 int digit(long n, int k)
 {
-	/**********  Begin  **********/
-    int i=1;
-    for(; n/10 != 0; i++);
-    if(k > i) return -1;
-    else
-    {
-        int a = (n>>(k-1))%10;
-        return a;
+    int i;
+    for (i = 0; n > 0 && i < k; i++) {
+        if (i == k - 1)  // 找到第 k 位
+            return n % 10;
+        n /= 10;  // 去掉最后一位
     }
-    /**********  End  **********/
+    return -1;  // 若 k 超出范围则返回 -1
 }

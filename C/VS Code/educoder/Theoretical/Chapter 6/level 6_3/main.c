@@ -6,7 +6,7 @@ int main()
 {
     long n;
     int k;
-    scanf("%ld%d",&n,&k);
+    scanf("%ld %d",&n,&k);
     if( n < 0)
         n = -n;
     printf("%d",digit(n,k));
