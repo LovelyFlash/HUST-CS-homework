@@ -41,14 +41,66 @@ xiaoming 79
 开始你的任务吧，祝你成功！
 */
 #include <stdio.h>
+#define MAX_LEN 100
 
-int input(int n);
-void sort(int name, int score);
-void output(int name, int score);
+void input(int name[MAX_LEN][MAX_LEN], int score[], int n);
+void sort(int name[MAX_LEN][MAX_LEN], int score[], int n);
+void output(int name[MAX_LEN][MAX_LEN], int score[], int n);
 
 int main()
 {
-    int n;
-    scanf("%d", n);
+    int func = -1, n, score[MAX_LEN];
+    int name[MAX_LEN][MAX_LEN];
+    while(func)
+    {
+        scanf("%d", func);
+        switch(func)
+        {
+            case 1:
+            {
+                input(name, score, n);
+                break;
+            }
+            case 2:
+            {
+                sort(name, score, n);
+                break;
+            }
+            case 3:
+            {
+                output(name, score, n);
+                break;
+            }
+            default:
+            {
+                return 0;
+            }
+        }
+    }
+    return 0;
+}
+
+void input(int name[MAX_LEN][MAX_LEN], int score[], int n)
+{
+    char c;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; (c = getchar()) != ' '; j++)
+        {
+            name[i][j] = (int)c;
+            name[i][j+1] = '\0';
+        }
+        scanf("%d", score[i]);
+    }
+}
+
+void sort(int name[MAX_LEN][MAX_LEN], int score[], int n)
+{
     
+}
+
+void output(int name[MAX_LEN][MAX_LEN], int score[], int n)
+{
+
 }
