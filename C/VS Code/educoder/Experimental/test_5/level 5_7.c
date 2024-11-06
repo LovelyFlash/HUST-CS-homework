@@ -41,66 +41,81 @@ xiaoming 79
 开始你的任务吧，祝你成功！
 */
 #include <stdio.h>
+#include <string.h>
 #define MAX_LEN 100
 
-void input(int name[MAX_LEN][MAX_LEN], int score[], int n);
-void sort(int name[MAX_LEN][MAX_LEN], int score[], int n);
-void output(int name[MAX_LEN][MAX_LEN], int score[], int n);
+void input(char name[MAX_LEN][MAX_LEN], int score[], int n);
+void sort(char name[MAX_LEN][MAX_LEN], int score[], int n);
+void output(char name[MAX_LEN][MAX_LEN], int score[], int n);
 
 int main()
 {
-    int func = -1, n, score[MAX_LEN];
-    int name[MAX_LEN][MAX_LEN];
-    while(func)
+    int func = -1, n = 0, score[MAX_LEN] = {0};
+    char name[MAX_LEN][MAX_LEN];
+    
+    while (func)
     {
-        scanf("%d", func);
-        switch(func)
+        scanf("%d", &func);
+        if (n == 0) scanf("%d", &n);
+        
+        switch (func)
         {
             case 1:
-            {
                 input(name, score, n);
                 break;
-            }
             case 2:
-            {
                 sort(name, score, n);
                 break;
-            }
             case 3:
-            {
                 output(name, score, n);
                 break;
-            }
             default:
-            {
                 return 0;
-            }
         }
     }
+    
     return 0;
 }
 
-void input(int name[MAX_LEN][MAX_LEN], int score[], int n)
+void input(char name[MAX_LEN][MAX_LEN], int score[], int n)
 {
-    char c;
-    scanf("%d", &n);
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for(int j = 0; (c = getchar()) != ' '; j++)
-        {
-            name[i][j] = (int)c;
-            name[i][j+1] = '\0';
-        }
-        scanf("%d", score[i]);
+        scanf("%s %d", name[i], &score[i]);
     }
 }
 
-void sort(int name[MAX_LEN][MAX_LEN], int score[], int n)
+void sort(char name[MAX_LEN][MAX_LEN], int score[], int n)
 {
+    int temp_score;
+    char temp_name[MAX_LEN];
     
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - 1 - i; j++)
+        {
+            // 如果分数更高，或者分数相等但名字的字母顺序更靠前，就进行交换
+            if (score[j] < score[j + 1] || 
+                (score[j] == score[j + 1] && strcmp(name[j], name[j + 1]) > 0))
+            {
+                // 交换分数
+                temp_score = score[j];
+                score[j] = score[j + 1];
+                score[j + 1] = temp_score;
+                
+                // 交换名字
+                strcpy(temp_name, name[j]);
+                strcpy(name[j], name[j + 1]);
+                strcpy(name[j + 1], temp_name);
+            }
+        }
+    }
 }
 
-void output(int name[MAX_LEN][MAX_LEN], int score[], int n)
+void output(char name[MAX_LEN][MAX_LEN], int score[], int n)
 {
-
+    for (int i = 0; i < n; i++)
+    {
+        printf("%s %d\n", name[i], score[i]);
+    }
 }
