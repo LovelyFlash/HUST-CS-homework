@@ -24,3 +24,39 @@ www
 
 开始你的任务吧，祝你成功！
 */
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int func = 0;
+    char string1[100], string2[100];
+    char *result, c;
+    char *(*p)(char *, const char *); 
+    while (1)
+    {
+        scanf("%d", &func);
+        getchar();
+        
+        if (func == 4) break;
+        fgets(string1, sizeof(string1), stdin);
+        string1[strcspn(string1, "\n")] = '\0'; 
+        fgets(string2, sizeof(string1), stdin);
+        string1[strcspn(string1, "\n")] = '\0'; 
+            switch(func)
+            {
+                case 1:
+                    p = strcpy;
+                    break;
+                case 2:
+                    p = strcat;
+                        break;
+                case 3:
+                    p = strtok;
+                    break;
+            }
+        result = p(string1, string2);
+        printf("%s", result);
+    }
+    return 0;
+}
