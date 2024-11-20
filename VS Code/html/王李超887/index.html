@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王李超的个人主页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/background.png'); /* 替换为实际背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.6); /* 黑色透明背景 */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .content {
+            flex: 1; /* 自动填充中间内容的高度 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .link-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* 调整间距为20px */
+            padding: 20px;
+        }
+        .link-box {
+            width: 200px;
+            height: 323px; /* 黄金比例 */
+            background-color: rgba(255, 255, 255, 0.8); /* 白色半透明背景 */
+            border-radius: 15px;
+            text-align: center;
+            line-height: 323px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .link-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .link-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3; /* 默认虚化 */
+            filter: blur(3px); /* 默认添加模糊效果 */
+            z-index: 1;
+            transition: opacity 0.3s, filter 0.3s; /* 添加过渡效果 */
+        }
+        .link-box:hover::before {
+            opacity: 10; /* 鼠标悬停时使图片凝实 */
+            filter: blur(0); /* 去掉模糊效果 */
+        }
+        .link-box span {
+            position: relative;
+            z-index: 2;
+        }
+        .experience::before {
+            background-image: url('images/experience.jpg');
+        }
+        .music::before {
+            background-image: url('images/music.jpg');
+        }
+        .cs::before {
+            background-image: url('images/cs.png');
+        }
+        .github::before {
+            background-image: url('images/github.png');
+        }
+        .resources::before {
+            background-image: url('images/resources.jpg');
+        }
+        footer h2 {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+        footer p {
+            margin: 5px 0;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>王李超的个人主页</h1>
+    </header>
+    <div class="content">
+        <div class="link-container">
+            <a href="web/experience.html" class="link-box experience"><span>个人经历</span></a>
+            <a href="web/music.html" class="link-box music"><span>喜欢的音乐</span></a>
+            <a href="web/cs.html" class="link-box cs"><span>我的steam</span></a>
+            <a href="web/github.html" class="link-box github"><span>Github主页</span></a>
+            <a href="web/resources.html" class="link-box resources"><span>我的资源</span></a>
+        </div>
+    </div>
+    <footer>
+        <h2>欢迎来到我的主页！</h2>
+        <p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历、兴趣和资源。</p>
+    </footer>
+</body>
+</html>

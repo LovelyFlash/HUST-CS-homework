@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王李超的个人主页 - 个人资料</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('experience_background.png'); /* 替换为实际背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.6); 
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .content {
+            flex: 1;
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            padding: 20px;
+        }
+        .project-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 每行文字间距 */
+            align-items: center; /* 内容右对齐 */
+        }
+        .project-details .line {
+            background-color: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+            border-radius: 8px; /* 圆角效果 */
+            padding: 10px 15px; /* 内间距 */
+            color: #000000; /* 文字颜色 */
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 100%; /* 防止溢出 */
+            white-space: nowrap; /* 保证每段文字一行显示 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        footer h2 {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+        footer p {
+            margin: 5px 0;
+            color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>王李超的个人主页 - 个人资料</h1>
+    </header>
+    <div class="content">
+        <div class="project-details">
+            <div class="line">姓名：王李超</div>
+            <div class="line">一看就是男的</div>
+            <div class="line">广涉猎而不精</div>
+            <div class="line">现在正在被学习折磨</div>
+        </div>
+    </div>
+    <footer>
+        <h2>欢迎来到我的主页！</h2>
+        <p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历。</p>
+    </footer>
+</body>
+</html>
