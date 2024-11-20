@@ -21,7 +21,7 @@ int main()
 	/**********  Begin  **********/
     struct web table[N], *p = table;
     char n[100];
-    int k;
+    int k = -1;
     for(int i = 0; i < N; i++)
     {
         scanf("%s %s %s", table[i].short_name, table[i].name, table[i].URL);
@@ -32,7 +32,7 @@ int main()
 	return 0; 
 }
 
-void sort(struct web table[],int k, char n[])
+void sort(struct web table[], int k, char n[])
 {
 	/**********  Begin  **********/
     char temp[100];
@@ -66,6 +66,9 @@ void sort(struct web table[],int k, char n[])
             break;
         }    
     }
-    printf("%s", table[k].URL);
+    if(k >= 0)
+        printf("%s", table[k].URL);
+    else
+        printf("未找到搜寻的网址");
 	/**********   End   **********/
 }
