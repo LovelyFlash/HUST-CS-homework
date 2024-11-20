@@ -44,33 +44,66 @@ int printList(struct charNode *head)
     return i;
 }
 
-void editlist(int len, struct charNode *head)
+void editlist(int len, struct charNode *head, char *str)
 {
     char temp;
     scanf("%c", &temp);
-    
+    int note = -1, flag = 128;
+    for(int i = 0; i < len; i++)
+    {
+        if(*(str + i) == temp)
+        {
+            for(int j = i; j < len; j++)
+            {
+                *(str + j) = *(str+j+1);
+            }
+            len--;
+            note = -1;
+            break;
+        }
+        else
+        {
+            int tem;
+            if((int)(*(str +i) - temp)<0) 
+                tem = -(int)(*(str +i) - temp);
+            else tem = (int)(*(str +i) - temp);
+            if(flag > tem)
+            {
+                flag = tem;
+                note = i;
+            }
+        }
+    }
+    for(int i = 0; i < len; i++)
+    {
+        if(i == note)
+            printf("%c%c", *(str + i), temp);
+        else
+            printf("%c", *(str + i)); 
+    }
 }
 
-void print(int len, struct charNode *head)
+char *print(int len, struct charNode *head) 
 {
-    char str[len];
-    struct charNode *p;
-    p = head;
-    while(p != NULL)
-    {
-        static int i = 0;
-        str[i++] = (p -> c);
-        p = p -> next;
+    char *str = (char *)malloc(len + 1); 
+    struct charNode *p = head;
+    int i = 0;
+    while (p != NULL) {
+        str[i++] = p->c;
+        p = p->next;
     }
-    printf("%s", str);
+    str[i] = '\0'; 
+    printf("%s\n", str);
+    return str;
 }
+
 
 int main()
 {
     struct charNode *head;
     head = creatlist();
     int len = printList(head);
-    print(len, head);
-    editlist(len, head);
+    char *x = print(len, head);
+    editlist(len, head, x);
     return 0;
 }
