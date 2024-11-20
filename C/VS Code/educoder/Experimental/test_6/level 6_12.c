@@ -72,9 +72,6 @@ void scheduler() {
     for (int i = 0; i < strlen(list); i++)
     {
         int n = list[i] - '0';
-        execute(n);
-        }
-}
-void execute(int m) {
-    p[m]();
+        p[n]();
+    }
 }
