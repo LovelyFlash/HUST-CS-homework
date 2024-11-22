@@ -36,14 +36,20 @@ struct scoreNode *createlist()
     return head;
 }
 
-void fun1()
+struct scoreNode *fun1()
 {
     struct scoreNode *head = createlist();
+    return head;
 }
 
-void fun2()
+void fun2(struct scoreNode *head)
 {
-
+    struct scoreNode *p = head;
+    while(p != NULL)
+    {
+        printf("%s %s %d %d %d %d\n", p -> num, p -> name, p -> score[0], p -> score[1], p -> score[2], p -> score[3]);
+        p = p-> next;
+    }
 }
 
 void fun3_1()
@@ -78,8 +84,9 @@ void fun5()
 
 void use_fun(int fun)
 {
+    struct scoreNode *head;
     if(fun == 1) fun1();
-    else if(fun == 2) fun2();
+    else if(fun == 2) fun2(fun1());
     else if(fun == 31) fun3_1();
     else if(fun == 32) fun3_2();
     else if(fun == 33) fun3_3();

@@ -1,74 +1,112 @@
-/*
-任务描述
-本关任务：设计一个含有年、月、日的日期结构类型，输入一个日期，计算并输出该日期是该年中的第几天。
-
-测试说明
-平台会对你编写的代码进行测试，若是与预期输出相同，则算通关。
-
-年、月、日中间使用空格进行分隔
-
-测试输入：2019 1 1
-预期输出：
-1
-
-测试输入：2019 3 5
-预期输出：
-64
-
-测试输入：2019 5 3
-预期输出：
-123
-
-测试输入：2016 2 29
-预期输出：
-60
-
-测试输入：2000 2 29
-预期输出：
-60
-
-测试输入：2100 2 29
-预期输出：
-不存在这样的日期
-
-测试输入：2019 2 29
-预期输出：
-不存在这样的日期
-
-开始你的任务吧，祝你成功！
-*/
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-struct
-{
-    int year;
-    int month;
-    int day;
-} real_date;
+// 函数声明
+void read_file(const char *filename);
+void read_file_p(const char *filename);
+
 
 int main()
 {
-    int date = 0;
-    scanf("%d %d %d", &real_date.year, &real_date.month, &real_date.day);
-    int day_month[]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int flag = (!(real_date.year%4) && (real_date.year%100) || !(real_date.year%400))?1:0;
-    if(day_month[real_date.month-1] < real_date.day && real_date.month != 2)
-        printf("不存在这样的日期\n");
-    else if((day_month[1] + flag) < real_date.day  && real_date.month == 2)
-        printf("不存在这样的日期\n");
-    else if(real_date.month > 12 || real_date.month < 1)
-        printf("不存在这样的日期\n");
-    else
+    char argv[2][10] = {0};
+    char file[10], *filename = file;
+    scanf("%s %s", &argv[0], &argv[1]);
+    if(strcmp(argv[0], "type_c") == 0)
     {
-        for(int i = 0; i < real_date.month-1; i++)
+        if(strcmp(argv[1], "/p") == 0)
         {
-            date += day_month[i];
+            scanf("%s", filename);
+            read_file_p(filename);
         }
-        if(real_date.month > 2)
-            date += (flag + real_date.day);
         else
-            date += real_date.day;
-        printf("%d", date);
+        {
+            read_file(argv[1]);
+        }
     }
-    return 0;
+    else printf("指令错误\n");
+}
+
+void read_file(const char *filename)
+{
+    char full_path[256];
+    const char *path_prefix = "src/step1_1/";
+
+    // 拼接路径和文件名
+    snprintf(full_path, sizeof(full_path), "%s%s", path_prefix, filename);
+
+    FILE *fp = fopen(full_path, "r");
+    if (!fp)
+    {
+        printf("无法打开文件：%s\n", full_path);
+        return;
+    }
+
+    int line = 0;
+    char ch;
+    printf("1  "); // 第一行行号
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+        if (ch == '\n')
+        {
+            line++;
+            printf("%d  ", line + 1); // 打印行号
+        }
+    }
+
+    fclose(fp);
+}
+
+void read_file_p(const char *filename)
+{
+    char full_path[256];
+    const char *path_prefix = "src/step1_1/";
+
+    // 拼接路径和文件名
+    snprintf(full_path, sizeof(full_path), "%s%s", path_prefix, filename);
+
+    FILE *fp = fopen(full_path, "r");
+    if (!fp)
+    {
+        printf("无法打开文件：%s\n", full_path);
+        return;
+    }
+
+    int screen_line = 1;    // 当前屏内行号
+    int displayed_lines = 0; // 当前屏内显示的总行数
+    char ch;
+
+    printf("%d  ", screen_line++); // 打印第一行行号
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);
+
+        if (ch == '\n')
+        {
+            displayed_lines++;
+            if (displayed_lines < 10)
+            {
+                printf("%d  ", screen_line++); // 打印行号
+            }
+            else
+            {
+                displayed_lines = 0; // 重置当前屏内显示行数
+                screen_line = 1;     // 下一屏从 1 开始
+
+                // 等待用户输入'q'
+                char input;
+                do
+                {
+                    input = getchar();
+                } while (input != 'q');
+
+                printf("%d  ", screen_line++); // 下一屏第一行行号
+            }
+        }
+    }
+
+    fclose(fp);
 }
