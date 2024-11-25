@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('images/background.png'); /* 替换为实际背景图片路径 */
+            background-image: url('resources_backgroud.png'); /* 替换为实际背景图片路径 */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -40,8 +40,8 @@
             padding: 20px;
         }
         .link-box {
-            width: 200px;
-            height: 323px; /* 黄金比例 */
+            width: 400px;
+            height: 400px; /* 黄金比例 */
             background-color: rgba(255, 255, 255, 0.8); /* 白色半透明背景 */
             border-radius: 15px;
             text-align: center;
@@ -82,7 +82,13 @@
             z-index: 2;
         }
         .GPT::before {
-            background-image: url('images/experience.jpg');
+            background-image: url('../images/Chat_GPT.webp');
+        }
+        .HUST::before {
+            background-image: url('../images/HUST.png');
+        }
+        .movie::before {
+            background-image: url('../images/movie.webp');
         }
         footer h2 {
             margin: 10px 0;
@@ -100,7 +106,9 @@
     </header>
     <div class="content">
         <div class="link-container">
-            <a href="web/experience.html" class="link-box GPT"><span>个人经历</span></a>
+            <a href="https://chatgpt.com/" class="link-box GPT"><span>Chat GPT</span></a>
+            <a href="https://smartcourse.hust.edu.cn/mh-smartcourse/page/258049/show" class="link-box HUST"><span>华科大课程平台</span></a>
+            <a href="https://ddys.pro/" class="link-box movie"><span>电影小站</span></a>
         </div>
     </div>
     <footer>
