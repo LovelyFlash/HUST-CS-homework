@@ -82,28 +82,8 @@ void fun3(struct scoreNode *head)
 void fun4(struct scoreNode *head) 
 {
     struct scoreNode *p = head;
-
-    struct scoreNode *i, *j;
-    for (i = head; i != NULL; i = i->next)
-    {
-        for (j = head; j->next != NULL; j = j->next)
-        {
-            float avg1 = (j->score[0] + j->score[1] + j->score[2] + j->score[3]) / 4.0;
-            float avg2 = (j->next->score[0] + j->next->score[1] + j->next->score[2] + j->next->score[3]) / 4.0;
-
-            if (avg1 > avg2) 
-            {
-                struct scoreNode temp = *j;
-                *j = *(j->next);
-                *(j->next) = temp;
-
-                struct scoreNode *tmp = j->next->next;
-                j->next->next = j->next;
-                j->next = tmp;
-            }
-        }
-    }
-
+    struct scoreNode *i, *j, *tmp;
+    
     p = head;
     while (p != NULL) {
         float avg = (p->score[0] + p->score[1] + p->score[2] + p->score[3]) / 4.0;
@@ -112,36 +92,14 @@ void fun4(struct scoreNode *head)
     }
 }
 
-void fun5(struct scoreNode *head) 
-{
+void fun5(struct scoreNode *head) {
     struct scoreNode *p = head;
-
-    struct scoreNode *i, *j;
-    for (i = head; i != NULL; i = i->next)
-    {
-        for (j = head; j->next != NULL; j = j->next)
-        {
-            float avg1 = (j->score[0] + j->score[1] + j->score[2] + j->score[3]) / 4.0;
-            float avg2 = (j->next->score[0] + j->next->score[1] + j->next->score[2] + j->next->score[3]) / 4.0;
-
-            if (avg1 > avg2) 
-            {
-                struct scoreNode temp = *j;
-                *j = *(j->next);
-                *(j->next) = temp;
-
-                struct scoreNode *tmp = j->next->next;
-                j->next->next = j->next;
-                j->next = tmp;
-            }
-        }
-    }
 
     p = head;
     while (p != NULL) {
-        int total = p->score[0] + p->score[1] + p->score[2] + p->score[3];
-        float avg = total / 4.0;
-        printf("%s %s %d %.2f\n",p->num, p->name, total, avg);
+        float avg = (p->score[0] + p->score[1] + p->score[2] + p->score[3]) / 4.0;
+        int sum = (p->score[0] + p->score[1] + p->score[2] + p->score[3]);
+        printf("%s %s %d %.2f\n", p->num, p->name, sum, avg);
         p = p->next;
     }
 }
@@ -151,12 +109,41 @@ void use_fun(struct scoreNode **head, int fun)
     switch (fun) 
     {
         case 1:
+        {
+            int num;
+            scanf("%d", &num);
+            *head = createlist(*head, num);
+            struct scoreNode *i, *j, *tmp, *prev;
+
+            for (i = *head; i != NULL; i = i->next) 
             {
-                int num;
-                scanf("%d", &num);
-                *head = createlist(*head, num);
-                break;
+                prev = NULL;
+                for (j = *head; j->next != NULL; j = j->next) 
+                {
+                    float avg1 = (j->score[0] + j->score[1] + j->score[2] + j->score[3]) / 4.0;
+                    float avg2 = (j->next->score[0] + j->next->score[1] + j->next->score[2] + j->next->score[3]) / 4.0;
+
+                    if (avg1 > avg2) 
+                    {
+                        tmp = j->next;
+                        j->next = tmp->next;
+                        tmp->next = j;
+                        if (j == *head) 
+                        {
+                            *head = tmp;
+                        } 
+                        else 
+                        {
+                            prev->next = tmp;
+                        }
+                        j = tmp;
+                    }
+                    prev = j;
+                }
             }
+            break;
+        }
+
         case 2:
             fun2(*head);
             break;
