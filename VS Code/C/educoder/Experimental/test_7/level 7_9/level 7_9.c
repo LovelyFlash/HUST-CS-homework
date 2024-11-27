@@ -7,41 +7,41 @@ typedef struct CACULATE{
     struct CACULATE *next;
 }caculate;
 
-caculate *creatlist(caculate *headp);
+caculate *creatlist();
 void cal(caculate *head);
 
 int main()
 {
     caculate *head;
-    head = createlist(head);
+    head = createlist();
     cal(head);
     return 0;
 }
 
-caculate *createlist(caculate *headp)
+caculate *createlist()
 {
-    caculate *p, *head = NULL, *tail = NULL;
-    p = headp;
-
+    caculate *p, *head = NULL;
     char x;
     scanf("%c", &x);
     while(x != '\n')
     {
-        p = (caculate *)malloc(sizeof(caculate *));
+        p = (caculate *)malloc(sizeof(caculate));
         p -> data = x;
-        if(head == NULL)
-            head = p;
-        else
-            tail -> next = p;
-        tail = p;
+        p -> next = head;
+        head = p;
+        scanf("%c", &x);
     }
-    if(tail != NULL)
-        tail -> next = NULL;
-    head = headp;
     return head;
 }
 
 void cal(caculate *head)
-{
-
+{ 
+    int result;
+    for(caculate *p = head; p != NULL; p = p-> next)
+    {
+        if(p -> data >= '9' && p -> data <= '0')
+        {
+            ;
+        }
+    }
 }
