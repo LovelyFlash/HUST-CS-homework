@@ -1,12 +1,13 @@
 #include "stdio.h"
 #include "string.h"
-#include "stu.h"
+
 typedef struct c_node
 {
     char data;
     struct c_node *next;
 } C_NODE;    
 
+#include "stu.h"
 int main()  
 {
     char s[1000], *pc = s;
