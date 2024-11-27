@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王李超的个人主页</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -108,7 +109,7 @@
 </head>
 <body>
     <header>
-        <h1>王李超的个人主页</h1>
+        <h1>王李超的个人主页❤</h1>
     </header>
     <div class="content">
         <div class="link-container">
@@ -123,5 +124,33 @@
         <h2>欢迎来到我的主页！</h2>
         <p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历、兴趣和资源。</p>
     </footer>
+
+    <script>
+        let headerClickCount = 0;
+        let lastHeaderClickTime = 0;
+        let heartClicked = false;
+
+        document.getElementById('header-title').addEventListener('click', () => {
+            const now = Date.now();
+            if (now - lastHeaderClickTime > 5000) {
+                headerClickCount = 0;
+            }
+            headerClickCount++;
+            lastHeaderClickTime = now;
+
+
+            if (headerClickCount === 5) {
+                setTimeout(() => {
+                    heartClicked = false;
+                }, 2000);
+                heartClicked = true;
+            }
+        });
+        document.getElementById('header-title').addEventListener('click', () => {
+            if (headerClickCount === 5 && heartClicked) {
+                window.location.href = 'easteregg.html';
+            }
+        });
+    </script>
 </body>
 </html>
