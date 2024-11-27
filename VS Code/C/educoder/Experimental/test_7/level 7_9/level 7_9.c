@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <string.h>
 
-#define MAX_SIZE 100
+#define MAX_SIZE 100 // 定义数组的最大容量，可根据需要调整
 
-// 栈结构
+// 用数组模拟栈结构
 typedef struct 
 {
-    int stack[MAX_SIZE];
+    long stack[MAX_SIZE];
     int top;
 } Stack;
 
@@ -18,99 +17,70 @@ void init_stack(Stack *s)
     s->top = -1;
 }
 
-// 入栈
-void push(Stack *s, int value) 
+// 压入新元素到栈
+void push(Stack *s, long n) 
 {
-    if (s->top < MAX_SIZE - 1) 
-    {
-        s->stack[++(s->top)] = value;
+    if (s->top < MAX_SIZE - 1) {
+        s->stack[++s->top] = n;
+    } else {
+        printf("栈已满，无法压入元素！\n");
+        exit(1);
     }
 }
 
-// 出栈
-int pop(Stack *s) 
-{
+// 从栈中弹出元素并返回其值
+long pop(Stack *s)
+ {
     if (s->top == -1) 
     {
-        printf("Stack underflow\n");
-        return -1; // 错误处理
+        printf("栈为空，无法弹出元素！\n");
+        exit(1);
     }
-    return s->stack[(s->top)--];
+    return s->stack[s->top--];
 }
 
-// 判断是否是操作符
-int is_operator(char c) 
+int main() 
 {
-    return (c == '+' || c == '-' || c == '*' || c == '/');
-}
+    char token[20]; // 单个输入的令牌
+    Stack stack;
+    init_stack(&stack);
 
-// 执行操作
-int apply_operator(int a, int b, char operator) 
-{
-    switch (operator) 
+    // 使用 scanf 读取每个输入
+    while (scanf("%s", token)!= EOF) 
     {
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
-        case '/': return a / b;
-        default: return 0;
-    }
-}
-
-// 计算RPN表达式
-int evaluate_rpn(char *expression) 
-{
-    Stack s;
-    init_stack(&s);
-    int i = 0, num = 0;
-    int has_num = 0;
-
-    while (expression[i] != '\0') 
-    {
-        if (isdigit(expression[i])) 
+        if (strcmp(token, "+") == 0) 
         {
-            // 构建多位数
-            num = num * 10 + (expression[i] - '0');
-            has_num = 1;
+            long b = pop(&stack);
+            long a = pop(&stack);
+            push(&stack, a + b);
         } 
-        else if (is_operator(expression[i])) 
+        else if (strcmp(token, "-") == 0) 
         {
-            if (has_num) 
-            {
-                push(&s, num);
-                num = 0;
-                has_num = 0;
-            }
-            int b = pop(&s);
-            int a = pop(&s);
-            int result = apply_operator(a, b, expression[i]);
-            push(&s, result);
+            long b = pop(&stack);
+            long a = pop(&stack);
+            push(&stack, a - b);
         } 
-        else if (expression[i] == ' ') 
+        else if (strcmp(token, "*") == 0) 
         {
-            if (has_num) 
-            {
-                push(&s, num);
-                num = 0;
-                has_num = 0;
-            }
+            long b = pop(&stack);
+            long a = pop(&stack);
+            push(&stack, a * b);
+        } 
+        else if (strcmp(token, "/") == 0) 
+        {
+            long b = pop(&stack);
+            long a = pop(&stack);
+            push(&stack, a / b);
+        } 
+        else 
+        {
+            // 将数字压入栈
+            push(&stack, atol(token));
         }
-        i++;
     }
 
-    if (has_num) 
-    {
-        push(&s, num); // 处理最后的数字
-    }
+    // 检查结果
+    printf("%ld\n", pop(&stack));
 
-    return pop(&s); // 最终结果
-}
-
-int main() {
-    char expression[MAX_SIZE];
-    fgets(expression, sizeof(expression), stdin);  // 读取整行输入
-    expression[strcspn(expression, "\n")] = 0;  // 去除换行符
-    int result = evaluate_rpn(expression);
-    printf("%d", result); 
     return 0;
 }
