@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 		exit(-1);
 	}
     int ch;
-	while((ch = feof(fp)) != EOF)             
+    while ((ch = fgetc(fp)) != EOF)     
 		putchar(ch);            /* 向显示器中写从filename中读取的字符 */ 
 	fclose(fp);                        /* 关闭filename */ 
 	return 0;
