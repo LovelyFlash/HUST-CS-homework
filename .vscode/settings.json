@@ -1,5 +1,16 @@
 {
     "files.associations": {
         "stdlib.h": "c"
-    }
+    },
+    "latex-workshop.hover.preview.mathjax.extensions": [
+    "boldsymbol"
+    ],
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.outDir": "./tmp",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.mathpreviewpanel.cursor.enabled": true,
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.message.warning.show": false,
+    "latex-workshop.view.pdf.invert": 1,
+    "latex-workshop.view.pdf.invertMode.enabled": "auto",
 }
