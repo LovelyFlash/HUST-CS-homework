@@ -20,9 +20,12 @@ void init_stack(Stack *s)
 // 压入新元素到栈
 void push(Stack *s, long n) 
 {
-    if (s->top < MAX_SIZE - 1) {
+    if (s->top < MAX_SIZE - 1) 
+    {
         s->stack[++s->top] = n;
-    } else {
+    } 
+    else 
+    {
         printf("栈已满，无法压入元素！\n");
         exit(1);
     }
