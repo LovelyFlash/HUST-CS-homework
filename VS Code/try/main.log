@@ -1,41 +1,45 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.30)  30 NOV 2024 14:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  30 NOV 2024 20:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/desktop/Code/VS Code/try/main"
+**"d:/desktop/Code/VS Code/try/main.tex"
 (d:/desktop/Code/VS Code/try/main.tex
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-02-20>
-(d:/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
-(d:/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-03-30>
+(D:\texlive\CTEX\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
+(D:\texlive\CTEX\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count184
-\c@section=\count185
-\c@subsection=\count186
-\c@subsubsection=\count187
-\c@paragraph=\count188
-\c@subparagraph=\count189
-\c@figure=\count190
-\c@table=\count191
+\c@part=\count181
+\c@section=\count182
+\c@subsection=\count183
+\c@subsubsection=\count184
+\c@paragraph=\count185
+\c@subparagraph=\count186
+\c@figure=\count187
+\c@table=\count188
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
-) (d:/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (d:/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks17
-) (d:/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+\KV@toks@=\toks16
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (d:/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))
-\Gm@cnth=\count192
-\Gm@cntv=\count193
-\c@Gm@tempcnt=\count194
+\Gm@cnth=\count189
+\Gm@cntv=\count190
+\c@Gm@tempcnt=\count191
 \Gm@bindingoffset=\dimen141
 \Gm@wd@mp=\dimen142
 \Gm@odd@mp=\dimen143
@@ -44,18 +48,20 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutheight=\dimen146
 \Gm@layouthoffset=\dimen147
 \Gm@layoutvoffset=\dimen148
-\Gm@dimlist=\toks18
-) (d:/texlive/texmf-dist/tex/latex/leftidx/leftidx.sty
+\Gm@dimlist=\toks17
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/geometry\geometry.cfg))
+(D:\texlive\CTEX\MiKTeX\tex/latex/leftidx\leftidx.sty
 Package: leftidx 2003/09/24 v1.03 Left indices
-) (d:/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2024-02-20 L3 backend support: XeTeX
-\g__graphics_track_int=\count195
-\l__pdf_internal_box=\box51
-\g__pdf_backend_object_int=\count196
-\g__pdf_backend_annotation_int=\count197
-\g__pdf_backend_link_int=\count198
 )
-No file main.aux.
+(D:\texlive\CTEX\MiKTeX\tex/latex/l3backend\l3backend-xetex.def
+File: l3backend-xetex.def 2023-03-30 L3 backend support: XeTeX
+\g__graphics_track_int=\count192
+\l__pdf_internal_box=\box51
+\g__pdf_backend_object_int=\count193
+\g__pdf_backend_annotation_int=\count194
+\g__pdf_backend_link_int=\count195
+) (main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -67,9 +73,11 @@ LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 4.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4.
-(d:/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 4
+.
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/base\ts1cmr.fd
+File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 4.
@@ -115,19 +123,14 @@ LaTeX Font Info:    ... okay on input line 4.
 
 [1
 
-] (./main.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-02-20>
- ***********
- ) 
+] (main.aux) ) 
 Here is how much of TeX's memory you used:
- 1077 strings out of 476720
- 19087 string characters out of 5801938
- 1917842 words of memory out of 5000000
- 23167 multiletter control sequences out of 15000+600000
- 558077 words of font info for 37 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 57i,5n,65p,206b,109s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 1089 strings out of 411463
+ 19184 string characters out of 5822472
+ 1842290 words of memory out of 5000000
+ 21384 multiletter control sequences out of 15000+600000
+ 512295 words of font info for 33 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 55i,5n,62p,210b,107s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (1 page).
