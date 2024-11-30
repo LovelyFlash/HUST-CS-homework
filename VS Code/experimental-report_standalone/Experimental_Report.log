@@ -1,9 +1,9 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.30)  30 NOV 2024 14:56
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.11.30)  30 NOV 2024 15:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report"
+**"d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report.tex"
 (d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1041,8 +1041,7 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \c@lem=\count386
 \c@alg=\count387
 \tikzscale@accuracy=\skip126
-
-No file Experimental_Report.aux.
+ (./Experimental_Report.aux)
 \openout1 = `Experimental_Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
@@ -1121,6 +1120,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 83.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 83.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -1410,12 +1410,12 @@ Package rerunfilecheck Info: Checksums for `Experimental_Report.out':
 (rerunfilecheck)             After:  0DEBE6BB68AF88E68F28DE231704E655;2149.
  ) 
 Here is how much of TeX's memory you used:
- 41530 strings out of 476720
- 996210 string characters out of 5801938
+ 41533 strings out of 476720
+ 996294 string characters out of 5801938
  1941842 words of memory out of 5000000
- 62817 multiletter control sequences out of 15000+600000
+ 62818 multiletter control sequences out of 15000+600000
  575070 words of font info for 162 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 88i,11n,102p,768b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,11n,102p,772b,765s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Experimental_Report.pdf (12 pages).
+Output written on Experimental_Report.xdv (12 pages, 109120 bytes).
