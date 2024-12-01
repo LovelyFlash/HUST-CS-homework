@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  30 NOV 2024 23:18
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  1 DEC 2024 14:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1560,7 +1560,7 @@ Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
 File: images/1-1.jpg Graphic file (type bmp)
 <images/1-1.jpg>
 
-Overfull \hbox (5.0603pt too wide) in paragraph at lines 109--110
+Overfull \hbox (5.0603pt too wide) in paragraph at lines 108--109
  [] 
  []
 
@@ -1578,14 +1578,28 @@ Overfull \hbox (2.3361pt too wide) in paragraph at lines 139--140
 
 [2
 
-] [3] [4
+] [3]
+Underfull \hbox (badness 4872) in paragraph at lines 189--190
+[]            \TU/TimesNewRoman(0)/b/n/12.045 <div class=”line”> \TU/SimSun(0)/
+b/n/12.045 若 想 看 我 写 的 代 码 请 移 步 \TU/TimesNewRoman(0)/b/n/12.045 <a
+ []
 
-] [5]
+[4
+
+]
+Underfull \vbox (badness 10000) detected at line 200
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 200
+ []
+
+[5]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 237.
+put line 211.
 
 
-LaTeX Warning: Command \textless invalid in math mode on input line 240.
+LaTeX Warning: Command \textless invalid in math mode on input line 214.
 
 [6] [7] [8
 
@@ -1597,15 +1611,15 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
 Package rerunfilecheck Info: File `Experimental_Report.out' has not changed.
-(rerunfilecheck)             Checksum: 0DEBE6BB68AF88E68F28DE231704E655;2149.
+(rerunfilecheck)             Checksum: 4FFD47F10622E1009D86118B28ACBCEF;2085.
  ) 
 Here is how much of TeX's memory you used:
- 41632 strings out of 411463
- 991142 string characters out of 5822472
- 1866290 words of memory out of 5000000
- 61195 multiletter control sequences out of 15000+600000
- 529296 words of font info for 159 fonts, out of 8000000 for 9000
+ 41652 strings out of 411463
+ 993104 string characters out of 5822472
+ 1871290 words of memory out of 5000000
+ 61219 multiletter control sequences out of 15000+600000
+ 529272 words of font info for 156 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 88i,11n,102p,772b,759s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,11n,102p,931b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Experimental_Report.pdf (12 pages).

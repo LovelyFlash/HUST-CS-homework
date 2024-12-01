@@ -96,7 +96,6 @@
 \section{网页整体框架}
 
 图\ref{fig1-1}这个网页的整体框架使用HTML与CSS实现，结构清晰简洁，包含头部、主体内容和底部三个主要部分。头部部分通过`<header>`标签呈现，显示网站标题“王李超的个人主页”，背景为黑色半透明，文字居中，视觉效果突出。主体内容区域由一个`<div>`容器构成，采用Flexbox布局，使内容水平居中对齐，容器内放置了五个链接盒子，分别通向“个人经历”“喜欢的音乐”“我的Steam”“Github主页”和“我的资源”页面。每个链接盒子有独特的背景图、文字说明，并添加了悬停时的动画效果，如放大、阴影变化及模糊背景图变清晰，提升交互体验。底部区域由`<footer>`标签定义，显示欢迎语和简单介绍，同样采用黑色半透明背景，使整体风格一致。整个页面的布局通过CSS控制，使网页在不同屏幕设备上自适应，从而提供良好的用户体验，整体风格现代、简洁而不失个性。
-
 % \begin{enumerate}
 % \renewcommand{\labelenumi}{\theenumi)}
 % 	\item C++
@@ -134,6 +133,7 @@
 
 9. 设计思路总结：整个页面设计追求简洁、现代和互动性，突出用户体验。通过色彩、动画效果及布局优化，使用户在视觉和交互上都能感受到良好的体验。请见图\ref{fig2-1}。
 
+
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[scale=0.30]{images/2-1.png}
@@ -142,89 +142,63 @@
 	\end{center}
 \end{figure}
 
-
 \newpage
 
 \section{分页面设计}
 
 给出分页面截图，描述主要设计思路等。给出分页面截图，描述主要设计思路等。给出分页面截图，描述主要设计思路等。给出分页面截图，描述主要设计思路等。
 
-\subsection{页面1 (每个页面以主要内容起标题名称即可）}
+\subsection{页面1 (个人信息页面设计）}
 
-\section*{设计思路与框架}
+该页面以展示“王李超的个人主页 - 个人资料”为主题，设计中遵循简洁、直观的原则，整体风格统一，易于用户浏览。页面头部使用\texttt{<header>}标签定义，标题“王李超的个人主页 - 个人资料”居中显示，采用黑色半透明背景与白色文字，形成简洁大方的视觉效果。通过适当的\texttt{padding}，提升标题的可读性和整体页面的舒适感。主体部分通过\texttt{<div class="content">}容器包裹，采用Flexbox布局，使内容在垂直与水平方向居中对齐，确保在不同屏幕尺寸下依然保持居中状态。个人信息部分通过\texttt{<div class="project-details">}展示，每条信息单独使用\texttt{<div class="line">}包裹，增加白色字体与半透明背景，增强可读性和视觉层次感。每条信息块添加圆角、内边距及阴影效果，使用\texttt{box-shadow}提升立体感。此外，通过\texttt{white-space: nowrap}保证每段信息一行显示，使排版整洁。页面底部提供了跳转至Github的链接，用户点击即可访问相关资源。底部使用\texttt{<footer>}标签定义，背景风格与头部保持一致，采用黑色透明背景、白色文字，整体视觉风格和谐统一。通过\texttt{text-align: center}使欢迎信息与简要说明居中排列，进一步增强整体视觉的均衡感。为确保页面在各类设备上的适应性，通过\texttt{<meta>}视口设置，实现内容自适应布局。同时，Flexbox布局使各元素在不同屏幕尺寸下均保持居中，提高用户体验。文字内容设置最大宽度为视口宽度的100\%，防止内容溢出，提升排版稳定性。整体设计考虑了美观与实用性，确保在信息传递的同时，保持页面的简洁与高效。
 
-\begin{enumerate}
-    \item \textbf{头部设计}
-    \begin{enumerate}
-        \item 使用\texttt{<header>}标签定义，显示标题“王李超的个人主页 - 个人资料”。
-        \item 背景采用黑色半透明效果，文字颜色为白色，突出简洁、大方的视觉效果。
-        \item 文本居中显示，通过\texttt{padding}增加上下空间，提升阅读体验。
-    \end{enumerate}
 
-    \item \textbf{主体内容设计}
-    \begin{enumerate}
-        \item \textbf{内容容器结构}
-        \begin{enumerate}
-            \item 使用\texttt{<div class="content">}包裹整个内容部分，确保页面布局整体居中。
-            \item 通过Flexbox布局实现内容在垂直和水平方向上的居中对齐。
-        \end{enumerate}
-        
-        \item \textbf{个人信息展示}
-        \begin{enumerate}
-            \item 使用\texttt{<div class="project-details">}展示个人信息，包含多条个人简介。
-            \item 每条信息通过\texttt{<div class="line">}标签呈现，采用白色字体和半透明背景，提升信息可读性。
-        \end{enumerate}
-        
-        \item \textbf{细节设计}
-        \begin{enumerate}
-            \item \textbf{背景与文字}：背景使用深色风景图片，增强视觉层次感，文字颜色为白色，确保信息清晰。
-            \item \textbf{样式效果}：每条信息增加圆角、阴影和内边距，通过\texttt{box-shadow}提升视觉层次感。
-            \item \textbf{链接交互}：提供“Github”页面的超链接，用户可通过点击跳转至相关资源。
-        \end{enumerate}
-    \end{enumerate}
-
-    \item \textbf{底部设计}
-    \begin{enumerate}
-        \item 使用\texttt{<footer>}标签定义底部区域，包含欢迎信息和简要说明。
-        \item 背景和头部保持一致，黑色透明背景，白色文字，视觉风格统一。
-        \item 通过\texttt{text-align: center}将文字居中显示，并适当调整字体大小和行距。
-    \end{enumerate}
-
-    \item \textbf{布局与响应式设计}
-    \begin{enumerate}
-        \item \textbf{自适应布局}
-        \begin{enumerate}
-            \item 使用\texttt{meta}视口设置，使页面在不同屏幕设备上自适应。
-            \item Flexbox布局确保内容在各种屏幕尺寸下始终居中对齐，提升用户体验。
-        \end{enumerate}
-        
-        \item \textbf{内容排版优化}
-        \begin{enumerate}
-            \item 使用\texttt{white-space: nowrap}保证每段信息一行显示，避免文字换行，提升信息整洁度。
-            \item 设置最大宽度\texttt{max-width: 100\%}，防止超出视口边界，提高排版的稳定性。
-        \end{enumerate}
-    \end{enumerate}
-\end{enumerate}
-如果实验报告中要用到算法伪代码，请参考算法\ref{alg:1}，也可以参考算法\ref{alg:2}。如果实验报告中要用到算法伪代码，请参考算法\ref{alg:1}，也可以参考算法\ref{alg:2}。如果实验报告中要用到算法伪代码，请参考算法\ref{alg:1}，也可以参考算法\ref{alg:2}。如果实验报告中要用到算法伪代码，请参考算法\ref{alg:1}，也可以参考算法\ref{alg:2}。
-
-\begin{shaded*}\begin{alg}{一个复杂算法}
+\begin{shaded*}
+	\begin{alg}{网页源代码}
 		\label{alg:1}
 		\begin{algorithmic}
-			\Input Two numbers $a$ and $b$
-			\Output The sum of $a$ and $b$
-			\Procedure{A-Plus-B}{$a, b$}
-			\If $a = 0$
-			\State \Return $b$
-			\EndIf
-			\State $res \gets 0$
-			\While{$b \neq 0$}
-			\State Increase $res$ by $1$
-			\State $b \gets b - 1$
-			\EndWhile
-			\State \Return $res$
-			\EndProcedure
+			\State \textbf{<!DOCTYPE html>}
+			\State \textbf{<html lang="zh-CN">}
+			\State \ \ \ \ \textbf{<head>}
+			\State \ \ \ \ \ \ \ \ \ \textbf{<meta charset="UTF-8">}
+			\State \ \ \ \ \ \ \ \ \ \textbf{<meta name="viewport" content="width=device-width, initial-scale=1.0">}
+			\State \ \ \ \ \ \ \ \ \ \textbf{<title>王李超的个人主页 - 个人资料</title>}
+			\State \ \ \ \ \ \ \ \ \ \textbf{<link rel="icon" href="../images/favicon.ico" type="image/x-icon">}
+			\State \ \ \ \ \ \ \ \ \ \textbf{<style>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{body \{} \texttt{font-family: Arial, sans-serif;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{background-image: url('experience\_background.png');}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{background-size: cover;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{background-position: center;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{background-attachment: fixed;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{color: hsl(0, 0\%, 0\%); }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{display: flex;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{flex-direction: column;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{min-height: 100vh;}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{<style>}
+			\State \ \ \ \ \textbf{<body>}
+			\State \ \ \ \ \ \ \ \ \textbf{<header>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{<h1>王李超的个人主页 - 个人资料</h1>}
+			\State \ \ \ \ \ \ \ \ \textbf{</header>}
+			\State \ \ \ \ \ \ \ \ \textbf{<div class="content">}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="project-details">}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">姓名：王李超</div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">一看就是男的</div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">广涉猎而不精</div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">现在正在被学习折磨</div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">暂时还没有项目在做</div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{<div class="line">若想看我写的代码请移步<a href="web/github.html">Github</a></div>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{</div>}
+			\State \ \ \ \ \ \ \ \ \textbf{</div>}
+			\State \ \ \ \ \ \ \ \ \textbf{<footer>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{<h2>欢迎来到我的主页！</h2>}
+			\State \ \ \ \ \ \ \ \ \ \ \ \textbf{<p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历。</p>}
+			\State \ \ \ \ \ \ \ \ \textbf{</footer>}
+			\State \textbf{</body>}
+			\State \textbf{</html>}
 		\end{algorithmic}
-\end{alg}\end{shaded*}
+	\end{alg}
+	\end{shaded*}
+	
 
 \subsection{页面2 (每个页面以主要内容起标题名称即可）}
 

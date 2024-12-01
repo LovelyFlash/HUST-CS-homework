@@ -1,7 +1,7 @@
 \contentsline {section}{\numberline {1}网页整体框架}{1}{section.1}%
 \contentsline {section}{\numberline {2}主页设计}{2}{section.2}%
 \contentsline {section}{\numberline {3}分页面设计}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}页面1 (每个页面以主要内容起标题名称即可）}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}页面1 (个人信息页面设计）}{4}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}页面2 (每个页面以主要内容起标题名称即可）}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}页面3 (每个页面以主要内容起标题名称即可）}{7}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}页面4 (每个页面以主要内容起标题名称即可）}{7}{subsection.3.4}%
