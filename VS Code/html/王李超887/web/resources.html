@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王李超的个人主页</title>
+    <title>王李超的个人主页 - 资源小站</title>
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <style>
         body {
@@ -19,6 +19,21 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
+        .tooltip {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
         header, footer {
             background-color: rgba(0, 0, 0, 0.6); /* 黑色透明背景 */
             color: white;
@@ -26,6 +41,7 @@
             padding: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+
         .content {
             flex: 1; /* 自动填充中间内容的高度 */
             display: flex;
@@ -34,16 +50,24 @@
             align-items: center;
             padding: 20px;
         }
+
         .link-container {
             display: flex;
-            justify-content: center;
-            gap: 20px; /* 调整间距为20px */
+            justify-content: space-between; /* 保证子元素水平排列 */
+            align-items: center;
+            gap: 20px;
             padding: 20px;
+            width: 100%; /* 保证容器充满整个屏幕 */
+            max-width: 1200px; /* 最大宽度，避免太宽 */
+            margin: 0 auto; /* 居中显示 */
+            flex-wrap: wrap; /* 在小屏幕时换行 */
         }
+
         .link-box {
-            width: 400px;
-            height: 400px; /* 黄金比例 */
-            background-color: rgba(255, 255, 255, 0.8); /* 白色半透明背景 */
+            flex: 1 1 30%; /* 每个方框占据可用空间，并且最小宽度为 30% */
+            min-width: 250px; /* 最小宽度 */
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.8); /* 黑色半透明背景 */
             border-radius: 15px;
             text-align: center;
             line-height: 323px;
@@ -56,10 +80,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+
         .link-box:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
+
         .link-box::before {
             content: '';
             position: absolute;
@@ -74,13 +100,20 @@
             z-index: 1;
             transition: opacity 0.3s, filter 0.3s; /* 添加过渡效果 */
         }
+
         .link-box:hover::before {
-            opacity: 10; /* 鼠标悬停时使图片凝实 */
+            opacity: 1; /* 鼠标悬停时使图片凝实 */
             filter: blur(0); /* 去掉模糊效果 */
         }
+
         .link-box span {
             position: relative;
             z-index: 2;
+        }
+
+        footer h2 {
+            margin: 10px 0;
+            font-size: 22px;
         }
         .GPT::before {
             background-image: url('../images/Chat_GPT.webp');
@@ -91,10 +124,6 @@
         .movie::before {
             background-image: url('../images/movie.webp');
         }
-        footer h2 {
-            margin: 10px 0;
-            font-size: 22px;
-        }
         footer p {
             margin: 5px 0;
             color: #ddd;
@@ -103,18 +132,48 @@
 </head>
 <body>
     <header>
-        <h1>王李超的个人主页</h1>
+        <h1>王李超的个人主页 - 资源小站</h1>
     </header>
     <div class="content">
         <div class="link-container">
-            <a href="https://chatgpt.com/" class="link-box GPT"><span>Chat GPT</span></a>
-            <a href="https://smartcourse.hust.edu.cn/mh-smartcourse/page/258049/show" class="link-box HUST"><span>华科大课程平台</span></a>
-            <a href="https://ddys.pro/" class="link-box movie"><span>电影小站</span></a>
+            <a href="https://chatgpt.com/" class="link-box GPT" data-description="AI聊天助手，帮你解答各种问题。">
+                <span>Chat GPT</span>
+            </a>
+            <a href="https://smartcourse.hust.edu.cn/mh-smartcourse/page/258049/show" class="link-box HUST" data-description="华中科技大学的在线课程平台。">
+                <span>华科大课程平台</span>
+            </a>
+            <a href="https://ddys.pro/" class="link-box movie" data-description="最新热门电影资源，尽在电影小站。">
+                <span>电影小站</span>
+            </a>
         </div>
     </div>
     <footer>
         <h2>欢迎来到我的主页！</h2>
         <p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历、兴趣和资源。</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            document.body.appendChild(tooltip);
+
+            document.querySelectorAll('.link-box').forEach(box => {
+                box.addEventListener('mouseenter', (e) => {
+                    tooltip.innerText = e.currentTarget.getAttribute('data-description');
+                    tooltip.style.opacity = '1';
+                });
+
+                box.addEventListener('mousemove', (e) => {
+                    tooltip.style.left = `${e.pageX + 15}px`;
+                    tooltip.style.top = `${e.pageY + 15}px`;
+                });
+
+                box.addEventListener('mouseleave', () => {
+                    tooltip.style.opacity = '0';
+                });
+            });
+        });
+    </script>
 </body>
 </html>

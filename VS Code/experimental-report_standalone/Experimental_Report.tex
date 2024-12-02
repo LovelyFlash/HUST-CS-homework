@@ -153,7 +153,7 @@
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[scale=0.20]{images/3-1.png}
-		\caption{主页举例}
+		\caption{分页面举例}
 		\label{fig3-1}
 	\end{center}
 \end{figure}
@@ -212,7 +212,7 @@
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[scale=0.30]{images/3-2.png}
-		\caption{主页举例}
+		\caption{分页面举例}
 		\label{fig3-2}
 	\end{center}
 \end{figure}
@@ -236,7 +236,7 @@
 \begin{figure}[htb]
 	\begin{center}
 		\includegraphics[scale=0.30]{images/3-3.png}
-		\caption{主页举例}
+		\caption{分页面举例}
 		\label{fig3-3}
 	\end{center}
 \end{figure}
@@ -244,6 +244,68 @@
 \subsection{我的GitHub主页}
 
 图\ref{3-4}此页面与第一个页面功能有些许重复，但主要是为了提供一个对我现在所写的一个项目的介绍。
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[scale=0.20]{images/3-4.png}
+		\caption{分页面举例}
+		\label{fig3-4}
+	\end{center}
+\end{figure}
+
+部分源代码如下
+
+\begin{shaded*}
+	\begin{alg}{不同的部分}
+		\label{alg:1}
+		\begin{algorithmic}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{width: 400px;  height: 400px; }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{opacity: 0.2; /* 默认虚化 */}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{filter: blur(3px); /* 默认添加模糊效果 */}
+		\end{algorithmic}
+	\end{alg}
+	\end{shaded*}
+
+\subsection{我的资源小站}
+
+图\ref{3-5}此页面提供了我常用的几个资源小站，在这个页面中首次尝试了JavaScript代码，以显示鼠标悬停时的悬浮显示效果，既与前几个页面风格保持一致，同时对每个方框内的资源做了简要介绍。
+
+部分源代码如下
+
+\begin{shaded*}
+	\begin{alg}{不同的部分}
+		\label{alg:1}
+		\begin{algorithmic}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{document.addEventListener('DOMContentLoaded', () => \{ }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{const tooltip = document.createElement('div');}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.className = 'tooltip';}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{document.body.appendChild(tooltip); }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{document.querySelectorAll('.link-box').forEach(box => \{ }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{box.addEventListener('mouseenter', (e) => \{ }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.innerText = e.currentTarget.getAttribute('data-description');}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.style.opacity = '1';}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{\});}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{box.addEventListener('mousemove', (e) => \{ }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.style.left = `${e.pageX + 15}px`; }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.style.top = `${e.pageY + 15}px`; }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{\});}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{box.addEventListener('mouseleave', () => \{ }
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{tooltip.style.opacity = '0';}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{\});}
+			\State \ \ \ \ \ \ \ \ \ \ \ \ \textbf{\});}
+		\end{algorithmic}
+	\end{alg}
+\end{shaded*}
+
+
+\begin{figure}[htb]
+	\begin{center}
+		\includegraphics[scale=0.20]{images/3-5.png}
+		\caption{分页面举例}
+		\label{fig3-5}
+	\end{center}
+\end{figure}
+
 \newpage
 
 \section{网页设计小结}
