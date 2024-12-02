@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  2 DEC 2024 13:15
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  2 DEC 2024 13:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -815,4 +815,880 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
 ) (D:\texlive\CTEX\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks31
-\thm@
+\thm@bodyfont=\toks32
+\thm@headfont=\toks33
+\thm@notefont=\toks34
+\thm@headpunct=\toks35
+\thm@preskip=\skip118
+\thm@postskip=\skip119
+\thm@headsep=\skip120
+\dth@everypar=\toks36
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip121
+\fb@frw=\dimen290
+\fb@frh=\dimen291
+\FrameRule=\dimen292
+\FrameSep=\dimen293
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count345
+\calc@Bcount=\count346
+\calc@Adimen=\dimen294
+\calc@Bdimen=\dimen295
+\calc@Askip=\skip122
+\calc@Bskip=\skip123
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count347
+\calc@Cskip=\skip124
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count348
+\l_MT_multwidth_dim=\dimen296
+\origjot=\skip125
+\l_MT_shortvdotswithinadjustabove_dim=\dimen297
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen298
+\l_MT_above_intertext_sep=\dimen299
+\l_MT_below_intertext_sep=\dimen300
+\l_MT_above_shortintertext_sep=\dimen301
+\l_MT_below_shortintertext_sep=\dimen302
+\xmathstrut@box=\box64
+\xmathstrut@dim=\dimen303
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/02/19 v1.6 Sub-captions (AR)
+Package caption Info: New subtype `subfigure' on input line 239.
+\c@subfigure=\count349
+Package caption Info: New subtype `subtable' on input line 239.
+\c@subtable=\count350
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/xltxtra\xltxtra.sty
+Package: xltxtra 2018/12/31 v0.7 Improvements for the "XeLaTeX" format
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/realscripts\realscripts.sty
+Package: realscripts 2016/02/13 v0.3d Access OpenType subscripts and superscrip
+ts
+\subsupersep=\dimen304
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/metalogo\metalogo.sty
+Package: metalogo 2010/05/29 v0.12 Extended TeX logo macros
+\xl@everylogo=\toks37
+\xl@@everylogo=\toks38
+LaTeX Info: Redefining \TeX on input line 193.
+LaTeX Info: Redefining \LaTeX on input line 202.
+LaTeX Info: Redefining \LaTeXe on input line 219.
+)
+\l__xetex_show_hyphens_wrapping_box=\box65
+\l__xetex_show_hyphens_temp_box=\box66
+\l__xetex_show_hyphens_final_box=\box67
+\g__xetex_show_hyphens_word_box=\box68
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/tools\bm.sty
+Package: bm 2022/01/05 v1.2f Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks39
+\pgfutil@tempdima=\dimen305
+\pgfutil@tempdimb=\dimen306
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box69
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfrcs.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.sty
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.sty
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks40
+\pgfkeys@temptoks=\toks41
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfkeyslibraryfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks42
+))
+\pgf@x=\dimen307
+\pgf@y=\dimen308
+\pgf@xa=\dimen309
+\pgf@ya=\dimen310
+\pgf@xb=\dimen311
+\pgf@yb=\dimen312
+\pgf@xc=\dimen313
+\pgf@yc=\dimen314
+\pgf@xd=\dimen315
+\pgf@yd=\dimen316
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count351
+\c@pgf@countb=\count352
+\c@pgf@countc=\count353
+\c@pgf@countd=\count354
+\t@pgf@toka=\toks43
+\t@pgf@tokb=\toks44
+\t@pgf@tokc=\toks45
+\pgf@sys@id@count=\count355
+ (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-xetex.def
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-xetex.def
+File: pgfsys-xetex.def 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-dvipdfmx.def
+File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)
+\pgfsys@objnum=\count356
+)))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count357
+\pgfsyssoftpath@bigbuffer@items=\count358
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(D:\texlive\CTEX\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 227.
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathutil.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen317
+\pgfmath@count=\count359
+\pgfmath@box=\box70
+\pgfmath@toks=\toks46
+\pgfmath@stack@operand=\toks47
+\pgfmath@stack@operation=\toks48
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.cod
+e.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.t
+ex) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetic
+s.code.tex) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathcalc.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count360
+))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfint.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen318
+\pgf@picmaxx=\dimen319
+\pgf@picminy=\dimen320
+\pgf@picmaxy=\dimen321
+\pgf@pathminx=\dimen322
+\pgf@pathmaxx=\dimen323
+\pgf@pathminy=\dimen324
+\pgf@pathmaxy=\dimen325
+\pgf@xx=\dimen326
+\pgf@xy=\dimen327
+\pgf@yx=\dimen328
+\pgf@yy=\dimen329
+\pgf@zx=\dimen330
+\pgf@zy=\dimen331
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.te
+x
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen332
+\pgf@path@lasty=\dimen333
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen334
+\pgf@shorten@start@additional=\dimen335
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box71
+\pgf@hbox=\box72
+\pgf@layerbox@main=\box73
+\pgf@picture@serial@count=\count361
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen336
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.
+tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen337
+\pgf@pt@y=\dimen338
+\pgf@pt@temp=\dimen339
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.t
+ex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen340
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen341
+\pgf@sys@shading@range@num=\count362
+\pgf@shadingcount=\count363
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box74
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box75
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen342
+\pgf@nodesepend=\dimen343
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+))
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/utilities\pgffor.sty
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/utilities\pgfkeys.sty
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgfkeys.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/math\pgfmath.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/utilities\pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen344
+\pgffor@skip=\dimen345
+\pgffor@stack=\toks49
+\pgffor@toks=\toks50
+))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz\tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/libraries\pgflibraryplothandlers.code.t
+ex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count364
+\pgfplotmarksize=\dimen346
+)
+\tikz@lastx=\dimen347
+\tikz@lasty=\dimen348
+\tikz@lastxsaved=\dimen349
+\tikz@lastysaved=\dimen350
+\tikz@lastmovetox=\dimen351
+\tikz@lastmovetoy=\dimen352
+\tikzleveldistance=\dimen353
+\tikzsiblingdistance=\dimen354
+\tikz@figbox=\box76
+\tikz@figbox@bg=\box77
+\tikz@tempbox=\box78
+\tikz@tempbox@bg=\box79
+\tikztreelevel=\count365
+\tikznumberofchildren=\count366
+\tikznumberofcurrentchild=\count367
+\tikz@fig@count=\count368
+ (D:\texlive\CTEX\MiKTeX\tex/generic/pgf/modules\pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count369
+\pgfmatrixcurrentcolumn=\count370
+\pgf@matrix@numberofcolumns=\count371
+)
+\tikz@expandcount=\count372
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrar
+ytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (D:\texlive\CTEX\MiKTeX\tex/latex/tikzscale\tikzscale.sty
+Package: tikzscale 2013/05/22 v0.2.6 tikzscale LaTeX package
+
+(D:\texlive\CTEX\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count373
+)
+\tikzscale@measuredSize=\box80
+)
+(D:\texlive\CTEX\MiKTeX\tex/latex/pgfplots\pgfplots.sty
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.revision.tex)
+Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotscore.code.tex
+\t@pgfplots@toka=\toks51
+\t@pgfplots@tokb=\toks52
+\t@pgfplots@tokc=\toks53
+\pgfplots@tmpa=\dimen355
+\c@pgfplots@coordindex=\count374
+\c@pgfplots@scanlineindex=\count375
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/sys\pgfplotssysgeneric.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/libs\pgfplotslibrary.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_
+loader.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/libraries\pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks54
+\t@pgf@tokb=\toks55
+\t@pgf@tokc=\toks56
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/oldpgfcompatib\pgfplotsoldpgfsupp_
+pgfutil-common-lists.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructur
+e.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsliststructur
+eext.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsarray.code.t
+ex
+\c@pgfplotsarray@tmp=\count376
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsmatrix.code.
+tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstableshared.code.
+tex
+\c@pgfplotstable@counta=\count377
+\t@pgfplotstable@a=\toks57
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/liststructure\pgfplotsdeque.code.t
+ex) (D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotsbinary.data.code.tex)
+) (D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotsutil.verb.code.tex)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/libs\pgflibrarypgfplots.surfshadin
+g.code.tex
+\c@pgfplotslibrarysurf@no=\count378
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshading
+.pgfsys-xetex.def
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/sys\pgflibrarypgfplots.surfshading
+.pgfsys-dvipdfmx.def
+\c@pgfplotslibrarysurf@streamlen=\count379
+))))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotscolormap.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/util\pgfplotscolor.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotsstackedplots.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotsplothandlers.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplothandler.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotsmeshplotimage.code.tex)))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.scaling.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotscoordprocessing.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.errorbars.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.markers.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplotsticks.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots\pgfplots.paths.code.tex)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrar
+ydecorations.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/modules\pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen356
+\pgfdecoratedremainingdistance=\dimen357
+\pgfdecoratedinputsegmentcompleteddistance=\dimen358
+\pgfdecoratedinputsegmentremainingdistance=\dimen359
+\pgf@decorate@distancetomove=\dimen360
+\pgf@decorate@repeatstate=\count380
+\pgfdecorationsegmentamplitude=\dimen361
+\pgfdecorationsegmentlength=\dimen362
+)
+\tikz@lib@dec@box=\box81
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrar
+ydecorations.pathmorphing.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorat
+ions.pathmorphing.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrar
+ydecorations.pathreplacing.code.tex
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/libraries/decorations\pgflibrarydecorat
+ions.pathreplacing.code.tex))
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgfplots/libs\tikzlibrarypgfplots.contourlu
+a.code.tex)
+\pgfplots@numplots=\count381
+\pgfplots@xmin@reg=\dimen363
+\pgfplots@xmax@reg=\dimen364
+\pgfplots@ymin@reg=\dimen365
+\pgfplots@ymax@reg=\dimen366
+\pgfplots@zmin@reg=\dimen367
+\pgfplots@zmax@reg=\dimen368
+)
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrar
+yplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(D:\texlive\CTEX\MiKTeX\tex/generic/pgf/libraries\pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+\c@thm=\count382
+\c@lem=\count383
+\c@alg=\count384
+\tikzscale@accuracy=\skip126
+ (Experimental_Report.aux
+
+LaTeX Warning: Label `alg:1' multiply defined.
+
+
+LaTeX Warning: Label `alg:1' multiply defined.
+
+
+LaTeX Warning: Label `alg:1' multiply defined.
+
+)
+\openout1 = `Experimental_Report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 83.
+LaTeX Font Info:    ... okay on input line 83.
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
+\symlegacymaths=\mathgroup7
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 83.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 83.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 83.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 83.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 83.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 83.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 83.
+LaTeX Font Info:    Redeclaring math accent \check on input line 83.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 83.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 83.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 83.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 83.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 83.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 83.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 8
+3.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 83.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
+83.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
+input line 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
+ 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
+83.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 83.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
+input line 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
+e 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 83.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 83.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(90.19518pt, 417.11752pt, 90.19518pt)
+* v-part:(T,H,B)=(92.50551pt, 675.93532pt, 76.60602pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=417.11752pt
+* \textheight=675.93532pt
+* \oddsidemargin=17.92519pt
+* \evensidemargin=17.92519pt
+* \topmargin=-24.20947pt
+* \headheight=32.4pt
+* \headsep=12.045pt
+* \topskip=10.0pt
+* \footskip=24.09pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package hyperref Info: Link coloring OFF on input line 83.
+(Experimental_Report.out) (Experimental_Report.out)
+\@outlinefile=\write4
+\openout4 = `Experimental_Report.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
+
+File: HUSTBlack.eps Graphic file (type eps)
+<HUSTBlack.eps>
+
+Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
+(fontspec)             with options
+(fontspec)             [Script={CJK},AutoFakeBold={4},AutoFakeSlant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=4;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;slant=0.167;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=4;sla
+nt=0.167;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'SimHei(0)' created for font 'SimHei' with
+(fontspec)             options
+(fontspec)             [Script={CJK},AutoFakeBold={4},AutoFakeSlant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;embolden=4;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;slant=0.167;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"SimHei/OT:script=hani;language=dflt;embolden=4;slant
+=0.167;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <22.08249> not available
+(Font)              size <20.74> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <16.06> not available
+(Font)              size <17.28> substituted on input line 86.
+
+
+Package fontspec Info: Font family 'SimSun(1)' created for font 'SimSun' with
+(fontspec)             options
+(fontspec)             [Script={CJK},AutoFakeBold={4},AutoFakeSlant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;embolden=4;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;slant=0.167;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"SimSun/OT:script=hani;language=dflt;embolden=4;slant
+=0.167;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+Package fontspec Info: Font family 'STZhongsong(1)' created for font
+(fontspec)             'STZhongsong' with options
+(fontspec)             [Script={CJK},AutoFakeBold={4},AutoFakeSlant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"STZhongsong/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"STZhongsong/OT:script=hani;language=dflt;embolden=4;
+"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"STZhongsong/OT:script=hani;language=dflt;slant=0.167
+;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"STZhongsong/OT:script=hani;language=dflt;embolden=4;
+slant=0.167;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 86.
+
+[1
+
+] (Experimental_Report.toc)
+\tf@toc=\write5
+\openout5 = `Experimental_Report.toc'.
+
+
+Package fontspec Info: Font family 'KaiTi(0)' created for font 'KaiTi' with
+(fontspec)             options
+(fontspec)             [Script={CJK},AutoFakeBold={4},AutoFakeSlant={0.167}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=4;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;slant=0.167;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->"KaiTi/OT:script=hani;language=dflt;embolden=4;slant=
+0.167;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+ [1
+
+
+]
+File: images/1-1.jpg Graphic file (type bmp)
+<images/1-1.jpg>
+
+Overfull \hbox (5.0603pt too wide) in paragraph at lines 108--109
+ [] 
+ []
+
+[1
+
+
+
+]
+File: images/2-1.png Graphic file (type bmp)
+<images/2-1.png>
+
+Overfull \hbox (2.3361pt too wide) in paragraph at lines 139--140
+ [] 
+ []
+
+[2
+
+] [3]
+File: images/3-1.png Graphic file (type bmp)
+<images/3-1.png>
+
+Underfull \hbox (badness 4872) in paragraph at lines 194--195
+[]            \TU/TimesNewRoman(0)/b/n/12.045 <div class=”line”> \TU/SimSun(0)/
+b/n/12.045 若 想 看 我 写 的 代 码 请 移 步 \TU/TimesNewRoman(0)/b/n/12.045 <a
+ []
+
+[4
+
+]
+Underfull \vbox (badness 10000) detected at line 205
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 205
+ []
+
+[5]
+File: images/3-2.png Graphic file (type bmp)
+<images/3-2.png>
+
+Overfull \hbox (1.88434pt too wide) in paragraph at lines 214--215
+ [] 
+ []
+
+File: images/3-3.png Graphic file (type bmp)
+<images/3-3.png>
+[6]
+File: images/3-4.png Graphic file (type bmp)
+<images/3-4.png>
+ [7]
+Overfull \hbox (17.26796pt too wide) in paragraph at lines 271--272
+[]\TU/SimSun(0)/m/n/12.045 图[]\TU/TimesNewRoman(0)/m/n/12.045 3-5[]\TU/SimSun(0
+)/m/n/12.045 此 页 面 提 供 了 我 常 用 的 几 个 资 源 小 站，|  在 这 个 页 面 中 首 次 尝 试 了 \TU/Times
+NewRoman(0)/m/n/12.045 JavaScript
+ []
+
+[8]
+File: images/3-5.png Graphic file (type bmp)
+<images/3-5.png>
+ [9]
+d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report.tex:
+325: Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.325    解决方法：使用 algorithmic 环境中的 \State
+                                         命令将 HTML 标签和属性逐行列出，并使用 \textbf{} 和 ...
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report.tex:
+325: Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.325    解决方法：使用 algorithmic 环境中的 \State
+                                         命令将 HTML 标签和属性逐行列出，并使用 \textbf{} 和 ...
+I'm ignoring this, since I wasn't doing a \csname.
+
+
+d:/desktop/Code/VS Code/experimental-report_standalone/Experimental_Report.tex:
+325: LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.325    解决方法：使用 algorithmic 环境中的 \State
+                                         命令将 HTML 标签和属性逐行列出，并使用 \textbf{} 和 ...
+
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 10000) detected at line 325
+[][]
+ []
+
+[10
+
+] [11] [12
+
+] [13] [14] (Experimental_Report.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.34248pt have occurred.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `Experimental_Report.out' has not changed.
+(rerunfilecheck)             Checksum: 5CE28F610671FDF7DF9BB399EF7825B1;1831.
+ ) 
+Here is how much of TeX's memory you used:
+ 41706 strings out of 411463
+ 995423 string characters out of 5822472
+ 1870290 words of memory out of 5000000
+ 61269 multiletter control sequences out of 15000+600000
+ 529264 words of font info for 155 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 88i,12n,102p,944b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Experimental_Report.pdf (16 pages).
