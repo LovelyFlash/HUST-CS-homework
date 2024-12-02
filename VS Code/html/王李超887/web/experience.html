@@ -6,6 +6,7 @@
     <title>王李超的个人主页 - 个人资料</title>
     <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <style>
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -26,18 +27,25 @@
             padding: 20px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
+        .image-section 
+        {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .project-details 
+        {
+            flex: 1;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
         .content {
             flex: 1;
             display: flex;
             justify-content: center; 
             align-items: center; 
             padding: 20px;
-        }
-        .project-details {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* 每行文字间距 */
-            align-items: center; /* 内容右对齐 */
         }
         .project-details .line {
             background-color: rgba(255, 255, 255, 0.2); /* 半透明背景 */
@@ -65,6 +73,9 @@
         <h1>王李超的个人主页 - 个人资料</h1>
     </header>
     <div class="content">
+        <div class="image-section">
+            <img src="your-image-path.jpg" alt="图片描述" style="width:100%; max-width:300px;"/>
+        </div>
         <div class="project-details">
             <div class="line">姓名：王李超</div>
             <div class="line">一看就是男的</div>
@@ -73,7 +84,7 @@
             <div class="line">暂时还没有项目在做</div>
             <div class="line">若想看我写的代码请移步<a href="web/github.html">Github</a></div>
         </div>
-    </div>
+    </div>    
     <footer>
         <h2>欢迎来到我的主页！</h2>
         <p>这里是王李超的个人主页，你可以通过上方的链接了解我的经历。</p>

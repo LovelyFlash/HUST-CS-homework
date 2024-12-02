@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  1 DEC 2024 14:10
+This is XeTeX, Version 3.141592653-2.6-0.999995 (MiKTeX 23.4) (preloaded format=xelatex 2024.11.30)  2 DEC 2024 12:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1288,7 +1288,11 @@ File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \c@lem=\count383
 \c@alg=\count384
 \tikzscale@accuracy=\skip126
- (Experimental_Report.aux)
+ (Experimental_Report.aux
+
+LaTeX Warning: Label `alg:1' multiply defined.
+
+)
 \openout1 = `Experimental_Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 83.
@@ -1579,7 +1583,10 @@ Overfull \hbox (2.3361pt too wide) in paragraph at lines 139--140
 [2
 
 ] [3]
-Underfull \hbox (badness 4872) in paragraph at lines 189--190
+File: images/3-1.png Graphic file (type bmp)
+<images/3-1.png>
+
+Underfull \hbox (badness 4872) in paragraph at lines 194--195
 []            \TU/TimesNewRoman(0)/b/n/12.045 <div class=”line”> \TU/SimSun(0)/
 b/n/12.045 若 想 看 我 写 的 代 码 请 移 步 \TU/TimesNewRoman(0)/b/n/12.045 <a
  []
@@ -1587,19 +1594,20 @@ b/n/12.045 若 想 看 我 写 的 代 码 请 移 步 \TU/TimesNewRoman(0)/b/n/
 [4
 
 ]
-Underfull \vbox (badness 10000) detected at line 200
+Underfull \vbox (badness 10000) detected at line 205
  []
 
 
-Underfull \vbox (badness 10000) detected at line 200
+Underfull \vbox (badness 10000) detected at line 205
  []
 
 [5]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 211.
+File: images/3-2.png Graphic file (type bmp)
+<images/3-2.png>
 
-
-LaTeX Warning: Command \textless invalid in math mode on input line 214.
+Overfull \hbox (1.88434pt too wide) in paragraph at lines 214--215
+ [] 
+ []
 
 [6] [7] [8
 
@@ -1610,16 +1618,19 @@ LaTeX Warning: Command \textless invalid in math mode on input line 214.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.34248pt have occurred.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `Experimental_Report.out' has not changed.
-(rerunfilecheck)             Checksum: 4FFD47F10622E1009D86118B28ACBCEF;2085.
+(rerunfilecheck)             Checksum: D582451525597273F704A684CC5DC581;1836.
  ) 
 Here is how much of TeX's memory you used:
- 41652 strings out of 411463
- 993104 string characters out of 5822472
- 1871290 words of memory out of 5000000
- 61219 multiletter control sequences out of 15000+600000
- 529272 words of font info for 156 fonts, out of 8000000 for 9000
+ 41648 strings out of 411463
+ 992997 string characters out of 5822472
+ 1870290 words of memory out of 5000000
+ 61214 multiletter control sequences out of 15000+600000
+ 529264 words of font info for 155 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 88i,11n,102p,931b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 88i,11n,102p,944b,597s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Experimental_Report.pdf (12 pages).
