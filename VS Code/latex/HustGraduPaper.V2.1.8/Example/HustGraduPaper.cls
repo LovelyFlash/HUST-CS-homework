@@ -16,7 +16,7 @@
 \def\HGP@introduction{Adapt HUST style to article}
 \ProvidesClass{\HGP@name}[\HGP@date~\HGP@version~\HGP@introduction]
 \NeedsTeXFormat{LaTeX2e}
-
+\usepackage[UTF8,heading = true]{ctex}
 
 %
 %	---	定义类的选项
