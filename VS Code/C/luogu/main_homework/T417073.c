@@ -16,7 +16,9 @@ int main()
         else
             for (int j = i + 1; j <= x; j++)
             {
-                if (j % i == 0)
+                if(num[j] == 0)
+                    continue;
+                else if (j % i == 0)
                     num[j] = 0;
                 else
                     continue;
