@@ -9,10 +9,10 @@ int main()
         s[i] = -1;
     for (int i = 0; i < y; i++)
     {
-        scanf("%d ", &tem);
-        for (int i = 0; i < x; i++)
+        scanf("%d", &tem);
+        for (int j = 0; j < x; j++)
         {
-            if (s[i] == tem)
+            if (s[j] == tem)
             {
                 flag_ifread = 1;
                 break;
