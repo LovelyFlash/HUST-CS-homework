@@ -40,9 +40,10 @@ int main()
             if (x >= sum)
                 printf("%d\n", prime[j]);
         }
+        printf("%d", j-1);
     }
     else
         printf("0");
-    printf("%d", j-1);
+
     return 0;
 }
