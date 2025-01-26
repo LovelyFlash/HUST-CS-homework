@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "P6685.C": "cpp"
     },
     "latex-workshop.hover.preview.mathjax.extensions": [
     "boldsymbol"
