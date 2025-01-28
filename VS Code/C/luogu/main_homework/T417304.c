@@ -11,7 +11,7 @@ int main()
     for (int i = 0; i < Q; i++)
     {
         scanf("%d %d %d %d", &ls, &rs, &lt, &rt);
-        int code = cut(S, T, ls-1, rs-1, lt-1, rt-1);
+        int code = cut(S, T, ls - 1, rs - 1, lt - 1, rt - 1);
         if (code == 2)
             printf("ovo\n");
         else if (code == 1)
