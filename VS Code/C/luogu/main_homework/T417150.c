@@ -1,72 +1,162 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <limits.h>
 
-bool visited[100][100];
+#define MAX_M 100
+typedef struct
+{
+    int x, y;
+    int cost;
+    int magic; // 0: 未使用魔法，1: 刚使用魔法到达当前格子（无法再次使用）
+} State;
 
-int dps(int **mat, int m, int s, int t);
-int minpath(int **mat, int m, int s, int t);
+int mat[MAX_M][MAX_M];
+int minCost[MAX_M][MAX_M][2]; // [x][y][magic_used], 存储到达该状态的最小花费
+int m;
+
+int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+// 优先队列实现
+State heap[MAX_M * MAX_M * 2];
+int heapSize = 0;
+
+void push(State state)
+{
+    int i = heapSize++;
+    while (i > 0)
+    {
+        int p = (i - 1) / 2;
+        if (heap[p].cost <= state.cost)
+            break;
+        heap[i] = heap[p];
+        i = p;
+    }
+    heap[i] = state;
+}
+
+State pop()
+{
+    State ret = heap[0];
+    State x = heap[--heapSize];
+    int i = 0;
+    while (i * 2 + 1 < heapSize)
+    {
+        int a = i * 2 + 1, b = i * 2 + 2;
+        if (b < heapSize && heap[b].cost < heap[a].cost)
+            a = b;
+        if (heap[a].cost >= x.cost)
+            break;
+        heap[i] = heap[a];
+        i = a;
+    }
+    heap[i] = x;
+    return ret;
+}
+
+void initMinCost()
+{
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            minCost[i][j][0] = minCost[i][j][1] = INT_MAX;
+        }
+    }
+}
+
+int dijkstra()
+{
+    initMinCost();
+    if (mat[0][0] == 2)
+        return -1; // 起点无色，但题目保证有颜色
+    minCost[0][0][0] = 0;
+    push((State){0, 0, 0, 0});
+
+    while (heapSize > 0)
+    {
+        State curr = pop();
+        if (curr.x == m - 1 && curr.y == m - 1)
+        {
+            return curr.cost;
+        }
+        if (curr.cost > minCost[curr.x][curr.y][curr.magic])
+            continue;
+
+        for (int d = 0; d < 4; d++)
+        {
+            int nx = curr.x + dirs[d][0];
+            int ny = curr.y + dirs[d][1];
+            if (nx < 0 || nx >= m || ny < 0 || ny >= m)
+                continue;
+
+            int currColor = mat[curr.x][curr.y];
+            if (curr.magic == 1)
+            {
+                // 当前处于魔法状态，无法再次使用魔法，必须移动到有颜色的格子
+                if (mat[nx][ny] == 2)
+                    continue;
+                int nextColor = mat[nx][ny];
+                int cost = (currColor != nextColor) ? 1 : 0;
+                int total = curr.cost + cost;
+                if (total < minCost[nx][ny][0])
+                {
+                    minCost[nx][ny][0] = total;
+                    push((State){nx, ny, total, 0});
+                }
+            }
+            else
+            {
+                // 正常移动或使用魔法
+                if (mat[nx][ny] != 2)
+                {
+                    // 目标格子有颜色，正常移动
+                    int nextColor = mat[nx][ny];
+                    int cost = (currColor != nextColor) ? 1 : 0;
+                    int total = curr.cost + cost;
+                    if (total < minCost[nx][ny][0])
+                    {
+                        minCost[nx][ny][0] = total;
+                        push((State){nx, ny, total, 0});
+                    }
+                }
+                else
+                {
+                    // 目标格子无色，必须使用魔法
+                    // 选择颜色与当前格子相同，避免花费
+                    int cost = 2;
+                    int total = curr.cost + cost;
+                    if (total < minCost[nx][ny][1])
+                    {
+                        minCost[nx][ny][1] = total;
+                        push((State){nx, ny, total, 1});
+                    }
+                }
+            }
+        }
+    }
+    return -1;
+}
 
 int main()
 {
-    int m, n;
+    int n;
     scanf("%d %d", &m, &n);
-    int **mat = (int **)malloc(m * sizeof(int *));
     for (int i = 0; i < m; i++)
     {
-        mat[i] = (int *)malloc(m * sizeof(int));
         for (int j = 0; j < m; j++)
         {
-            mat[i][j] = 2;
-            visited[i][j] = false;
+            mat[i][j] = 2; // 初始化为无色
         }
     }
-    int x, y, z;
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &x);
-        scanf("%d", &y);
-        scanf("%d", &z);
-        mat[x - 1][y - 1] = z;
+        int x, y, c;
+        scanf("%d %d %d", &x, &y, &c);
+        mat[x - 1][y - 1] = c;
     }
-    int result = dps(mat, m, 0, 0);
-    if (result == -1)
-        printf("-1");
-    else
-    {
-        result = minpath(mat, m, 0, 0);
-        printf("%d", result);
-    }
+
+    int result = dijkstra();
+    printf("%d\n", result);
     return 0;
-}
-
-int dps(int **mat, int m, int s, int t)
-{
-    visited[s][t] = true;
-    if (s == m - 1 && t == m - 1)
-        return 0;
-    else
-    {
-        if ((mat[s][t] != 2 || mat[s + 1][t] != 2) && !visited[s + 1][t])
-            dps(mat, m, s + 1, t);
-        else if ((mat[s][t] != 2 || mat[s][t + 1] != 2) && !visited[s][t + 1])
-            dps(mat, m, s, t + 1);
-        visited[s][t] = false;
-        return -1;
-    }
-}
-
-int minpath(int **mat, int m, int s, int t)
-{
-    int result = 0;
-    if (s == m - 1 && t == m - 1)
-        return result;
-    else
-    {
-        result += mat[s][t];
-        if (visited[s + 1][t])
-            minpath(mat, m, s + 1, t);
-        else if (visited[s][t + 1])
-            minpath(mat, m, s, t + 1);
-    }
 }
