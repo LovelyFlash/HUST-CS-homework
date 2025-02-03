@@ -16,7 +16,7 @@
 \def\HGP@introduction{Adapt HUST style to article}
 \ProvidesClass{\HGP@name}[\HGP@date~\HGP@version~\HGP@introduction]
 \NeedsTeXFormat{LaTeX2e}
-
+\usepackage[UTF8,heading = true]{ctex}
 
 %
 %	---	定义类的选项
@@ -137,7 +137,7 @@
 \RequirePackage{fancyhdr}
 %设置页眉样式
 \newcommand{\headstyle}{
-	\fancyhead[C]{\huawenzhongsong \zihao{5} 华 \space 中 \space 科 \space 技 \space 大 \space 学 \space 毕 \space 业 \space 设 \space 计（论  \space 文）}
+	\fancyhead[C]{\huawenzhongsong \zihao{5} 华 \space 中 \space 科 \space 技 \space 大 \space 学 \space 结 \space 课 \space 设 \space 计（论  \space 文）}
 }
 %设置页脚样式
 \newcommand{\footstyle}{\fancyfoot[C]{\huawenzhongsong \zihao{5} \thepage}
@@ -166,7 +166,7 @@
 %设置各个标题样式
 %不需要使用part和chapter层级
 \ctexset{section={format={\centering \heiti \bfseries \zihao{-2}}}} %节
-\newcommand{\sectionbreak}{\clearpage} %小节从新的一页开始
+% \newcommand{\sectionbreak}{\clearpage} %小节从新的一页开始
 \ctexset{subsection={format={\raggedright \heiti \bfseries \zihao{4}}}} %小节
 \ctexset{subsubsection={format={\raggedright \heiti \bfseries \zihao{-4}}}} %小小节
 \renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
@@ -468,7 +468,7 @@
 			\vspace*{4em}
 			\includegraphics[height=1.61cm]{\HGP@titlecolor}\\
 			\vspace*{2em}
-			{\zihao{-0} \huawenzhongsong \bfseries 本科生毕业设计\makebox{\hwzsAll\bfseries [}论文\makebox{\hwzsAll\bfseries ]}}\\
+			{\zihao{-0} \huawenzhongsong \bfseries 本科生结课设计\makebox{\hwzsAll\bfseries [}论文\makebox{\hwzsAll\bfseries ]}}\\
 			\vspace{6em}
 			{\zihao{2} \heiti \bfseries \@title}\\
 			\vspace{6em}
