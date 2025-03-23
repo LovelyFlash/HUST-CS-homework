@@ -1,8 +1,10 @@
 {
     "files.associations": {
+        "*.c": "c",
         "stdlib.h": "c",
         "P6685.C": "cpp",
         "string.h": "c",
-        "AA.C": "cpp"
+        "AA.C": "cpp",
+        "cstdlib": "cpp"
     },
 }
