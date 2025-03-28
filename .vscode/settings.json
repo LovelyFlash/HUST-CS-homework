@@ -5,6 +5,9 @@
         "P6685.C": "cpp",
         "string.h": "c",
         "AA.C": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp"
     },
 }

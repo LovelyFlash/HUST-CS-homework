@@ -1,20 +1,5 @@
-// status InitList(SqList &L)
-// {
-//     if (L.elem != NULL)
-//         return INFEASIBLE; 
-    
-//     L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
-//     if (!L.elem)
-//         return OVERFLOW;
-    
-//     L.length = 0;
-//     L.listsize = LIST_INIT_SIZE;
-
-//     return OK;
-// }
-
-status ListEmpty(SqList L)
-// 如果线性表L存在，判断线性表L是否为空，空就返回TRUE，否则返回FALSE；如果线性表L不存在，返回INFEASIBLE。
+status  SaveList(SqList L,char FileName[])
+// 如果线性表L存在，将线性表L的的元素写到FileName文件中，返回OK，否则返回INFEASIBLE。
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
@@ -22,4 +7,12 @@ status ListEmpty(SqList L)
 
     /********** End **********/
 }
+status  LoadList(SqList &L,char FileName[])
+// 如果线性表L不存在，将FileName文件中的数据读入到线性表L中，返回OK，否则返回INFEASIBLE。
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin *********/
 
+
+    /********** End **********/
+}

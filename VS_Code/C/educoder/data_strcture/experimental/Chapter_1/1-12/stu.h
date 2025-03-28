@@ -1,25 +1,17 @@
-// status InitList(SqList &L)
-// {
-//     if (L.elem != NULL)
-//         return INFEASIBLE; 
-    
-//     L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
-//     if (!L.elem)
-//         return OVERFLOW;
-    
-//     L.length = 0;
-//     L.listsize = LIST_INIT_SIZE;
-
-//     return OK;
-// }
-
-status ListEmpty(SqList L)
-// 如果线性表L存在，判断线性表L是否为空，空就返回TRUE，否则返回FALSE；如果线性表L不存在，返回INFEASIBLE。
+status ListTraverse(SqList L)
 {
-    // 请在这里补充代码，完成本关任务
+    // 如果线性表L存在，依次显示线性表中的元素，每个元素间空一格，返回OK；如果线性表L不存在，返回INFEASIBLE。
     /********** Begin *********/
-
-
+    if (L.elem == NULL)
+    {
+        return INFEASIBLE;
+    }
+    for (int i = 0; i < L.length; i++)
+    {
+        printf("%d", L.elem[i]);
+        if (i != L.length - 1)
+            printf(" ");
+    }
+    return OK;
     /********** End **********/
 }
-

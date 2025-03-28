@@ -1,25 +1,18 @@
-// status InitList(SqList &L)
-// {
-//     if (L.elem != NULL)
-//         return INFEASIBLE; 
-    
-//     L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
-//     if (!L.elem)
-//         return OVERFLOW;
-    
-//     L.length = 0;
-//     L.listsize = LIST_INIT_SIZE;
-
-//     return OK;
-// }
-
-status ListEmpty(SqList L)
-// 如果线性表L存在，判断线性表L是否为空，空就返回TRUE，否则返回FALSE；如果线性表L不存在，返回INFEASIBLE。
+status ListDelete(SqList &L, int i, ElemType &e)
 {
-    // 请在这里补充代码，完成本关任务
+    // 如果线性表L存在，删除线性表L的第i个元素，并保存在e中，返回OK；当删除位置不正确时，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
     /********** Begin *********/
-
-
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    if (i < 1 || i > L.length) {
+        return ERROR;
+    }
+    e = L.elem[i - 1];
+    for (int j = i; j < L.length; j++) {
+        L.elem[j - 1] = L.elem[j];
+    }
+    L.length--;
+    return OK;
     /********** End **********/
 }
-

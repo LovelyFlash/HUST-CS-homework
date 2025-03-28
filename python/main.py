@@ -45,15 +45,30 @@ abs(-5)        # 绝对值 → 5
 #     print(f"Hello, {name}!")
 
 # greet("Alice")
-def prefix_function(s):
-    n = len(s)
-    pi = [0] * n
-    for i in range(1, n):
-        j = pi[i - 1]
-        while j > 0 and s[i] != s[j]:
-            j = pi[j - 1]
-        if s[i] == s[j]:
-            j += 1
-        pi[i] = j
-    return pi
-print(prefix_function(input()))
+# def prefix_function(s):
+#     n = len(s)
+#     pi = [0] * n
+#     for i in range(1, n):
+#         j = pi[i - 1]
+#         while j > 0 and s[i] != s[j]:
+#             j = pi[j - 1]
+#         if s[i] == s[j]:
+#             j += 1
+#         pi[i] = j
+#     return pi
+# print(prefix_function(input()))
+from typing import Union
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Union[str, None] = None):
+    return {"item_id": item_id, "q": q}
