@@ -31,18 +31,27 @@ abs(-5)        # 绝对值 → 5
 # e=dict({"吕布":"口口布","关羽":"关习习"},刘备="刘Baby")
 # f=dict(zip(["吕布","关羽","刘备"],["口口布","关习习","刘Baby"]))
 
-# def repeat(n):
-#     def decorator(func):
-#         def wrapper(*args, **kwargs):
-#             for _ in range(n):
-#                 result = func(*args, **kwargs)
-#             return result
-#         return wrapper
-#     return decorator
+#以下是装饰器部分
+# import time
+#     def logger(msg):
+#         def time_master(func):
+#             def call_func():
+#                 start = time.time()
+#                 func()
+#                 stop = time.time()
+#                 print(f"[{msg}]一共耗费了【{(stop-start):.2f}")
+#         return cail_func
+#     return time_master
 
-# @repeat(3)
-# def greet(name):
-#     print(f"Hello, {name}!")
+# def funA():
+#     time.sleep(1)
+#     print("正在调用funA...")
+# def funB():
+#     ime.sleep(1)
+#     print("正在调用funB...")
+
+# funA = logger(msg="A") (funA)
+# funB = logger(msg="B") (funB)
 
 # greet("Alice")
 # def prefix_function(s):
