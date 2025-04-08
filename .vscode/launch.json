@@ -1,15 +1,15 @@
 {
     "configurations": [
+
         {
             "name": "(Windows) 启动",
-            "type": "cppvsdbg",
+            "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}/../build/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
-            "console": "externalTerminal"
         },
         {
             "name": "C/C++: g++.exe 构建和调试活动文件",
@@ -22,7 +22,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "D:\\Pearl\\c\\bin\\gdb.exe",
+            "miDebuggerPath": "D:\\mingw64\\bin\\g++.exe",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
@@ -48,7 +48,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "/path/to/gdb",
+            "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
@@ -73,7 +73,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",
+            "miDebuggerPath": "D:\\mingw64\\bin\\gcc.exe",
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
