@@ -1,0 +1,62 @@
+2025-04-08T04:55:33.105009Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2025-04-08T04:55:33.110180Z 0 [System] [MY-013169] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) initializing of server in progress as process 42596
+2025-04-08T04:55:33.198474Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-08T04:55:33.469290Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-04-08T04:55:34.656948Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2025-04-08T04:55:35.812825Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2025-04-08T04:55:35.874125Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2025-04-08T04:55:35.983999Z 0 [System] [MY-010116] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) starting as process 39492
+2025-04-08T04:55:35.999336Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-08T04:55:36.279224Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-04-08T04:55:36.499162Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-04-08T04:55:36.499589Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-04-08T04:55:36.537932Z 0 [System] [MY-010931] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe: ready for connections. Version: '8.4.0'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-04-08T04:55:36.809180Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-04-08T04:55:56.439246Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2025-04-08T04:55:56.443502Z 0 [System] [MY-013169] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) initializing of server in progress as process 44028
+2025-04-08T04:55:56.445125Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2025-04-08T04:55:56.445564Z 0 [ERROR] [MY-013236] [Server] The designated data directory D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\data\ is unusable. You can remove all files that the server added to it.
+2025-04-08T04:55:56.447992Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-08T04:55:56.448296Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2025-04-08T04:55:56.500611Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2025-04-08T04:55:56.729077Z 0 [System] [MY-010116] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) starting as process 41064
+2025-04-08T04:55:56.740926Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-08T04:55:56.743468Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2025-04-08T04:55:56.743784Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2025-04-08T04:55:56.744087Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2025-04-08T04:55:56.744607Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2025-04-08T04:55:56.744861Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-08T04:55:56.745957Z 0 [System] [MY-010910] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe: Shutdown complete (mysqld 8.4.0)  MySQL Community Server - GPL.
+2025-04-08T04:55:56.746619Z 0 [System] [MY-015016] [Server] MySQL Server - end.
+2025-04-08T05:02:02.456836Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2025-04-08T05:02:02.476519Z 0 [System] [MY-013169] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) initializing of server in progress as process 26048
+2025-04-08T05:02:02.486984Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2025-04-08T05:02:02.487322Z 0 [ERROR] [MY-013236] [Server] The designated data directory D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\data\ is unusable. You can remove all files that the server added to it.
+2025-04-08T05:02:02.489379Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-08T05:02:02.495059Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2025-04-08T05:02:02.553255Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2025-04-08T05:02:02.721455Z 0 [System] [MY-010116] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) starting as process 9000
+2025-04-08T05:02:02.745579Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-08T05:02:03.176594Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-04-08T05:02:03.365512Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2025-04-08T05:02:03.369579Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2025-04-08T05:02:03.480424Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-04-08T05:02:03.480688Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-04-08T05:02:03.511338Z 0 [System] [MY-010931] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe: ready for connections. Version: '8.4.0'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-04-08T05:02:03.785494Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-04-08T05:02:12.350296Z 0 [System] [MY-015017] [Server] MySQL Server Initialization - start.
+2025-04-08T05:02:12.355483Z 0 [System] [MY-013169] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) initializing of server in progress as process 35724
+2025-04-08T05:02:12.357305Z 0 [ERROR] [MY-010457] [Server] --initialize specified but the data directory has files in it. Aborting.
+2025-04-08T05:02:12.357728Z 0 [ERROR] [MY-013236] [Server] The designated data directory D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\data\ is unusable. You can remove all files that the server added to it.
+2025-04-08T05:02:12.359587Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-08T05:02:12.359904Z 0 [System] [MY-015018] [Server] MySQL Server Initialization - end.
+2025-04-08T05:02:12.410630Z 0 [System] [MY-015015] [Server] MySQL Server - start.
+2025-04-08T05:02:12.632024Z 0 [System] [MY-010116] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe (mysqld 8.4.0) starting as process 27104
+2025-04-08T05:02:12.645902Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-04-08T05:02:12.648298Z 1 [ERROR] [MY-012271] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2025-04-08T05:02:12.648582Z 1 [ERROR] [MY-012278] [InnoDB] The innodb_system data file 'ibdata1' must be writable
+2025-04-08T05:02:12.648864Z 1 [ERROR] [MY-010334] [Server] Failed to initialize DD Storage Engine
+2025-04-08T05:02:12.649333Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2025-04-08T05:02:12.649590Z 0 [ERROR] [MY-010119] [Server] Aborting
+2025-04-08T05:02:12.651126Z 0 [System] [MY-010910] [Server] D:\desktop\file\Code\python\distribute\setup\mysql-8.4.0-winx64\bin\mysqld.exe: Shutdown complete (mysqld 8.4.0)  MySQL Community Server - GPL.
+2025-04-08T05:02:12.651624Z 0 [System] [MY-015016] [Server] MySQL Server - end.
