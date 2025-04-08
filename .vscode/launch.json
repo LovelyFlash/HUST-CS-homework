@@ -4,7 +4,47 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
+<<<<<<< HEAD
+=======
+            "name": "(Windows) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../build/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+        },
+        {
+            "name": "C/C++: g++.exe 构建和调试活动文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../build/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:\\mingw64\\bin\\g++.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++.exe 生成活动文件"
+        },
+        {
+>>>>>>> 6d0fc7ab5574bb56d73dbc85f1d70a3db75a19cb
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
@@ -15,7 +55,11 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
+<<<<<<< HEAD
             "miDebuggerPath": "D:/mingw64/bin/gdb.exe",
+=======
+            "miDebuggerPath": "D:\\mingw64\\bin\\gdb.exe",
+>>>>>>> 6d0fc7ab5574bb56d73dbc85f1d70a3db75a19cb
             "setupCommands": [
                 {
                     "description": "为 gdb 启用整齐打印",
@@ -29,5 +73,36 @@
                 }
             ]
         },
+<<<<<<< HEAD
     ]
+=======
+        {
+            "name": "C/C++: gcc.exe 构建和调试活动文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/../build/${fileBasenameNoExtension}.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "D:\\mingw64\\bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "D:\\mingw64\\bin\\gcc.exe",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc.exe 生成活动文件"
+        }
+    ],
+    "version": "2.0.0"
+>>>>>>> 6d0fc7ab5574bb56d73dbc85f1d70a3db75a19cb
 }
