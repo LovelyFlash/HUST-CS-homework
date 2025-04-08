@@ -1,8 +1,8 @@
 #include "def.h"
-#include "../step01/stu.h"
-#include "../step10/stu.h"
-#include "../step12/stu.h"
-#include "../step14/stu.h"
+#include "../1-1/stu.h"
+#include "../1-10/stu.h"
+#include "../1-12/stu.h"
+#include "../1-14/stu.h"
 #include "stu.h"
 int main() {
 	LISTS Lists;
