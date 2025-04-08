@@ -1,9 +1,10 @@
 from typing import Union
 import uvicorn
 from fastapi import FastAPI
-from fun1 import app1
+from apps.func1 import func1
 
-app
+app= FastAPI()
+app.include_router(func1, tags=["01 路径参数"])
 
 
 if __name__ == "__main__":
