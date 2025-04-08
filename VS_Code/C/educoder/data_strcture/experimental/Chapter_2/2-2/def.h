@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
 #define TRUE 1
 #define FALSE 0
 #define OK 1
@@ -17,3 +18,4 @@ typedef struct LNode{  //单链表（链式结构）结点的定义
       ElemType data;
       struct LNode *next;
     }LNode,*LinkList;
+void free0(void *p);

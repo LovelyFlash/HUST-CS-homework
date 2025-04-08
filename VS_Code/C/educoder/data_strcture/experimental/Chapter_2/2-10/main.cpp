@@ -2,21 +2,32 @@
 #include "stu.h"
 int main() {
 	LinkList L;
-	int i,j;
-	scanf("%d",&i);
-	if (!i) { 
-		L = NULL;
-		j = InitList(L);
- 		if (L==NULL) printf("可能没有正确分配表头节点空间");
-		if (L->next!=NULL) printf("表头节点可能没有正确初始化");
-		if (j==OK) printf("OK");
-    }
-	else {
-		L=(LinkList)malloc(sizeof(LNode));
-		j=InitList(L);
+	int f,i,j,e,next;
+	scanf("%d",&f);
+	if (!f) {
+		L=NULL;
+		j=ListInsert(L,1,1);
 		if (j==INFEASIBLE) printf("INFEASIBLE");
-		else printf("可能会对已经存在的线性表初始化");
-		free(L);
+    	else printf("不能对不存在的线性表进行插入操作！");
+    }
+    else {
+    	L=(LinkList) malloc(sizeof(LNode));
+		L->next=NULL;
+		LNode *s,*r=L;
+    	scanf("%d",&i);
+     	while (i) {
+			s=(LNode*) malloc(sizeof(LNode));
+			s->data=i;
+			r->next=s;
+			r=s;
+			scanf("%d",&i);
+		}
+		r->next=NULL;
+		scanf("%d%d",&i,&e);
+		j=ListInsert(L,i,e);
+		printf("%s\n", j==OK? "OK" : j==ERROR? "ERROR" : "");
+		for(s=L->next;s;s=s->next)
+			printf("%d ",s->data);
 	}
 	return 1;
 }

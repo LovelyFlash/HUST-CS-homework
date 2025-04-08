@@ -1,11 +1,19 @@
-status InitList(LinkList &L)
+status SaveList(LinkList L,char FileName[])
+// 如果线性表L存在，将线性表L的的元素写到FileName文件中，返回OK，否则返回INFEASIBLE。
 {
-    /********** Begin *********/
-    if (L != NULL)
-        return INFEASIBLE;
-    L = (LinkList)malloc(sizeof(LNode));
-    if (!L) return ERROR;
-    L->next = NULL;
-    return OK;
-    /********** End **********/
+    // 请在这里补充代码，完成本关任务
+    /********** Begin 1 *********/
+
+
+    /********** End 1 **********/
+}
+
+status LoadList(LinkList &L,char FileName[])
+// 如果线性表L不存在，将FileName文件中的数据读入到线性表L中，返回OK，否则返回INFEASIBLE。
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin 2 *********/
+
+
+    /********** End 2 **********/
 }

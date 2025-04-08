@@ -4,19 +4,29 @@ int main() {
 	LinkList L;
 	int i,j;
 	scanf("%d",&i);
-	if (!i) { 
-		L = NULL;
-		j = InitList(L);
- 		if (L==NULL) printf("可能没有正确分配表头节点空间");
-		if (L->next!=NULL) printf("表头节点可能没有正确初始化");
-		if (j==OK) printf("OK");
-    }
-	else {
-		L=(LinkList)malloc(sizeof(LNode));
-		j=InitList(L);
-		if (j==INFEASIBLE) printf("INFEASIBLE");
-		else printf("可能会对已经存在的线性表初始化");
+	if (i==2) { 
+		L=(LinkList) malloc(sizeof(LNode));
+		L->next=NULL;
+		j=ListEmpty(L);
+		if (j==OK) printf("TRUE");
+		else printf("未正确判空");
 		free(L);
+    }
+	else if(i==1) {
+		L=(LinkList) malloc(sizeof(LNode));
+		L->next=(LNode*) malloc(sizeof(LNode));
+		L->next->next=NULL;
+		j=ListEmpty(L);
+		if (j==ERROR) printf("FALSE");
+		else printf("未正确判空");
+		free(L->next);
+		free(L);
+    }
+    else {
+    	L=NULL;
+		j=ListEmpty(L);
+		if (j==INFEASIBLE) printf("INFEASIBLE");
+    	else printf("可能会对不存在的线性表判空");
 	}
 	return 1;
 }
