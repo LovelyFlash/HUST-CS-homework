@@ -3,7 +3,17 @@ status LocateElem(LinkList L,ElemType e)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    LinkList p = L->next;
+    int i = 1;
+    while (p != NULL && p->data != e)
+    {
+        p = p->next;
+        i++;
+    }
+    if (p == NULL)
+        return ERROR;
+    return i;
     /********** End **********/
 }

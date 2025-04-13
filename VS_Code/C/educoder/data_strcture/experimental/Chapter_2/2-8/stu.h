@@ -3,7 +3,18 @@ status PriorElem(LinkList L,ElemType e,ElemType &pre)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    LinkList p = L->next;
+    LinkList preNode = NULL;
+    while (p != NULL && p->data != e)
+    {
+        preNode = p;
+        p = p->next;
+    }
+    if (p == NULL || preNode == NULL)
+        return ERROR;
+    pre = preNode->data;
+    return OK;
     /********** End **********/
 }

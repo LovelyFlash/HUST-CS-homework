@@ -3,7 +3,16 @@ status NextElem(LinkList L,ElemType e,ElemType &next)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    LinkList p = L->next;
+    while (p != NULL && p->data != e)
+    {
+        p = p->next;
+    }
+    if (p == NULL || p->next == NULL)
+        return ERROR;
+    next = p->next->data;
+    return OK;
     /********** End **********/
 }

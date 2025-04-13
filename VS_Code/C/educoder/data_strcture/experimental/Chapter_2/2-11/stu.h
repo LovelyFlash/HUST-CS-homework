@@ -3,7 +3,23 @@ status ListDelete(LinkList &L,int i,ElemType &e)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    if (i < 1)
+        return ERROR;
+    LinkList p = L;
+    int j = 0;
+    while (p != NULL && j < i - 1)
+    {
+        p = p->next;
+        j++;
+    }
+    if (p == NULL || p->next == NULL)
+        return ERROR;
+    LinkList q = p->next;
+    e = q->data;
+    p->next = q->next;
+    free(q);
+    return OK;
     /********** End **********/
 }

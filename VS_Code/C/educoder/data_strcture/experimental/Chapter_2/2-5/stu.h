@@ -3,7 +3,15 @@ int ListLength(LinkList L)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if(L == NULL)
+        return INFEASIBLE;
+    int length = 0;
+    LinkList p = L->next;
+    while (p != NULL)
+    {
+        length++;
+        p = p->next;
+    }
+    return length;
     /********** End **********/
 }

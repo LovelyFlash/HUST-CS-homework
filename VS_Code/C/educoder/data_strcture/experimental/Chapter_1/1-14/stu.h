@@ -1,13 +1,13 @@
 #include <string.h>
 
 status AddList(LISTS &Lists, char ListName[]) {
-    // è¯·åœ¨è¿™é‡Œè¡¥å……ä»£ç ï¼Œå®Œæˆæœ¬å…³ä»»åŠ¡
+    // ÇëÔÚÕâÀï²¹³ä´úÂë£¬Íê³É±¾¹ØÈÎÎñ
     /********** Begin *********/
-    if (Lists.length >= 10) { // å‡è®¾ elem æ•°ç»„çš„æœ€å¤§å®¹é‡æ˜¯ 10
+    if (Lists.length >= 10) { // ¼ÙÉè elem Êı×éµÄ×î´óÈİÁ¿ÊÇ 10
         return ERROR;
     }
     strcpy(Lists.elem[Lists.length].name, ListName);
-    Lists.elem[Lists.length].L.length = 0; // åˆå§‹åŒ–ä¸ºç©ºçº¿æ€§è¡¨
+    Lists.elem[Lists.length].L.length = 0; // ³õÊ¼»¯Îª¿ÕÏßĞÔ±í
     Lists.elem[Lists.length].L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
     if (!Lists.elem[Lists.length].L.elem) {
         return OVERFLOW;

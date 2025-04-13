@@ -3,7 +3,15 @@ status ListTraverse(LinkList L)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    LinkList p = L->next;
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+    printf("\n");
+    return OK;
     /********** End **********/
 }

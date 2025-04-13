@@ -3,7 +3,11 @@ status ListEmpty(LinkList L)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    if (L == NULL)
+        return INFEASIBLE;
+    if (L->next == NULL)
+        return TRUE;
+    else
+        return FALSE;
     /********** End **********/
 }
