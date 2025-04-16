@@ -6,12 +6,14 @@ status ListTraverse(SqList L)
     {
         return INFEASIBLE;
     }
+    printf("\t");
     for (int i = 0; i < L.length; i++)
     {
         printf("%d", L.elem[i]);
         if (i != L.length - 1)
             printf(" ");
     }
+    printf("\n");
     return OK;
     /********** End **********/
 }

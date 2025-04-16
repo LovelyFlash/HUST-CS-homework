@@ -112,13 +112,22 @@ void manageMultipleLists(LISTS &Lists)
 status AddList(LISTS &Lists, char ListName[])
 {
     int n, e;
-    Lists.length = 0; // 初始化链表数量
     printf("\t请输入要添加的顺序表数量：");
     scanf("%d", &n);
     while (n--)
     {
         printf("\t请输入要添加的顺序表名称：");
         scanf("%s", ListName);
+        for (int i = 0; i <= Lists.length; i++)
+        {
+            if (strcmp(Lists.elem[i].name, ListName) == 0)
+            {
+                printf("\t顺序表名称已存在，请重新输入！\n");
+                printf("\t请输入要添加的顺序表名称：");
+                scanf("%s", ListName);
+                i = 0;
+            }
+        }
         if (Lists.length >= 10)
         { // 假设 elem 数组的最大容量是 10
             printf("\t顺序表数量已达上限，无法添加更多顺序表！\n");

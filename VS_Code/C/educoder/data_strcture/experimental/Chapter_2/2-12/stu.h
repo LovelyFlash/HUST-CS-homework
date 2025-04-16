@@ -6,6 +6,7 @@ status ListTraverse(LinkList L)
     if (L == NULL)
         return INFEASIBLE;
     LinkList p = L->next;
+    printf("\t");
     while (p != NULL)
     {
         printf("%d ", p->data);

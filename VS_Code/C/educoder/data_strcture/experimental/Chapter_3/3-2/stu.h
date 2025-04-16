@@ -1,10 +1,14 @@
-status CreateBiTree(BiTree &T,TElemType definition[])
-/*根据带空枝的二叉树先根遍历序列definition构造一棵二叉树，将根节点指针赋值给T并返回OK，
-如果有相同的关键字，返回ERROR。此题允许通过增加其它函数辅助实现本关任务*/
+// 添加 free0 函数的声明
+void free0(void *p);
+
+status ClearBiTree(BiTree &T)
+// 将二叉树设置成空，并删除所有结点，释放结点空间
 {
-    // 请在这里补充代码，完成本关任务
-    /********** Begin *********/
-
-
-    /********** End **********/
+    if (T == NULL)
+        return 0;
+    ClearBiTree(T->lchild); // 递归清空左子树
+    ClearBiTree(T->rchild); // 递归清空右子树
+    free0(T);               // 使用自定义的 free0 函数释放节点
+    T = NULL;               // 将指针置为空
+    return 1;
 }
