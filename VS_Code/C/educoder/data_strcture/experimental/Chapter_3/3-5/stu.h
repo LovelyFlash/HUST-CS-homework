@@ -4,6 +4,5 @@ status Assign(BiTree &T,KeyType e,TElemType value)
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
 
-
     /********** End **********/
 }
