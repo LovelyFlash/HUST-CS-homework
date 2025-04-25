@@ -1,10 +1,19 @@
-status CreateBiTree(BiTree &T,TElemType definition[])
-/*根据带空枝的二叉树先根遍历序列definition构造一棵二叉树，将根节点指针赋值给T并返回OK，
-如果有相同的关键字，返回ERROR。此题允许通过增加其它函数辅助实现本关任务*/
+
+status SaveBiTree(BiTree T, char FileName[])
+//将二叉树的结点数据写入到文件FileName中
 {
     // 请在这里补充代码，完成本关任务
-    /********** Begin *********/
+    /********** Begin 1 *********/
 
 
-    /********** End **********/
+    /********** End 1 **********/
+}
+status LoadBiTree(BiTree &T,  char FileName[])
+//读入文件FileName的结点数据，创建二叉树
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin 2 *********/
+
+
+    /********** End 2 **********/
 }
