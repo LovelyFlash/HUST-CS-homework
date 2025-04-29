@@ -67,9 +67,9 @@ do {
 ans=CreateBiTree(T,definition);
 //char FileName[20];
 //strcpy( FileName,"step13/test.dat");
-SaveBiTree(T,"step13/test.dat");
+SaveBiTree(T,"test.dat");
 DestroyBiTree(T);
-LoadBiTree(T,"step13/test.dat");
+LoadBiTree(T,"test.dat");
 PreOrderTraverse(T);
 printf("\n");
 InOrderTraverse(T);
