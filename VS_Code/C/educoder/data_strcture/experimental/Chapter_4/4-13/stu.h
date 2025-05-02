@@ -1,10 +1,18 @@
-status CreateCraph(ALGraph &G,VertexType V[],KeyType VR[][2])
-/*根据V和VR构造图T并返回OK，如果V和VR不正确，返回ERROR
-如果有相同的关键字，返回ERROR。此题允许通过增加其它函数辅助实现本关任务*/
+status SaveGraph(ALGraph G, char FileName[])
+//将图的数据写入到文件FileName中
 {
     // 请在这里补充代码，完成本关任务
-    /********** Begin *********/
+    /********** Begin 1 *********/
 
 
-    /********** End **********/
+    /********** End 1 **********/
+}
+status LoadGraph(ALGraph &G, char FileName[])
+//读入文件FileName的图数据，创建图的邻接表
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin 2 *********/
+
+
+    /********** End 2 **********/
 }

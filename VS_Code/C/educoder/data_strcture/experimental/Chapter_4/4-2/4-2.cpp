@@ -54,6 +54,7 @@ status CreateCraph(ALGraph &G, VertexType V[], KeyType VR[][2])
         i++;
     }
     G.arcnum = i;
+    return OK;
 }
 int main()
 {

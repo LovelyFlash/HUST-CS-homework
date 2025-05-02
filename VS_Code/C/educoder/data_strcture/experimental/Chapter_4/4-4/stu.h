@@ -1,6 +1,6 @@
-status CreateCraph(ALGraph &G,VertexType V[],KeyType VR[][2])
-/*根据V和VR构造图T并返回OK，如果V和VR不正确，返回ERROR
-如果有相同的关键字，返回ERROR。此题允许通过增加其它函数辅助实现本关任务*/
+status PutVex(ALGraph &G,KeyType u,VertexType value)
+//根据u在图G中查找顶点，查找成功将该顶点值修改成value，返回OK；
+//如果查找失败或关键字不唯一，返回ERROR
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
