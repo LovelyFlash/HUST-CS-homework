@@ -1,10 +1,21 @@
-status CreateCraph(ALGraph &G,VertexType V[],KeyType VR[][2])
-/*根据V和VR构造图T并返回OK，如果V和VR不正确，返回ERROR
-如果有相同的关键字，返回ERROR。此题允许通过增加其它函数辅助实现本关任务*/
+void free0(void *p);
+
+status DestroyGraph(ALGraph &G)
+/*销毁无向图G,删除G的全部顶点和边*/
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    for (int i = 0; i < G.vexnum; i++) {
+        ArcNode *p = G.vertices[i].firstarc;
+        while (p != NULL) {
+            ArcNode *temp = p;
+            p = p->nextarc;
+            free0(temp); // 使用自定义的 free0 函数释放内存
+        }
+        G.vertices[i].firstarc = NULL;
+    }
+    G.vexnum = 0; // 清空顶点数
+    G.arcnum = 0; // 清空边数
+    return OK;
     /********** End **********/
 }

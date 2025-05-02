@@ -1,49 +1,25 @@
 status JudgeBiTree(BiTree T)
 // 判断二叉树T是否为二叉排序树
 {
-    // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-    status flag = TRUE; // 标志变量
+    static BiTree prev = NULL; // 用于记录中序遍历的前一个节点
 
-    if (T == NULL) // 空树是二叉排序树
-        return flag;
+    if (T == NULL) {
+        return OK; // 空树是二叉排序树
+    }
 
-    //判断左节点及其所有子节点是否比其小
-    if (T->lchild->data.key <= T->data.key)
-    {
-        if (T->lchild->lchild->data.key <= T->lchild->data.key)
-        {
-            if (!flag)
-                return flag;
-            else
-            {
-                T->lchild->data = T->data;
-                return JudgeBiTree(T->lchild);
-            }
-        }
-        else
-            flag = FALSE;
+    // 递归检查左子树
+    if (!JudgeBiTree(T->lchild)) {
+        return ERROR;
     }
-    else
-        flag = FALSE;
-    //判断右节点及其所有子节点是否比其大
-    if (T->rchild->data.key >= T->data.key)
-    {
-        if (T->rchild->lchild->data.key >= T->lchild->data.key)
-        {
-            if (!flag)
-                return flag;
-            else
-            {
-                T->rchild->data = T->data;
-                return JudgeBiTree(T->rchild);
-            }
-        }
-        else
-            flag = FALSE;
+
+    // 检查当前节点的 key 是否大于中序遍历的前一个节点的 key
+    if (prev != NULL && T->data.key <= prev->data.key) {
+        return ERROR;
     }
-    else
-        flag = FALSE;
-    return flag;
-    /********** End **********/
+    prev = T; // 更新前一个节点
+
+    // 递归检查右子树
+    return JudgeBiTree(T->rchild);
+    /********** End *********/
 }
