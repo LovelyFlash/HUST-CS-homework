@@ -53,6 +53,7 @@ int main(void)
         {
         case 1:
             printf("\t创建二叉树\n");
+            
             break;
         case 2:
             printf("\t销毁二叉树\n");
