@@ -3,7 +3,12 @@ status InsertVex(ALGraph &G,VertexType v)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    G.vertices = (AdjList)realloc(G.vertices, (G.vexnum + 1) * sizeof(VNode));
+    if (G.vertices == NULL)
+        return ERROR;
+    G.vertices[G.vexnum].data = v;
+    G.vertices[G.vexnum].firstarc = NULL;
+    G.vexnum++;
+    return OK;
     /********** End **********/
 }

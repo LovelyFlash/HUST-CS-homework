@@ -3,7 +3,35 @@ int NextAdjVex(ALGraph G,KeyType v,KeyType w)
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
+    int i = 0, flag = ERROR,res=0;
 
+    for (i = 0; i < G.vexnum; i++)
+    {
+        if (G.vertices[i].data.key == v)
+        {
+            res = G.vertices[i].firstarc->adjvex;
+            flag = OK;
+            break;
+        }
+    }
+
+    if(flag == OK)
+    {
+        ArcNode *p = G.vertices[i].firstarc;
+        while (p != NULL)
+        {
+            if (G.vertices[p->adjvex].data.key == w)
+            {
+                if (p->nextarc != NULL)
+                    return p->nextarc->adjvex;
+                else
+                    return -1;
+            }
+            p = p->nextarc;
+        }
+    }
+
+    return -1;
 
     /********** End **********/
 }
