@@ -3,7 +3,6 @@ status BFSTraverse(ALGraph &G,void (*visit)(VertexType))
 {
     // 请在这里补充代码，完成本关任务
     /********** Begin *********/
-
-
+    
     /********** End **********/
 }
