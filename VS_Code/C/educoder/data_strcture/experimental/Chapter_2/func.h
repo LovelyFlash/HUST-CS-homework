@@ -49,6 +49,7 @@ status sortList(LinkList L)
     if (L == NULL || L->next == NULL)
         return ERROR;
     LinkList p, q, temp;
+    temp = (LinkList)malloc(sizeof(LNode));
     for (p = L->next; p != NULL; p = p->next)
     {
         for (q = p->next; q != NULL; q = q->next)

@@ -1,18 +1,14 @@
 #include <bits/stdc++.h>
 #include <windows.h>
-#include "def.h"  // 相关数据类型的定义
-#include "func.h" // 相关功能的定义
+#include "def.h" // 相关数据类型的定义
+#include "func.h"
 
-int main(void)
+int main()
 {
     SetConsoleOutputCP(65001); // 设置控制台输出编码为UTF-8
-    BiTree T;
-    List Trees; // 定义一个二叉树数组，最多存储10个二叉树
-    Trees.elem = (BiTree *)malloc(sizeof(BiTree));
-    Trees.length = 0;                // 初始化二叉树数组长度
-    Trees.listsize = LIST_INIT_SIZE; // 初始化二叉树存储空间大小
-    strcpy(Trees.name[0], "二叉树1"); // 初始化二叉树名称
-    static int num = 0;
+    BiTree<int, int> T;
+    BitreeList<BiTree<int, int>> Trees;
+    static int n = 0;
     int op = 1;
     while (op)
     {
@@ -44,7 +40,6 @@ int main(void)
         printf("   24. 输出所有二叉树名称\n");
         printf("    0. 退出程序\n");
         printf("===============================================\n");
-        printf("  正在操作的二叉树名称：%s\n", Trees.name[num - 1]);
         printf("  请选择你的操作 [0 ~ 24]: ");
         scanf("%d", &op);
 
@@ -53,76 +48,249 @@ int main(void)
         {
         case 1:
             printf("\t创建二叉树\n");
-            
+            printf("\t请选择输入的数据排列方式： \n\t1 带空节点的中序遍历\n\t2 前序加中序遍历\n\t3 后序加中序遍历\n\t请输入：");
+            int choice;
+            scanf("%d", &choice);
+            switch (choice)
+            {
+            case 1:
+                if (T.CreateBiTreeInOrderWithNull() == OK)
+                    printf("\t创建成功！\n");
+                else
+                    printf("\t创建失败！\n");
+                break;
+            case 2:
+                if (T.CreateBiTreePreOrder_InOrder() == OK)
+                    printf("\t创建成功！\n");
+                else
+                    printf("\t创建失败！\n");
+                break;
+            case 3:
+                if (T.CreateBiTreePostOrder_InOrder() == OK)
+                    printf("\t创建成功！\n");
+                else
+                    printf("\t创建失败！\n");
+                break;
+            default:
+                printf("\t输入错误，请重新输入！\n");
+                break;
+            }
             break;
         case 2:
             printf("\t销毁二叉树\n");
+            if (T.DestroyBiTree() == OK)
+                printf("\t销毁成功！\n");
+            else
+                printf("\t销毁失败！\n");
             break;
         case 3:
             printf("\t清空二叉树\n");
+            if (T.ClearBiTree() == OK)
+                printf("\t清空成功！\n");
+            else
+                printf("\t清空失败！\n");
             break;
         case 4:
             printf("\t判定空二叉树\n");
+            if (T.IsEmpty() == OK)
+                printf("\t二叉树为空！\n");
+            else
+                printf("\t二叉树不为空！\n");
             break;
         case 5:
             printf("\t求二叉树深度\n");
+            int depth;
+            depth = T.Depth();
+            if (depth == 0)
+                printf("\t二叉树为空！\n");
+            else
+                printf("\t二叉树深度为：%d\n", depth);
             break;
         case 6:
             printf("\t查找结点\n");
+            printf("\t请输入要查找的结点值：");
+            int key;
+            scanf("%d", &key);
+            BiTree<int,int> *node;
+            node = T.FindNode(key);
+            if (node != nullptr)
+                printf("\t结点值为：%d\n", node->key);
+            else
+                printf("\t未找到该结点！\n");
             break;
         case 7:
             printf("\t结点赋值\n");
+            printf("\t请输入要赋值的结点值：");
+            int oldKey, newKey;
+            scanf("%d", &oldKey);
+            printf("\t请输入新的结点值：");
+            scanf("%d", &newKey);
+            if (T.AssignNode(oldKey, newKey) == OK)
+                printf("\t赋值成功！\n");
+            else
+                printf("\t赋值失败！\n");
             break;
         case 8:
             printf("\t获得兄弟结点\n");
+            printf("\t请输入要查找的结点值：");
+            int key1;
+            scanf("%d", &key1);
+            BiTree<int,int> *brotherNode;
+            brotherNode = T.GetSibling(key1);
+            if (brotherNode != nullptr)
+                printf("\t兄弟结点值为：%d\n", brotherNode->key);
+            else
+                printf("\t未找到兄弟结点！\n");
             break;
         case 9:
             printf("\t插入结点\n");
+            printf("\t请输入要插入的结点值：");
+            int insertKey;
+            scanf("%d", &insertKey);
+            printf("\t请输入要插入的父结点值：");
+            int parentKey;
+            scanf("%d", &parentKey);
+            bool isleft;
+            printf("\t插入至左侧请输入0，插入至右侧请输入1:");
+            scanf("%d", &isleft);
+            if (T.InsertNode(insertKey, parentKey,isleft) == OK)
+                printf("\t插入成功！\n");
+            else
+                printf("\t插入失败！\n");
             break;
         case 10:
             printf("\t删除结点\n");
+            printf("\t请输入要删除的结点值：");
+            int deleteKey;
+            scanf("%d", &deleteKey);
+            if (T.DeleteNode(deleteKey) == OK)
+                printf("\t删除成功！\n");
+            else
+                printf("\t删除失败！\n");
             break;
         case 11:
             printf("\t前序遍历\n");
+            if (T.PreOrderPrint() == OK)
+                printf("\t遍历成功！\n");
+            else
+                printf("\t遍历失败！\n");
             break;
         case 12:
             printf("\t中序遍历\n");
+            if (T.InOrderPrint() == OK)
+                printf("\t遍历成功！\n");
+            else
+                printf("\t遍历失败！\n");
             break;
         case 13:
             printf("\t后序遍历\n");
+            if (T.PostOrderPrint() == OK)
+                printf("\t遍历成功！\n");
+            else
+                printf("\t遍历失败！\n");
             break;
         case 14:
             printf("\t按层遍历\n");
+            if (T.LevelOrderPrint() == OK)
+                printf("\t遍历成功！\n");
+            else
+                printf("\t遍历失败！\n");
             break;
         case 15:
             printf("\t最大路径和\n");
+            int maxPathSum;
+            maxPathSum = T.MaxPathSum();
+            if (maxPathSum == 0)
+                printf("\t二叉树为空！\n");
+            else
+                printf("\t最大路径和为：%d\n", maxPathSum);
             break;
         case 16:
             printf("\t最近公共祖先\n");
+            printf("\t请输入要查找的两个结点值：");
+            int keyA, keyB;
+            scanf("%d %d", &keyA, &keyB);
+            BiTree<int, int> *lcaNode;
+            lcaNode = T.LowestCommonAncestor(keyA, keyB);
+            if (lcaNode != nullptr)
+                printf("\t最近公共祖先结点值为：%d\n", lcaNode->key);
+            else
+                printf("\t未找到最近公共祖先！\n");
             break;
         case 17:
             printf("\t翻转二叉树\n");
+            if (T.InvertTree() == OK)
+                printf("\t翻转成功！\n");
+            else
+                printf("\t翻转失败！\n");
             break;
         case 18:
             printf("\t保存二叉树到文件\n");
+            printf("\t请输入文件名：");
+            char filename[100];
+            scanf("%s", filename);
+            if (T.SaveToFile(filename) == OK)
+                printf("\t保存成功！\n");
+            else
+                printf("\t保存失败！\n");
             break;
         case 19:
             printf("\t从文件加载二叉树\n");
+            printf("\t请输入文件名：");
+            char loadFilename[100];
+            scanf("%s", loadFilename);
+            if (T.LoadFromFile(loadFilename) == OK)
+                printf("\t加载成功！\n");
+            else
+                printf("\t加载失败！\n");
             break;
         case 20:
             printf("\t添加二叉树\n");
+            if (Trees.AddBiTree(T) == OK)
+                printf("\t添加成功！\n");
+            else
+                printf("\t添加失败！\n");
             break;
         case 21:
             printf("\t删除二叉树\n");
+            printf("\t请输入要删除的二叉树名称：");
+            char deleteTreeName[20];
+            scanf("%s", deleteTreeName);
+            if (Trees.DeleteBiTree(deleteTreeName) == OK)
+                printf("\t删除成功！\n");
+            else
+                printf("\t删除失败！\n");
             break;
         case 22:
             printf("\t定位二叉树\n");
+            printf("\t请输入要定位的二叉树名称：");
+            char locateTreeName[20];
+            scanf("%s", locateTreeName);
+            n = Trees.SelectBiTree(locateTreeName);
+            if (n != -1)
+                printf("\t定位成功！\n");
+            else
+                printf("\t定位失败！\n");
             break;
         case 23:
             printf("\t修改二叉树名称\n");
+            printf("\t请输入要修改的二叉树名称：");
+            char oldTreeName[20];
+            scanf("%s", oldTreeName);
+            printf("\t请输入新的二叉树名称：");
+            char newTreeName[20];
+            scanf("%s", newTreeName);
+            if (Trees.ModifyBiTreeName(oldTreeName, newTreeName) == OK)
+                printf("\t修改成功！\n");
+            else
+                printf("\t修改失败！\n");
             break;
         case 24:
             printf("\t输出所有二叉树名称\n");
+            if (Trees.PrintAllBiTreeNames() == OK)
+                printf("\t输出成功！\n");
+            else
+                printf("\t输出失败！\n");
             break;
         case 0:
             printf("\t退出程序\n");
