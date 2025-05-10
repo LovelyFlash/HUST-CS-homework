@@ -40,6 +40,8 @@ int main()
         printf("   24. 输出所有二叉树名称\n");
         printf("    0. 退出程序\n");
         printf("===============================================\n");
+        if (n != 0)
+            printf("  正在操作的树为：%s\n", Trees.GetTreename(n - 1));
         printf("  请选择你的操作 [0 ~ 24]: ");
         scanf("%d", &op);
 
@@ -55,19 +57,31 @@ int main()
             {
             case 1:
                 if (T.CreateBiTreeInOrderWithNull() == OK)
+                {
+                    Trees.AddBiTree(T);
+                    n++;
                     printf("\t创建成功！\n");
+                }
                 else
                     printf("\t创建失败！\n");
                 break;
             case 2:
                 if (T.CreateBiTreePreOrder_InOrder() == OK)
+                {
+                    Trees.AddBiTree(T);
+                    n++;
                     printf("\t创建成功！\n");
+                }
                 else
                     printf("\t创建失败！\n");
                 break;
             case 3:
                 if (T.CreateBiTreePostOrder_InOrder() == OK)
+                {
+                    Trees.AddBiTree(T);
+                    n++;
                     printf("\t创建成功！\n");
+                }
                 else
                     printf("\t创建失败！\n");
                 break;
@@ -111,7 +125,7 @@ int main()
             printf("\t请输入要查找的结点值：");
             int key;
             scanf("%d", &key);
-            BiTree<int,int> *node;
+            BiTree<int, int> *node;
             node = T.FindNode(key);
             if (node != nullptr)
                 printf("\t结点值为：%d\n", node->key);
@@ -135,7 +149,7 @@ int main()
             printf("\t请输入要查找的结点值：");
             int key1;
             scanf("%d", &key1);
-            BiTree<int,int> *brotherNode;
+            BiTree<int, int> *brotherNode;
             brotherNode = T.GetSibling(key1);
             if (brotherNode != nullptr)
                 printf("\t兄弟结点值为：%d\n", brotherNode->key);
@@ -153,7 +167,7 @@ int main()
             bool isleft;
             printf("\t插入至左侧请输入0，插入至右侧请输入1:");
             scanf("%d", &isleft);
-            if (T.InsertNode(insertKey, parentKey,isleft) == OK)
+            if (T.InsertNode(insertKey, parentKey, isleft) == OK)
                 printf("\t插入成功！\n");
             else
                 printf("\t插入失败！\n");
@@ -247,7 +261,10 @@ int main()
         case 20:
             printf("\t添加二叉树\n");
             if (Trees.AddBiTree(T) == OK)
+            {
+                n++;
                 printf("\t添加成功！\n");
+            }
             else
                 printf("\t添加失败！\n");
             break;
@@ -264,13 +281,20 @@ int main()
         case 22:
             printf("\t定位二叉树\n");
             printf("\t请输入要定位的二叉树名称：");
+            int temp;
             char locateTreeName[20];
             scanf("%s", locateTreeName);
             n = Trees.SelectBiTree(locateTreeName);
             if (n != -1)
+            {
+                T = Trees.GetTree(n);
                 printf("\t定位成功！\n");
+            }
             else
+            {
+                n = temp;
                 printf("\t定位失败！\n");
+            }
             break;
         case 23:
             printf("\t修改二叉树名称\n");

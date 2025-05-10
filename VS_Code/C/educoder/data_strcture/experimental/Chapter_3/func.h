@@ -537,14 +537,28 @@ private:
     int listsize;
 
 public:
+    List GetTree(int index)
+    {
+        return Treelist[index];
+    }
+    char *GetTreename(int index)
+    {
+        if (index == -1)
+        {
+            printf("请选择正确的树");
+            return nullptr;
+        }
+        else
+            return Treename[index];
+    }
     BitreeList() : Treelist(nullptr), Treename(nullptr), listsize(0)
     {
-        Treename=(char **)malloc(20*sizeof(char *)); // 初始化Treename
+        Treename = (char **)malloc(20 * sizeof(char *)); // 初始化Treename
         for (int i = 0; i < 20; ++i)
         {
             Treename[i] = (char *)malloc(20 * sizeof(char)); // 初始化每个Treename元素
         }
-        strcpy(Treename[0], "未选择");
+        strcpy(Treename[0], "默认第一颗树");
     }
 
     // 多二叉树管理
@@ -624,7 +638,6 @@ public:
 
                 // 调整列表大小
                 listsize--;
-
 
                 std::cout << "\t二叉树 " << Delname << " 已删除。" << std::endl;
                 return OK;
