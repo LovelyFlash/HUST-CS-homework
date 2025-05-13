@@ -192,7 +192,7 @@ public:
     }
 
     // 结点赋值
-    status AssignNode(const T1 &key, const T2 &data)
+    status AssignNode(const T1 &key, const T1 &newkey, const T2 &data)
     {
         if (this->key == key)
         {
@@ -201,7 +201,10 @@ public:
         }
         BiTree *node = this->FindNode(key);
         if (node)
-            node->data = data; // 更新数据
+        {
+            node->data = data;  // 更新数据
+            node->key = newkey; // 更新key
+        }
         else
             throw std::invalid_argument("Key not found in the tree.");
         return OK; // 赋值成功
@@ -228,10 +231,11 @@ public:
     }
 
     // 插入结点
-    status InsertNode(const T1 &key, const T2 &data, bool isLeft)
+    status InsertNode(const T1 &key, const T1 &parentkey, const T2 &data, bool isLeft)
     {
-        if (this->key == key)
-            return ERROR; // 不能插入到已存在的节点上
+        BiTree *parentNode = this->FindNode(parentkey);
+        if (parentNode == nullptr)
+            return ERROR; // 父节点不存在
 
         BiTree *newNode = new BiTree();
         newNode->key = key;
@@ -239,51 +243,127 @@ public:
 
         if (isLeft)
         {
-            if (this->left == nullptr)
-                this->left = newNode; // 插入到左子树
+            if (parentNode->left == nullptr)
+            {
+                parentNode->left = newNode; // 插入左子树
+                return OK;
+            }
             else
-                return ERROR; // 左子树已存在
+            {
+                newNode->left = parentNode->left;
+                parentNode->left = newNode;
+                return OK;
+            }
         }
         else
         {
-            if (this->right == nullptr)
-                this->right = newNode; // 插入到右子树
+            if (parentNode->right == nullptr)
+            {
+                parentNode->right = newNode;
+                return OK;
+            } // 插入右子树
             else
-                return ERROR; // 右子树已存在
+            {
+                newNode->right = parentNode->right;
+                parentNode->right = newNode;
+                return OK;
+            }
         }
-
-        return OK; // 插入成功
+        return ERROR;
+    }
+    status InsertNodeAsRoot(T1 insertKey, T2 insertData)
+    {
+        BiTree *newNode = new BiTree();
+        newNode->key = this->key;
+        newNode->data = this->data;
+        newNode->left = this->left;
+        newNode->right = this->right;
+        this->key = insertKey;
+        this->data=insertData;
+        this->left=nullptr;
+        this->right = newNode;
+        return OK;
     }
 
     // 删除结点
     status DeleteNode(const T1 &key)
     {
-        if (this->key == key)
+        BiTree *parent = nullptr;
+        BiTree *current = this;
+
+        // Find the node to delete and its parent
+        while (current && current->key != key)
         {
-            delete this; // 删除当前节点
+            parent = current;
+            if (key < current->key)
+                current = current->left;
+            else
+                current = current->right;
+        }
+
+        if (!current)
+            return ERROR; // Node with key not found
+
+        // Case 1: Node with degree 0 (leaf node)
+        if (!current->left && !current->right)
+        {
+            if (parent)
+            {
+                if (parent->left == current)
+                    parent->left = nullptr;
+                else
+                    parent->right = nullptr;
+            }
+            delete current;
             return OK;
         }
 
-        if (this->left && this->left->key == key)
+        // Case 2: Node with degree 1
+        if (!current->left || !current->right)
         {
-            delete this->left; // 删除左子树
-            this->left = nullptr;
-            return OK;
-        }
-        if (this->right && this->right->key == key)
-        {
-            delete this->right; // 删除右子树
-            this->right = nullptr;
+            BiTree *child = current->left ? current->left : current->right;
+            if (parent)
+            {
+                if (parent->left == current)
+                    parent->left = child;
+                else
+                    parent->right = child;
+            }
+            else
+            {
+                // If deleting the root node
+                this->key = child->key;
+                this->data = child->data;
+                this->left = child->left;
+                this->right = child->right;
+                delete child;
+                return OK;
+            }
+            delete current;
             return OK;
         }
 
-        status leftStatus = ERROR, rightStatus = ERROR;
-        if (this->left)
-            leftStatus = this->left->DeleteNode(key);
-        if (this->right)
-            rightStatus = this->right->DeleteNode(key);
+        // Case 3: Node with degree 2
+        BiTree *lc = current->left;
+        BiTree *rc = current->right;
 
-        return leftStatus == OK || rightStatus == OK ? OK : ERROR; // 返回删除结果
+        current->key = lc->key;
+        current->data = lc->data;
+        current->left = lc->left;
+        current->right = lc->right;
+
+        // Find the rightmost node in LC
+        BiTree *rightmost = lc;
+        while (rightmost->right)
+        {
+            rightmost = rightmost->right;
+        }
+
+        // Attach the right subtree (RC) to the rightmost node of LC
+        rightmost->right = rc;
+
+        delete lc;
+        return OK;
     }
 
     // 打印二叉树（前序遍历）
@@ -351,12 +431,12 @@ public:
     int MaxPathSum()
     {
         if (this->left == nullptr && this->right == nullptr)
-            return this->data; // 叶子节点返回自身数据
+            return this->key; // 叶子节点返回自身key
 
         int leftSum = this->left ? this->left->MaxPathSum() : 0;
         int rightSum = this->right ? this->right->MaxPathSum() : 0;
 
-        return this->data + std::max(leftSum, rightSum); // 返回当前节点数据加上最大路径和
+        return this->key + std::max(leftSum, rightSum); // 返回当前节点key加上最大路径和
     }
 
     // 最近公共祖先（假设二叉树中没有重复的key）

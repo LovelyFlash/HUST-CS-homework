@@ -15,6 +15,7 @@ int main()
     List<Graph<ALGraph>> Graphs;
     static int n = 0;
     int op = 1;
+    VNode lis;
     while (op)
     {
         printf("\n\n");
@@ -76,7 +77,7 @@ int main()
             int pos;
             pos = G.LocateVex(key);
             if (pos != -1)
-                printf("\t顶点位置为：%d\n", pos);
+                printf("\t顶点位置为：%d\n", pos + 1);
             else
                 printf("\t顶点不存在！\n");
             break;
@@ -100,8 +101,9 @@ int main()
             scanf("%d", &v);
             int firstAdj;
             firstAdj = G.FirstAdjVex(v);
+            lis=G.GetNode(firstAdj);
             if (firstAdj != -1)
-                printf("\t第一邻接点位置为：%d\n", firstAdj);
+                printf("\t第一邻接点为：%d %s\n", lis.data.key,lis.data.others);
             else
                 printf("\t没有邻接点！\n");
             break;
@@ -112,8 +114,10 @@ int main()
             scanf("%d %d", &v, &w);
             int nextAdj;
             nextAdj = G.NextAdjVex(v, w);
+
+            lis = G.GetNode(nextAdj);
             if (nextAdj != -1)
-                printf("\t下一邻接点位置为：%d\n", nextAdj);
+                printf("\t下一邻接点为：%d %s\n", lis.data.key, lis.data.others);
             else
                 printf("\t没有下一邻接点！\n");
             break;
@@ -276,6 +280,10 @@ int main()
                 printf("\t输出成功！\n");
             else
                 printf("\t输出失败！\n");
+            break;
+        case 23:
+            std::cout << "\t完整输出当前图" << std::endl;
+            G.Traverse();
             break;
         case 0:
             printf("\t退出程序\n");

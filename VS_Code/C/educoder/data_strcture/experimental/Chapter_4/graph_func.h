@@ -73,6 +73,20 @@ private:
     }
 
 public:
+    void Traverse()
+    {
+        for (int i = 0; i < G.vexnum; i++)
+        {
+            ArcNode *p = G.vertices[i].firstarc;
+            printf("%d %s", G.vertices[i].data.key, G.vertices[i].data.others);
+            while (p)
+            {
+                printf(" %d", p->adjvex);
+                p = p->nextarc;
+            }
+            printf("\n");
+        }
+    }
     Gra GetGraph()
     {
         return G;
@@ -80,6 +94,10 @@ public:
     AdjList *GetGraphList()
     {
         return G.vertices;
+    }
+    VNode GetNode(int index)
+    {
+        return G.vertices[index];
     }
     int GetVexNum()
     {
@@ -536,13 +554,13 @@ public:
             auto p = tmp.firstarc;
             while (p != nullptr)
             {
-                if (visited[p->adjvex] || visited[FindNum(G,tmp)] >= k + 1)
+                if (visited[p->adjvex] || visited[FindNum(G, tmp)] >= k + 1)
                 {
                     p = p->nextarc;
                     continue;
                 }
                 q.push(G.vertices[p->adjvex]);
-                visited[p->adjvex] = visited[FindNum(G,tmp)] + 1;
+                visited[p->adjvex] = visited[FindNum(G, tmp)] + 1;
                 p = p->nextarc;
             }
         }
@@ -586,7 +604,7 @@ public:
                     continue;
                 }
                 q.push(G.vertices[p->adjvex]);
-                visited[p->adjvex] = visited[FindNum(G,tmp)] + 1;
+                visited[p->adjvex] = visited[FindNum(G, tmp)] + 1;
                 p = p->nextarc;
             }
         }

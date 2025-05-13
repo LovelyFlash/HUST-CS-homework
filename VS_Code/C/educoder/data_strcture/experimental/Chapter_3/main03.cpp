@@ -6,10 +6,14 @@
 int main()
 {
     SetConsoleOutputCP(65001); // 设置控制台输出编码为UTF-8
-    BiTree<int, int> T;
-    BitreeList<BiTree<int, int>> Trees;
+    BiTree<int, char> T;
+    BitreeList<BiTree<int, char>> Trees;
     static int n = 0;
     int op = 1;
+    int insertKey, parentKey, oldKey, newKey;
+    int isleft;
+    char newdata;
+    char insertData;
     while (op)
     {
         printf("\n\n");
@@ -125,7 +129,7 @@ int main()
             printf("\t请输入要查找的结点值：");
             int key;
             scanf("%d", &key);
-            BiTree<int, int> *node;
+            BiTree<int, char> *node;
             node = T.FindNode(key);
             if (node != nullptr)
                 printf("\t结点值为：%d\n", node->key);
@@ -133,23 +137,26 @@ int main()
                 printf("\t未找到该结点！\n");
             break;
         case 7:
+        {
             printf("\t结点赋值\n");
             printf("\t请输入要赋值的结点值：");
-            int oldKey, newKey;
-            scanf("%d", &oldKey);
+            std::cin >> oldKey;
             printf("\t请输入新的结点值：");
-            scanf("%d", &newKey);
-            if (T.AssignNode(oldKey, newKey) == OK)
+            std::cin >> newKey;
+            printf("\t请输入新的结点数据：");
+            std::cin >> newdata;
+            if (T.AssignNode(oldKey, newKey, newdata) == OK)
                 printf("\t赋值成功！\n");
             else
                 printf("\t赋值失败！\n");
             break;
+        }
         case 8:
             printf("\t获得兄弟结点\n");
             printf("\t请输入要查找的结点值：");
             int key1;
             scanf("%d", &key1);
-            BiTree<int, int> *brotherNode;
+            BiTree<int, char> *brotherNode;
             brotherNode = T.GetSibling(key1);
             if (brotherNode != nullptr)
                 printf("\t兄弟结点值为：%d\n", brotherNode->key);
@@ -159,18 +166,36 @@ int main()
         case 9:
             printf("\t插入结点\n");
             printf("\t请输入要插入的结点值：");
-            int insertKey;
-            scanf("%d", &insertKey);
-            printf("\t请输入要插入的父结点值：");
-            int parentKey;
-            scanf("%d", &parentKey);
-            bool isleft;
-            printf("\t插入至左侧请输入0，插入至右侧请输入1:");
-            scanf("%d", &isleft);
-            if (T.InsertNode(insertKey, parentKey, isleft) == OK)
-                printf("\t插入成功！\n");
+            // scanf("%d", &insertKey);
+            std::cin >> insertKey;
+            printf("\t请输入要插入的结点数据：");
+            // scanf("%c", &insertData);
+            std::cin >> insertData;
+
+            printf("\t插入至右侧请输入0，插入至左侧请输入1:");
+            std::cin >> isleft;
+            if (isleft >= 0)
+            {
+                printf("\t请输入要插入的父结点值：");
+                // scanf("%d", &parentKey);
+                std::cin >> parentKey;
+                if (T.InsertNode(insertKey, parentKey, insertData, isleft) == OK)
+                    printf("\t插入成功！\n");
+                else
+                    printf("\t插入失败！\n");
+            }
+            else if (isleft == -1)
+            {
+                if (T.InsertNodeAsRoot(insertKey, insertData) == OK)
+                    printf("\t插入成功！\n");
+                else
+                    printf("\t插入失败！\n");
+            }
             else
-                printf("\t插入失败！\n");
+            {
+                printf("\t输入错误，请重新输入！\n");
+            }
+
             break;
         case 10:
             printf("\t删除结点\n");
@@ -224,7 +249,7 @@ int main()
             printf("\t请输入要查找的两个结点值：");
             int keyA, keyB;
             scanf("%d %d", &keyA, &keyB);
-            BiTree<int, int> *lcaNode;
+            BiTree<int, char> *lcaNode;
             lcaNode = T.LowestCommonAncestor(keyA, keyB);
             if (lcaNode != nullptr)
                 printf("\t最近公共祖先结点值为：%d\n", lcaNode->key);
@@ -282,12 +307,13 @@ int main()
             printf("\t定位二叉树\n");
             printf("\t请输入要定位的二叉树名称：");
             int temp;
+            temp = n;
             char locateTreeName[20];
             scanf("%s", locateTreeName);
             n = Trees.SelectBiTree(locateTreeName);
             if (n != -1)
             {
-                T = Trees.GetTree(n);
+                T = Trees.GetTree(n - 1);
                 printf("\t定位成功！\n");
             }
             else
