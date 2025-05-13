@@ -17,7 +17,7 @@ status SaveGraph(ALGraph G, char FileName[])
         while (p != NULL)
         {
             fprintf(fp, "%d ", p->adjvex);
-            p = p->nextarc;
+            p = p->Anextarc;
         }
         fprintf(fp, "-1\n");
     }
