@@ -98,5 +98,9 @@
         "variant": "cpp",
         "stu.h": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled",
+    
+    "python.analysis.extraPaths": [
+        "./VS_Code/python"
+    ]
+
 }
