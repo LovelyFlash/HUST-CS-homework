@@ -1,15 +1,218 @@
-#include "1-1\stu.h"
-#include "1-2\stu.h"
-#include "1-3\stu.h"
-#include "1-4\stu.h"
-#include "1-5\stu.h"
-#include "1-6\stu.h"
-#include "1-7\stu.h"
-#include "1-8\stu.h"
-#include "1-9\stu.h"
-#include "1-10\stu.h"
-#include "1-11\stu.h"
-#include "1-12\stu.h"
+status InitList(SqList &L)
+{
+    if (L.elem != NULL)
+        return INFEASIBLE; 
+    
+    L.elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));
+    if (!L.elem)
+        return OVERFLOW;
+    
+    L.length = 0;
+    L.listsize = LIST_INIT_SIZE;
+
+    return OK;
+}
+
+status DestroyList(SqList& L)
+{
+    if (L.elem != NULL)
+    {
+        free(L.elem);
+        L.elem = NULL; // 将指针设置为NULL
+        L.length = 0;
+        L.listsize = 0;
+        return OK;
+    }
+    else
+    {
+        return INFEASIBLE;
+    }
+}
+
+status ClearList(SqList& L)
+// 如果线性表L存在，删除线性表L中的所有元素，返回OK，否则返回INFEASIBLE。
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin *********/
+    if (L.elem != NULL)
+    {
+        L.elem[0] = '\0';
+        L.length = 0;
+        return OK;
+    }
+    else
+    {
+        return INFEASIBLE;
+    }
+    /********** End **********/
+}
+
+status ListEmpty(SqList L)
+// 如果线性表L存在，判断线性表L是否为空，空就返回TRUE，否则返回FALSE；如果线性表L不存在，返回INFEASIBLE。
+{
+    // 请在这里补充代码，完成本关任务
+    /********** Begin *********/
+    if(L.elem == NULL)
+    {
+        return INFEASIBLE;
+    }
+    else
+    {
+        if(L.length == 0)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+    /********** End **********/
+}
+
+status ListLength(SqList &L)
+{
+    // 如果线性表L存在，返回线性表L的长度，否则返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem==NULL) {
+        return INFEASIBLE;
+    }
+    return L.length;
+    /********** End **********/
+}
+
+status GetElem(SqList L, int i, ElemType &e)
+{
+    // 如果线性表L存在，获取线性表L的第i个元素，保存在e中，返回OK；如果i不合法，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    if (i < 1 || i > L.length) {
+        return ERROR;
+    }
+    e = L.elem[i - 1];
+    return OK;
+    /********** End **********/
+}
+
+int LocateElem(SqList L, ElemType e)
+{
+    // 如果线性表L存在，查找元素e在线性表L中的位置序号并返回该序号；如果e不存在，返回0；当线性表L不存在时，返回INFEASIBLE（即-1）。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    for (int i = 0; i < L.length; i++) {
+        if (L.elem[i] == e) {
+            return i + 1; // 返回位置序号，从1开始
+        }
+    }
+    return 0; // 元素e不存在
+    /********** End **********/
+}
+
+status PriorElem(SqList L, ElemType e, ElemType &pre)
+{
+    // 如果线性表L存在，获取线性表L中元素e的前驱，保存在pre中，返回OK；如果没有前驱，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    for (int i = 1; i < L.length; i++) {
+        if (L.elem[i] == e) {
+            pre = L.elem[i - 1];
+            return OK;
+        }
+    }
+    return ERROR; // 没有前驱
+    /********** End **********/
+}
+
+status NextElem(SqList L, ElemType e, ElemType &next)
+{
+    // 如果线性表L存在，获取线性表L元素e的后继，保存在next中，返回OK；如果没有后继，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    for (int i = 0; i < L.length - 1; i++) {
+        if (L.elem[i] == e) {
+            next = L.elem[i + 1];
+            return OK;
+        }
+    }
+    return ERROR; // 没有后继
+    /********** End **********/
+}
+
+status ListInsert(SqList &L, int i, ElemType e)
+{
+    // 如果线性表L存在，将元素e插入到线性表L的第i个元素之前，返回OK；当插入位置不正确时，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    if (i < 1 || i > L.length + 1) {
+        return ERROR;
+    }
+    if (L.length >= L.listsize) {
+        // 动态增加内存分配
+        ElemType *newBase = (ElemType *) realloc(L.elem, (L.listsize + 10) * sizeof(ElemType));
+        if (!newBase) {
+            return OVERFLOW;
+        }
+        L.elem = newBase;
+        L.listsize += 10;
+    }
+    for (int j = L.length; j >= i; j--) {
+        L.elem[j] = L.elem[j - 1];
+    }
+    L.elem[i - 1] = e;
+    L.length++;
+    return OK;
+    /********** End **********/
+}
+
+status ListDelete(SqList &L, int i, ElemType &e)
+{
+    // 如果线性表L存在，删除线性表L的第i个元素，并保存在e中，返回OK；当删除位置不正确时，返回ERROR；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL) {
+        return INFEASIBLE;
+    }
+    if (i < 1 || i > L.length) {
+        return ERROR;
+    }
+    e = L.elem[i - 1];
+    for (int j = i; j < L.length; j++) {
+        L.elem[j - 1] = L.elem[j];
+    }
+    L.length--;
+    return OK;
+    /********** End **********/
+}
+
+status ListTraverse(SqList L)
+{
+    // 如果线性表L存在，依次显示线性表中的元素，每个元素间空一格，返回OK；如果线性表L不存在，返回INFEASIBLE。
+    /********** Begin *********/
+    if (L.elem == NULL)
+    {
+        return INFEASIBLE;
+    }
+    printf("\t");
+    for (int i = 0; i < L.length; i++)
+    {
+        printf("%d", L.elem[i]);
+        if (i != L.length - 1)
+            printf(" ");
+    }
+    printf("\n");
+    return OK;
+    /********** End **********/
+}
+
 
 // 最大连续子数组和
 int MaxSubArray(SqList L)

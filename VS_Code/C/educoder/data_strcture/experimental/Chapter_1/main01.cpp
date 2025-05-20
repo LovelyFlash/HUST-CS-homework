@@ -171,7 +171,7 @@ int main(void)
             ElemType e0;
             scanf("%d", &i);
             if (GetElem(L, i, e0) == OK)
-                printf("\t线性表的第%d个元素为：%d\n", i, GetElem(L, i, e0));
+                printf("\t线性表的第%d个元素为：%d\n", i, e0);
             else
                 printf("\t线性表的第%d个元素获取失败！\n", i);
             break;
@@ -180,7 +180,7 @@ int main(void)
             printf("\t请输入要查找的元素：");
             int e;
             scanf("%d", &e);
-            if (LocateElem(L, e) == OK)
+            if (LocateElem(L, e))
                 printf("\t线性表中元素%d的序号为：%d\n", e, LocateElem(L, e));
             else
                 printf("\t线性表中元素%d的查找失败！\n", e);
@@ -317,6 +317,8 @@ int main(void)
         case 22:
             for (int i = 0; i < Lists.length; i++)
                 printf("\t%s\n", Lists.elem[i].name);
+            break;
+        case 0:
             break;
         default:
             printf("输入错误，请重新输入！\n");
