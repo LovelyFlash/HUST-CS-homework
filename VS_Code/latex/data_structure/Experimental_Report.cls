@@ -680,15 +680,15 @@
 	{super}{\let \cite \supercite}
 }
 
-%设置参考文献样式
-\IfStrEqCase{\HGP@citebst}{
-	{Experimental_Report}{\bibliographystyle{Experimental_Report}}
-%	{gbt7714-2015}{\bibliographystyle{gbt7714-2015}}
-	{thuthesis}{
-		\bibliographystyle{thuthesis-numeric}
-		\def\thudot{\unskip.}
-	}
-}
+% %设置参考文献样式
+% \IfStrEqCase{\HGP@citebst}{
+% 	{Experimental_Report}{\bibliographystyle{Experimental_Report}}
+% %	{gbt7714-2015}{\bibliographystyle{gbt7714-2015}}
+% 	{thuthesis}{
+% 		\bibliographystyle{thuthesis-numeric}
+% 		\def\thudot{\unskip.}
+% 	}
+% }
 
 %设置新的参考文献
 \let \oldbibliography \bibliography
