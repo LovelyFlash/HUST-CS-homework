@@ -1,17 +1,17 @@
 // 数据结构实验一：顺序表演示
-#include <stdio.h>
-#include <malloc.h>
-#include <stdlib.h>
-#include <string.h>
+#include <bits/stdc++.h>
+#include <windows.h>
 #include "def.h"  // 相关数据类型的定义
 #include "func.h" // 相关功能的定义
 
 int main(void)
 {
+    SetConsoleOutputCP(65001); // 设置控制台输出编码为UTF-8
     SqList L;
     LISTS Lists; // 链表头指针
     Lists.elem[0].L = L;
-    Lists.length =0;
+    Lists.length = 0;
+    int num = 1;
     strcpy(Lists.elem[0].name, "线性表1"); // 初始化顺序表名称
     L.elem = NULL;
     int op = 1;
@@ -45,7 +45,7 @@ int main(void)
         printf("   22. 输出所有顺序表名称\n");
         printf("    0. 退出程序\n");
         printf("===============================================\n");
-        printf("  正在操作的顺序表名称：%s\n", Lists.elem[0].name);
+        printf("  正在操作的顺序表名称：%s\n", Lists.elem[num-1].name);
         printf("  请选择你的操作 [0 ~ 22]: ");
         scanf("%d", &op);
 
@@ -292,7 +292,6 @@ int main(void)
             // printf("\n----LocateList功能待实现！\n");
             printf("\t请输入要查找的顺序表名称：");
             scanf("%s", listname);
-            int num;
             num = LocateList(Lists, listname);
             if (num)
             {
