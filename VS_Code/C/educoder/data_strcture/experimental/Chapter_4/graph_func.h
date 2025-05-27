@@ -473,13 +473,13 @@ public:
             visited[i] = 0; // 初始化为未访问
         }
 
-        for (int i = 0; i < G.vexnum; i++)
-        {
-            if (visited[i] == 0)
-            {
-                DFS(G, i, visit, visited); // 调用辅助函数进行深度优先搜索
-            }
-        }
+        int firstVex;
+        std::cout << "请输入起始顶点的关键字: ";
+        std::cin >> firstVex; // 输入起始顶点的关键字
+
+        int i = FindVex(G, firstVex); // 查找起始顶点的索引
+
+        DFS(G, i, visit, visited); // 调用辅助函数进行深度优先搜索
 
         free(visited); // 释放动态分配的内存
         return OK;
@@ -497,13 +497,15 @@ public:
             visited[i] = 0; // 初始化为未访问
 
         queue<VNode> q;
-        int first = 0;
-        while (first != G.vexnum)
+
+        int firstVex;
+        std::cout << "请输入起始顶点的关键字: ";
+        std::cin >> firstVex; // 输入起始顶点的关键字
+
+        int first = FindVex(G, firstVex); // 查找起始顶点的索引
+
+        if (first != G.vexnum)
         {
-            for (first = 0; first < G.vexnum && visited[first]; first++)
-                ;
-            if (first == G.vexnum)
-                break;
             q.push(G.vertices[first]);
             visited[first] = 1;
             while (!q.empty())
@@ -827,7 +829,7 @@ public:
         {
             if (strcmp(this->name[i], name) == 0)
             {
-                std::cout << "\t选择的图名称: " << this->name[i] << std::endl;
+                std::cout << "\t选择的图为第" << i + 1 << "张图" << std::endl;
                 return i; // 选择成功
             }
         }

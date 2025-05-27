@@ -249,10 +249,10 @@ int main()
             scanf("%s", locateGraphName);
             int temp;
             temp = n;
-            n = Graphs.SelectGraph(locateGraphName);
+            n = Graphs.SelectGraph(locateGraphName)+1;
             if (n != -1)
             {
-                G = Graphs.GetGraph(n);
+                G = Graphs.GetGraph(n-1);
                 printf("\t定位成功！\n");
             }
             else
