@@ -24,7 +24,7 @@
 \providecommand{\bibdate}[1]{#1}
 \providecommand{\biburl}[1]{\newline\url{#1}}
 
-\bibitem{baf96}
-\bibauthor{BAFNA V\@, PEVZNER P~A}\@. \bibtitle{Genome Rearrangements and Sorting by Reversals}\bibmark{[J/OL]}\@. \bibjournal{SIAM J. Comput.}\@, \bibyear{1996}\@, \bibvolume{25}\bibnumber{(2)}\thinspace{}\textnormal{: }\bibpages{272\thinspace{}\textnormal{--}\thinspace{}289} \bibcitedate{[1996-02-01]}\@. \newline\url{http://dx.doi.org/10.1137/S0097539793250627}\@.
+\bibitem{shujujiegou}
+\bibauthor{袁凌}\@. \bibbooktitle{数据结构（C语言微课版）——从概念到算法}\bibmark{[M]}\@. \bibedition{\mbox{第1版}}\@. \bibaddress{北京市丰台区成寿寺路11号}\thinspace{}\textnormal{: }\bibpublisher{人民邮电出版社}\@, \bibyear{2023}\@.
 
 \end{thebibliography}

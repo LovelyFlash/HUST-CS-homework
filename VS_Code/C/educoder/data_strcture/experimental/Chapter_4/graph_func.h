@@ -596,7 +596,7 @@ public:
             {
                 if (G.vertices[p->adjvex].data.key == v2)
                 {
-                    res = visited[tmp.data.key];
+                    res = visited[FindVex(G, tmp.data.key)]; // 找到目标顶点，记录路径长度
                     free(visited);
                     return res;
                 }
