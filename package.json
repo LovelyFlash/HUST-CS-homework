@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "obsidian": "^1.8.7"
-  },
-  "dependencies": {
-    "@cantoo/pdf-lib": "^2.4.1"
-  }
-}
