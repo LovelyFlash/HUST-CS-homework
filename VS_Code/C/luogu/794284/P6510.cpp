@@ -5,34 +5,36 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    vector<vector<int>> dp(n, vector<int>(2, 0));
+    vector<unsigned long long> a(n);
     for (int i = 0; i < n; i++)
         cin >> a[i];
-    for (int i = 1; i < n; i++)
+    stack<int> s;
+    int ans = 0;
+    int left[n], right[n];
+    for (int i = n - 1; i >= 0; i--)
     {
-        if (a[i] < a[dp[i - 1][0]])
+        while (!s.empty() && a[s.top()] > a[i])
+            s.pop();
+        right[i] = s.empty() ? n : s.top();
+        s.push(i);
+    }
+    while (!s.empty())
+        s.pop();
+    for (int i = 0; i < n; i++)
+    {
+        while (!s.empty() && a[s.top()] < a[i])
+            s.pop();
+        left[i] = s.empty() ? -1 : s.top();
+        s.push(i);
+        for (int j = left[i]; j < i; j++)
         {
-            dp[i][0] = i;
-            dp[i][1] = i;
-        }
-        else if (a[i] > a[dp[i - 1][1]])
-            dp[i][1] = i;
-        else
-        {
-            dp[i][0] = dp[i - 1][0];
-            dp[i][1] = dp[i - 1][1];
+            if (j == -1)
+                j++;
+            if (i < right[j])
+                ans = max(ans, (i - j + 1));
         }
     }
-    for (int i = 0; i < n; i++)
-        a[i] = dp[i][1] - dp[i][0];
-    int ans = -1;
-    for (int i = 0; i < n; i++)
-        if (a[i] > ans)
-            ans = a[i];
-    if (ans)
-        cout << ans + 1;
-    else
-        cout << 0;
+
+    cout << (ans == 1 ? 0 : ans);
     return 0;
 }
