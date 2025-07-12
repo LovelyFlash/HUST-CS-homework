@@ -1,31 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ull unsigned long long
-#define MAXLEN 20001
+stack<int> st;
+int n, op, x, f[100005];
 
 int main()
 {
-    ull weight, max_weight[MAXLEN] = {0};
-    long count = 0, mode, n;
     cin >> n;
-    while (n--)
+    for (int i = 1; i <= n; i++)
     {
-        cin >> mode;
-        switch (mode)
+        cin >> op;
+        if (op == 0)
         {
-        case 0:
-            cin >> weight;
-            count++;
-            max_weight[count] = max(max_weight[count - 1], weight);
-            break;
-        case 1:
-            if (count)
-                count--;
-            break;
-        case 2:
-            cout << max_weight[count] << endl;
-            break;
+            scanf("%d", &x), st.push(x);
+            f[st.size() - 1] = max(f[st.size() - 2], x);
         }
+        if (op == 1 && !st.empty())
+            st.pop();
+        if (op == 2)
+            cout << f[st.size() - 1] << endl;
     }
     return 0;
 }

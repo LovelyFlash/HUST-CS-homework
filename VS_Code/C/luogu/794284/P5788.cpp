@@ -4,18 +4,22 @@ using namespace std;
 int main()
 {
     stack<int> s;
-    int n, count = 0, i;
+    long long n;
     cin >> n;
-    int pos[n] = {0}, num[n] = {0};
+    long long ans[3000005] = {0}, num[3000005] = {0};
     for (int i = 0; i < n; i++)
         cin >> num[i];
-    for (int i = 0; i < n; i++)
+    for (int i = n - 1; i > -1; i--)
     {
-        if (s.empty())
-            s.push(i);
-        while (!s.empty() && num[s.top()] < num[i])
+        while (!s.empty() && num[s.top()] <= num[i])
             s.pop();
-        pos[i] = s.top();
+        if (s.empty())
+            ans[i] = 0;
+        else
+            ans[i] = s.top() + 1;
         s.push(i);
     }
+    for (int i = 0; i < n; i++)
+        cout << ans[i] << " ";
+    return 0;
 }
