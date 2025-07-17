@@ -1,0 +1,25 @@
+INFO:  ANSI Code Page: 936
+INFO:  latexindent.exe version 3.24.4, 2024-07-18, a script to indent .tex files
+       latexindent.exe lives here: D:/texlive/2025/bin/windows/
+       Wed Apr 30 10:57:39 2025
+       Filename: d:\desktop\file\学校文件\实验报告\数据结构\实验报告\Experimental_Report.tex
+INFO:  Processing switches:
+INFO:  Directory for backup files and log file indent.log:
+       d:\desktop\file\学校文件\实验报告\数据结构\实验报告
+INFO:  YAML settings read: defaultSettings.yaml
+       Reading defaultSettings.yaml from D:/texlive/2025/bin/windows/defaultSettings.yaml
+       Reading defaultSettings.yaml (2nd attempt) from D:/texlive/2025/bin/windows/../../texmf-dist/scripts/latexindent/defaultSettings.yaml
+       and then, if necessary, D:/texlive/2025/bin/windows/LatexIndent/defaultSettings.yaml
+INFO:  YAML reading settings
+       Home directory is C:\Users\LovelyFlash
+       latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
+       see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  Phase 1: searching for objects
+INFO:  Phase 2: finding surrounding indentation
+INFO:  Phase 3: indenting objects
+INFO:  Phase 4: final indentation check
+INFO:  Output routine:
+       Not outputting to file; see -w and -o switches for more options.
+       --------------
+INFO:  Please direct all communication/issues to:
+        https://github.com/cmhughes/latexindent.pl

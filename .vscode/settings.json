@@ -98,5 +98,13 @@
         "variant": "cpp",
         "stu.h": "c"
     },
-    "C_Cpp.errorSquiggles": "disabled",
+    
+    "python.analysis.extraPaths": [
+        "./VS_Code/python"
+    ],
+    "java.format.settings.url": ".vscode/java-formatter.xml",
+    "[java]": {
+        "editor.insertSpaces": true
+    }
+
 }

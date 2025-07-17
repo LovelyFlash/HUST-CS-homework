@@ -300,7 +300,6 @@ int main(void)
                         j = -1; // 重置j为-1，以便重新检查所有已存在的顺序表名称
                     }
                 }
-                strcpy(Lists.name[i], listname); // 将新顺序表名称存入链表数组
                 if (AddList(Lists, listname) == OK)
                     printf("\t顺序表添加成功！\n");
                 else

@@ -1,0 +1,8 @@
+% Experimental_Report.ist 样式文件
+heading_prefix "{\\bfseries "
+heading_suffix "}\\nopagebreak\n"
+item_0 "\\hfill "
+item_x "\\hfill "
+delim_0 "\\dotfill "
+delim_1 "\\dotfill "
+delim_2 "\\dotfill "
