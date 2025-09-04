@@ -105,6 +105,7 @@
     "java.format.settings.url": ".vscode/java-formatter.xml",
     "[java]": {
         "editor.insertSpaces": true
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 
 }
