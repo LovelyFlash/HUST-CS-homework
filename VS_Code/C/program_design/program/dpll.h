@@ -3,10 +3,6 @@
 #ifndef _DPLL_
 #define _DPLL_
 
-int cmp(Sentence s1, Sentence s2)
-{
-    return s1[0] > s2[0];
-}
 int cmp_1(const void *a, const void *b)
 {
     return a > b;
@@ -71,6 +67,14 @@ public:
     }
 };
 
+int cmp(Sentence s1, Sentence s2)
+{
+    return s1[0] > s2[0];
+}
+int cmp_adapter(const void *a, const void *b)
+{
+    return cmp(*(const Sentence *)a, *(const Sentence *)b);
+}
 struct CNF
 {
     int var_num = -1, clause = -1, var;
@@ -81,6 +85,8 @@ struct CNF
         FILE *file = fopen(filename, "r");
         while (!feof(file))
         {
+            char tem[100];
+            char msg;
             char line[1000];
             fgets(line, 1000, file);
             if (line[0] == 'c')
@@ -94,7 +100,7 @@ struct CNF
                 }
                 try
                 {
-                    sscanf(line, "%d %d", &var_num, &clause);
+                    sscanf(line, "%s%s%d%d", &msg, tem, &var_num, &clause);
                 }
                 catch (const std::exception &e)
                 {
@@ -131,7 +137,7 @@ struct CNF
     }
     void sort()
     {
-        qsort(sentence, clause, sizeof(Sentence), cmp);
+        qsort(sentence, clause, sizeof(Sentence), cmp_adapter);
     }
     int var_exist()
     // 判断是否存在单子句
