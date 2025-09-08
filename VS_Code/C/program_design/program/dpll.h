@@ -1,8 +1,14 @@
 #include <iostream>
 #include <cstdlib>
+#include <chrono>
+using namespace std;
+
 #ifndef _DPLL_
 #define _DPLL_
+
+
 int MAX = 730;
+
 int cmp_1(const void *a, const void *b)
 {
     return a > b;
@@ -31,16 +37,16 @@ public:
     void out()
     {
         for (int i = 0; i < MAX; i++)
-            std::cout << i << ' ' << arr[i] << ' ';
-        std::cout << '\n';
+            cout << i << ' ' << arr[i] << ' ';
+        cout << '\n';
     }
 
     int operator[](int n)
     {
         return arr[abs(n)];
     }
-    void assign(int n)
 
+    void assign(int n)
     // 标识对应文字存在性以及正负性
     {
         arr[abs(n)] = n / abs(n);
@@ -75,17 +81,17 @@ public:
         int i = 1;
         while (arr[i] == 0)
             i++;
-        return i;
+        return i * arr[i];
     }
 };
 
-int cmp(Sentence s1, Sentence s2)
+int cmp(const void *a, const void *b)
 {
-    return s1[0] > s2[0];
-}
-int cmp_adapter(const void *a, const void *b)
-{
-    return cmp(*(const Sentence *)a, *(const Sentence *)b);
+    Sentence *s1 = (Sentence *)a;
+    Sentence *s2 = (Sentence *)b;
+    if ((*s1)[0] < (*s2)[0]) return -1;
+    if ((*s1)[0] > (*s2)[0]) return 1;
+    return 0;
 }
 struct CNF
 {
@@ -94,15 +100,19 @@ struct CNF
     CNF() {
     };
 
-    CNF(const CNF &other)
+    CNF(const CNF *other)
     {
-        var_num = other.var_num;
-        var = other.var;
-        clause = other.clause;
-        sentence = new Sentence[other.clause + 1];
-        for (int i = 0; i < other.clause + 1; i++)
-            sentence[i] = Sentence(other.sentence[i]);
+        var_num = other->var_num;
+        var = other->var;
+        clause = other->clause + 1;
+        sentence = new Sentence[clause + 1];
+        for (int i = 0; i < clause; i++)
+            sentence[i] = Sentence(other->sentence[i]);
+        // if (clause)
+        //     for (int i = 0; i < clause + 1; i++)
+        //         sentence[i].out();
     }
+
     CNF(const char *filename)
     {
         FILE *file = fopen(filename, "r");
@@ -189,7 +199,7 @@ struct CNF
     }
     void sort()
     {
-        qsort(sentence + 1, clause, sizeof(Sentence), cmp_adapter);
+        qsort(sentence + 1, clause, sizeof(Sentence), cmp);
     }
     int var_exist()
     // 判断是否存在单子句
@@ -199,20 +209,13 @@ struct CNF
                 return 1;
         return 0;
     }
-    int find_maxvar(CNF &S)
+    int find_maxvar()
     // 找到出现次数最多的文字,返回该文字索引
     {
-        int max = -1;
+        int max = 0;
         for (int i = 0; i < var_num; i++)
-            if (sentence[0][i] > max)
+            if (sentence[0][i] > sentence[0][max])
                 max = i;
-
-        CNF t = CNF(S);
-        clause++;
-        sentence = new Sentence[clause + 1];
-        for (int i = 0; i < clause; i++)
-            sentence[i] = t.sentence[i];
-
         return max;
     }
     void del_var(int line, int var)
@@ -222,31 +225,35 @@ struct CNF
         sentence[0].minus(var);
     }
 
-    CNF if_true(CNF &S, int max)
+    CNF if_true(int max)
     // 假设选取变元为真
     {
-        sentence[clause].assign(max);
-        sentence[0].add(max);
-        return S;
+        CNF t = CNF(this);
+
+        t.sentence[t.clause].assign(max);
+        t.sentence[0].add(max);
+        return t;
     }
 
-    CNF if_false(CNF &S, int max)
+    CNF if_false(int max)
     // 假设选取变元为假
     {
-        sentence[clause].assign(-max);
-        sentence[0].add(-max);
-        return S;
+        CNF t = CNF(this);
+
+        t.sentence[t.clause].assign(-max);
+        t.sentence[0].add(-max);
+        return t;
     }
 };
 
 bool DPLL(CNF S)
 {
     S.sort();
-    // if (S.clause)
-    //     for (int i = 0; i < S.clause + 1; i++)
-    //         S.sentence[i].out();
+    // if(S.clause==89)
+    // for (int i = 0; i < S.clause + 1; i++)
+    //     S.sentence[i].out();
     while (S.var_exist())
-        for (int i = 1; S.sentence[i][0] <= 1; i++)
+        for (int i = 1; S.sentence[i][0] <= 1 && i <= S.clause; i++)
         {
             if (S.sentence[i][0] == 1) // 找到所有单子句并操作
             {
@@ -256,6 +263,7 @@ bool DPLL(CNF S)
                     S.del_var(j, k);           // 删除文字
                     if (S.sentence[j][0] == 0) // 出现空子句即说明无结果
                         return false;
+
                     else if (S.sentence[j][0] == -1)
                         // 若删除句子则减少该句中的文字出现次数
                         for (int m = 1; m <= S.var_num; m++)
@@ -265,20 +273,19 @@ bool DPLL(CNF S)
                 S.sort();
 
                 if (S.sentence[S.clause][0] == -1) // 若排序后文字数量最大的句子已被删除，则说明有解
-                {
-
-                    for (int i = 0; i < S.clause + 1; i++)
-                        S.sentence[i].out();
                     return true;
-                }
             }
         }
 
-    CNF tem = CNF(S);
-    int max = S.find_maxvar(S);
-    if (DPLL(S.if_true(S, max)) > 0)
+    int max = S.find_maxvar();
+    if (!max)
+        return false;
+
+    if (DPLL(S.if_true(max)))
         return true;
-    return DPLL(tem.if_false(tem, max));
+    if (DPLL(S.if_false(max)))
+        return true;
+    return false;
 }
 
 bool DPLL(const char *filename)
