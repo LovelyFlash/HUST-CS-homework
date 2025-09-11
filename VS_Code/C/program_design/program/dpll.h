@@ -6,13 +6,8 @@ using namespace std;
 #ifndef _DPLL_
 #define _DPLL_
 
-
 int MAX = 730;
 
-int cmp_1(const void *a, const void *b)
-{
-    return a > b;
-}
 class Sentence
 {
 private:
@@ -89,8 +84,10 @@ int cmp(const void *a, const void *b)
 {
     Sentence *s1 = (Sentence *)a;
     Sentence *s2 = (Sentence *)b;
-    if ((*s1)[0] < (*s2)[0]) return -1;
-    if ((*s1)[0] > (*s2)[0]) return 1;
+    if ((*s1)[0] < (*s2)[0])
+        return -1;
+    if ((*s1)[0] > (*s2)[0])
+        return 1;
     return 0;
 }
 struct CNF
@@ -278,7 +275,7 @@ bool DPLL(CNF S)
         }
 
     int max = S.find_maxvar();
-    if (!max)
+    if (max >= S.var_num)
         return false;
 
     if (DPLL(S.if_true(max)))
@@ -288,8 +285,15 @@ bool DPLL(CNF S)
     return false;
 }
 
+#include <ctime>
 bool DPLL(const char *filename)
 {
-    return DPLL(CNF(filename));
+    CNF cnf(filename);
+    clock_t start = clock();
+    bool result = DPLL(cnf);
+    clock_t end = clock();
+    printf("DPLL求解用时: %ld ms\n", (end - start) * 1000 / CLOCKS_PER_SEC);
+    printf("SAT结果: %s\n", result ? "SATISFIABLE" : "UNSATISFIABLE");
+    return result;
 }
 #endif
