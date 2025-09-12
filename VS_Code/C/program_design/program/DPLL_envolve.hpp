@@ -117,6 +117,10 @@ struct CNF
     bool flag;
     bool *value;
     
+    // 新增：记录每个变元的正负出现情况
+    int *positive_count;  // 正文字出现次数
+    int *negative_count;  // 负文字出现次数
+    
     struct Node
     {
         bool sign;
@@ -134,13 +138,16 @@ struct CNF
         Title() : num(0), status(false) {}
     } *var, *cls;
 
-    CNF() : var_c(-1), cls_c(-1), var(nullptr), cls(nullptr), flag(false), value(nullptr), solved(false) {}
+    CNF() : var_c(-1), cls_c(-1), var(nullptr), cls(nullptr), flag(false), 
+            value(nullptr), solved(false), positive_count(nullptr), negative_count(nullptr) {}
 
     ~CNF()
     {
         if (var) delete[] var;
         if (cls) delete[] cls;
         if (value) delete[] value;
+        if (positive_count) delete[] positive_count;
+        if (negative_count) delete[] negative_count;
     }
 
     void push(int c, int v, bool sign)
@@ -163,6 +170,12 @@ struct CNF
         var[v].head.vnxt = newnode;
         newnode->vpre = &var[v].head;
         var[v].num++;
+        
+        // 更新正负计数
+        if (sign)
+            positive_count[v]++;
+        else
+            negative_count[v]++;
     }
 
     bool read(const char file[])
@@ -199,7 +212,12 @@ struct CNF
                 var = new Title[var_c + 1];
                 cls = new Title[cls_c + 1];
                 value = new bool[var_c + 1];
+                positive_count = new int[var_c + 1];
+                negative_count = new int[var_c + 1];
+                
                 memset(value, 0, (var_c + 1) * sizeof(bool));
+                memset(positive_count, 0, (var_c + 1) * sizeof(int));
+                memset(negative_count, 0, (var_c + 1) * sizeof(int));
             }
             else if (*buff >= '0' && *buff <= '9' || *buff == '-')
             {
@@ -340,6 +358,71 @@ struct CNF
         return true;
     }
 
+    // 新增：优化变量选择策略 - 优先选择全为正或全为负的变元
+    int select_optimal_variable()
+    {
+        int best_var = -1;
+        int best_score = -1;
+        
+        for (int v = 1; v <= var_c; v++)
+        {
+            if (var[v].status) continue; // 跳过已赋值的变量
+            
+            // 计算分数：优先选择全为正或全为负的变量
+            int score = 0;
+            
+            // 如果变量只以正文字出现
+            if (negative_count[v] == 0 && positive_count[v] > 0)
+            {
+                score = 1000 + positive_count[v]; // 高优先级
+            }
+            // 如果变量只以负文字出现
+            else if (positive_count[v] == 0 && negative_count[v] > 0)
+            {
+                score = 1000 + negative_count[v]; // 高优先级
+            }
+            // 如果变量既有正文字又有负文字
+            else
+            {
+                // 选择出现次数更多的极性
+                score = std::max(positive_count[v], negative_count[v]);
+            }
+            
+            if (score > best_score)
+            {
+                best_score = score;
+                best_var = v;
+            }
+        }
+        
+        // 如果没有找到合适的变量，使用第一个未赋值的变量
+        if (best_var == -1)
+        {
+            for (int v = 1; v <= var_c; v++)
+            {
+                if (!var[v].status)
+                    return v;
+            }
+        }
+        
+        return best_var;
+    }
+
+    // 新增：为选择的变量确定最佳赋值方向
+    bool get_best_assignment(int v)
+    {
+        // 如果变量只以正文字出现，赋true
+        if (negative_count[v] == 0 && positive_count[v] > 0)
+            return true;
+        
+        // 如果变量只以负文字出现，赋false
+        if (positive_count[v] == 0 && negative_count[v] > 0)
+            return false;
+        
+        // 如果既有正文字又有负文字，选择出现次数更多的极性
+        return positive_count[v] >= negative_count[v];
+    }
+
     bool dpll()
     {
         ms = (clock() - start) * 1000 / CLOCKS_PER_SEC;
@@ -366,18 +449,24 @@ struct CNF
         if (emp)
             return true;
 
-        int v = 1;
-        while (v <= var_c && var[v].status)
-            v++;
+        // 使用优化策略选择变量
+        int v = select_optimal_variable();
+        if (v == -1) return true; // 所有变量都已赋值
+
+        // 确定最佳赋值方向
+        bool best_assignment = get_best_assignment(v);
 
         mystl::stack<Node *> branch;
-        del_var(v, true, branch);
+        
+        // 先尝试最佳赋值方向
+        del_var(v, best_assignment, branch);
         if (dpll())
             return true;
         else
             rec(branch);
 
-        del_var(v, false, branch);
+        // 再尝试相反方向
+        del_var(v, !best_assignment, branch);
         if (dpll())
             return true;
 

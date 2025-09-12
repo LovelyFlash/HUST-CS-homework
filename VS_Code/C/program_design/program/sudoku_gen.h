@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <time.h>
 
 // 百分号数独生成与SAT规约
 // 变量编号: cell(i,j,d) => 1~729, i,j,d∈[1,9]
@@ -23,19 +24,6 @@ static inline int window_id(int i, int j)
     if (i >= 5 && i <= 7 && j >= 5 && j <= 7)
         return 1; // 6~8行6~8列
     return -1;
-}
-
-// 打印数独
-void print_sudoku(int grid[N][N])
-{
-    for (int i = 0; i < N; ++i)
-    {
-        for (int j = 0; j < N; ++j)
-        {
-            printf("%d ", grid[i][j]);
-        }
-        printf("\n");
-    }
 }
 
 // 检查当前位置是否合法
@@ -116,157 +104,210 @@ void generate_percent_sudoku(int grid[N][N])
     fill_grid(grid, 0);
 }
 
+// 改进的唯一解检查函数（更高效）
+static int count_solutions(int grid[N][N], int pos, int max_solutions)
+{
+    if (pos == N * N)
+        return 1;
+
+    int row = pos / N, col = pos % N;
+
+    if (grid[row][col] != 0)
+        return count_solutions(grid, pos + 1, max_solutions);
+
+    int count = 0;
+    for (int num = 1; num <= N; num++)
+    {
+        if (is_valid(grid, row, col, num))
+        {
+            grid[row][col] = num;
+            count += count_solutions(grid, pos + 1, max_solutions - count);
+            grid[row][col] = 0;
+            
+            if (count >= max_solutions) // 提前终止
+                return count;
+        }
+    }
+    return count;
+}
+
+// 当前最流行的挖空算法：对称挖空 + 唯一性验证
 void puzzle_generate(int grid[N][N], int puzzle[N][N])
 {
-    for (int i = 0; i < N; i++)
-        for (int j = 0; j < N; j++)
-            puzzle[i][j] = grid[i][j];
-    int holes = 40; // 挖40个空
-    while (holes > 0)
+    // 复制完整数独
+    memcpy(puzzle, grid, sizeof(int) * N * N);
+
+    int target_holes = 45; // 目标挖空数（中等难度）
+    int current_holes = 0;
+    int max_attempts = 200; // 最大尝试次数
+
+    // 创建对称位置对列表
+    int symmetric_positions[N * N / 2][2];
+    int pair_count = 0;
+    
+    for (int i = 0; i < N / 2; i++)
     {
-        int i = rand() % N;
-        int j = rand() % N;
-        if (puzzle[i][j] != 0)
+        for (int j = 0; j < N; j++)
         {
-            puzzle[i][j] = 0;
-            --holes;
+            int sym_i = N - 1 - i;
+            int sym_j = N - 1 - j;
+            
+            if (i != sym_i || j != sym_j) // 避免中心点重复
+            {
+                symmetric_positions[pair_count][0] = i * N + j;
+                symmetric_positions[pair_count][1] = sym_i * N + sym_j;
+                pair_count++;
+            }
+        }
+    }
+    
+    // 添加中心点（如果需要）
+    if (N % 2 == 1)
+    {
+        symmetric_positions[pair_count][0] = (N/2) * N + (N/2);
+        symmetric_positions[pair_count][1] = -1; // 标记为单点
+        pair_count++;
+    }
+
+    // 打乱对称位置对顺序
+    for (int i = pair_count - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        int temp0 = symmetric_positions[i][0];
+        int temp1 = symmetric_positions[i][1];
+        symmetric_positions[i][0] = symmetric_positions[j][0];
+        symmetric_positions[i][1] = symmetric_positions[j][1];
+        symmetric_positions[j][0] = temp0;
+        symmetric_positions[j][1] = temp1;
+    }
+
+    // 开始挖空
+    for (int attempt = 0; attempt < max_attempts && current_holes < target_holes; attempt++)
+    {
+        for (int p = 0; p < pair_count && current_holes < target_holes; p++)
+        {
+            int pos1 = symmetric_positions[p][0];
+            int pos2 = symmetric_positions[p][1];
+            
+            int row1 = pos1 / N, col1 = pos1 % N;
+            
+            // 如果这个位置已经有数字
+            if (puzzle[row1][col1] != 0)
+            {
+                int original1 = puzzle[row1][col1];
+                int original2 = (pos2 != -1) ? puzzle[pos2 / N][pos2 % N] : -1;
+                
+                // 尝试挖空
+                puzzle[row1][col1] = 0;
+                if (pos2 != -1)
+                    puzzle[pos2 / N][pos2 % N] = 0;
+                
+                // 检查唯一解
+                int temp_grid[N][N];
+                memcpy(temp_grid, puzzle, sizeof(int) * N * N);
+                
+                int solutions = count_solutions(temp_grid, 0, 2); // 最多检查2个解
+                
+                if (solutions == 1)
+                {
+                    // 挖空成功
+                    current_holes += (pos2 != -1) ? 2 : 1;
+                }
+                else
+                {
+                    // 恢复数字
+                    puzzle[row1][col1] = original1;
+                    if (pos2 != -1)
+                        puzzle[pos2 / N][pos2 % N] = original2;
+                }
+            }
+        }
+    }
+
+    // 如果挖空数不足，尝试随机挖空单个位置
+    if (current_holes < target_holes - 5)
+    {
+        int positions[N * N];
+        for (int i = 0; i < N * N; i++)
+            positions[i] = i;
+        
+        // 打乱顺序
+        for (int i = N * N - 1; i > 0; i--)
+        {
+            int j = rand() % (i + 1);
+            int temp = positions[i];
+            positions[i] = positions[j];
+            positions[j] = temp;
+        }
+        
+        for (int i = 0; i < N * N && current_holes < target_holes; i++)
+        {
+            int pos = positions[i];
+            int row = pos / N, col = pos % N;
+            
+            if (puzzle[row][col] != 0)
+            {
+                int original = puzzle[row][col];
+                puzzle[row][col] = 0;
+                
+                int temp_grid[N][N];
+                memcpy(temp_grid, puzzle, sizeof(int) * N * N);
+                
+                int solutions = count_solutions(temp_grid, 0, 2);
+                
+                if (solutions == 1)
+                {
+                    current_holes++;
+                }
+                else
+                {
+                    puzzle[row][col] = original;
+                }
+            }
         }
     }
 }
-// 规约为SAT（DIMACS CNF格式）
-void sudoku_to_SAT(int grid[N][N], FILE *out)
+
+// 复制CNF模板文件并在末尾追加预填数字规则
+// src_cnf: 固定规则CNF文件路径，dst_cnf: 输出文件路径，grid: 预填数字
+void generate_sudoku_cnf_with_given(const char *src_cnf, const char *dst_cnf, int grid[N][N])
 {
-    int clause_count = 0;
-    // 先写头部占位
-    long header_pos = ftell(out);
-    fprintf(out, "p cnf 729 0\n");
-    // 1. 每格至少一个数
-    for (int i = 0; i < N; ++i)
-        for (int j = 0; j < N; ++j)
-        {
-            for (int d = 0; d < N; ++d)
-                fprintf(out, "%d ", VAR(i, j, d));
-            fprintf(out, "0\n");
-            clause_count++;
-        }
-    // 2. 每格至多一个数
-    for (int i = 0; i < N; ++i)
-        for (int j = 0; j < N; ++j)
-            for (int d1 = 0; d1 < N; ++d1)
-                for (int d2 = d1 + 1; d2 < N; ++d2)
-                {
-                    fprintf(out, "-%d -%d 0\n", VAR(i, j, d1), VAR(i, j, d2));
-                    clause_count++;
-                }
-    // 3. 行、列、宫、撇对角线、窗口约束
-    for (int d = 0; d < N; ++d)
+    // 1. 复制原始CNF文件内容
+    FILE *fin = fopen(src_cnf, "r");
+    FILE *fout = fopen(dst_cnf, "w");
+    if (!fin || !fout)
     {
-        // 行
-        for (int i = 0; i < N; ++i)
-            for (int j1 = 0; j1 < N; ++j1)
-                for (int j2 = j1 + 1; j2 < N; ++j2)
-                {
-                    fprintf(out, "-%d -%d 0\n", VAR(i, j1, d), VAR(i, j2, d));
-                    clause_count++;
-                }
-        // 列
-        for (int j = 0; j < N; ++j)
-            for (int i1 = 0; i1 < N; ++i1)
-                for (int i2 = i1 + 1; i2 < N; ++i2)
-                {
-                    fprintf(out, "-%d -%d 0\n", VAR(i1, j, d), VAR(i2, j, d));
-                    clause_count++;
-                }
-        // 宫
-        for (int bi = 0; bi < 3; ++bi)
-            for (int bj = 0; bj < 3; ++bj)
-                for (int k1 = 0; k1 < N; ++k1)
-                    for (int k2 = k1 + 1; k2 < N; ++k2)
-                    {
-                        int i1 = bi * 3 + k1 / 3, j1 = bj * 3 + k1 % 3;
-                        int i2 = bi * 3 + k2 / 3, j2 = bj * 3 + k2 % 3;
-                        fprintf(out, "-%d -%d 0\n", VAR(i1, j1, d), VAR(i2, j2, d));
-                        clause_count++;
-                    }
-        // 撇对角线
-        int diag[N], cnt = 0;
-        for (int i = 0; i < N; ++i)
-        {
-            int j = N - 1 - i;
-            diag[cnt++] = i;
-        }
-        for (int k1 = 0; k1 < N; ++k1)
-            for (int k2 = k1 + 1; k2 < N; ++k2)
-            {
-                fprintf(out, "-%d -%d 0\n", VAR(diag[k1], N - 1 - diag[k1], d), VAR(diag[k2], N - 1 - diag[k2], d));
-                clause_count++;
-            }
-        // 窗口
-        for (int w = 0; w < 2; ++w)
-        {
-            int cells[9][2], cnt = 0;
-            if (w == 0)
-            {
-                for (int i = 1; i <= 3; ++i)
-                    for (int j = 1; j <= 3; ++j)
-                    {
-                        cells[cnt][0] = i;
-                        cells[cnt][1] = j;
-                        cnt++;
-                    }
-            }
-            else
-            {
-                for (int i = 5; i <= 7; ++i)
-                    for (int j = 5; j <= 7; ++j)
-                    {
-                        cells[cnt][0] = i;
-                        cells[cnt][1] = j;
-                        cnt++;
-                    }
-            }
-            for (int k1 = 0; k1 < cnt; ++k1)
-                for (int k2 = k1 + 1; k2 < cnt; ++k2)
-                {
-                    fprintf(out, "-%d -%d 0\n", VAR(cells[k1][0], cells[k1][1], d), VAR(cells[k2][0], cells[k2][1], d));
-                    clause_count++;
-                }
-        }
+        if (fin)
+            fclose(fin);
+        if (fout)
+            fclose(fout);
+        return;
     }
-    // 5. 预填数字
+    char buf[4096];
+    size_t n;
+    while ((n = fread(buf, 1, sizeof(buf), fin)) > 0)
+    {
+        fwrite(buf, 1, n, fout);
+    }
+    fclose(fin);
+    // 2. 追加预填数字规则
+    fprintf(fout, "\n");
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < N; ++j)
             if (grid[i][j])
-            {
-                fprintf(out, "%d 0\n", VAR(i, j, grid[i][j] - 1));
-                clause_count++;
-            }
-    // 回填头部
-    long end_pos = ftell(out);
-    fseek(out, header_pos, SEEK_SET);
-    fprintf(out, "p cnf 729 %d\n", clause_count);
-    fseek(out, end_pos, SEEK_SET);
+                fprintf(fout, "%d 0\n", VAR(i, j, grid[i][j] - 1));
+    fclose(fout);
 }
 
-// 美观输出数独
-void print_beautiful_sudoku(int board[N][N])
+// 获取当前挖空数量
+int get_hole_count(int puzzle[N][N])
 {
-    printf("+-------+-------+-------+\n");
-    for (int i = 0; i < N; ++i)
-    {
-        printf("| ");
-        for (int j = 0; j < N; ++j)
-        {
-            if (board[i][j] == 0)
-                printf(". ");
-            else
-                printf("%d ", board[i][j]);
-            if ((j + 1) % 3 == 0)
-                printf("| ");
-        }
-        printf("\n");
-        if ((i + 1) % 3 == 0)
-            printf("+-------+-------+-------+\n");
-    }
+    int count = 0;
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            if (puzzle[i][j] == 0)
+                count++;
+    return count;
 }
+
 #endif // SUDOKU_GEN_H
