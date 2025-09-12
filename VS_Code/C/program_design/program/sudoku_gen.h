@@ -123,7 +123,7 @@ static int count_solutions(int grid[N][N], int pos, int max_solutions)
             grid[row][col] = num;
             count += count_solutions(grid, pos + 1, max_solutions - count);
             grid[row][col] = 0;
-            
+
             if (count >= max_solutions) // 提前终止
                 return count;
         }
@@ -144,14 +144,14 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
     // 创建对称位置对列表
     int symmetric_positions[N * N / 2][2];
     int pair_count = 0;
-    
+
     for (int i = 0; i < N / 2; i++)
     {
         for (int j = 0; j < N; j++)
         {
             int sym_i = N - 1 - i;
             int sym_j = N - 1 - j;
-            
+
             if (i != sym_i || j != sym_j) // 避免中心点重复
             {
                 symmetric_positions[pair_count][0] = i * N + j;
@@ -160,11 +160,11 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
             }
         }
     }
-    
+
     // 添加中心点（如果需要）
     if (N % 2 == 1)
     {
-        symmetric_positions[pair_count][0] = (N/2) * N + (N/2);
+        symmetric_positions[pair_count][0] = (N / 2) * N + (N / 2);
         symmetric_positions[pair_count][1] = -1; // 标记为单点
         pair_count++;
     }
@@ -188,26 +188,26 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
         {
             int pos1 = symmetric_positions[p][0];
             int pos2 = symmetric_positions[p][1];
-            
+
             int row1 = pos1 / N, col1 = pos1 % N;
-            
+
             // 如果这个位置已经有数字
             if (puzzle[row1][col1] != 0)
             {
                 int original1 = puzzle[row1][col1];
                 int original2 = (pos2 != -1) ? puzzle[pos2 / N][pos2 % N] : -1;
-                
+
                 // 尝试挖空
                 puzzle[row1][col1] = 0;
                 if (pos2 != -1)
                     puzzle[pos2 / N][pos2 % N] = 0;
-                
+
                 // 检查唯一解
                 int temp_grid[N][N];
                 memcpy(temp_grid, puzzle, sizeof(int) * N * N);
-                
+
                 int solutions = count_solutions(temp_grid, 0, 2); // 最多检查2个解
-                
+
                 if (solutions == 1)
                 {
                     // 挖空成功
@@ -230,7 +230,7 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
         int positions[N * N];
         for (int i = 0; i < N * N; i++)
             positions[i] = i;
-        
+
         // 打乱顺序
         for (int i = N * N - 1; i > 0; i--)
         {
@@ -239,22 +239,22 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
             positions[i] = positions[j];
             positions[j] = temp;
         }
-        
+
         for (int i = 0; i < N * N && current_holes < target_holes; i++)
         {
             int pos = positions[i];
             int row = pos / N, col = pos % N;
-            
+
             if (puzzle[row][col] != 0)
             {
                 int original = puzzle[row][col];
                 puzzle[row][col] = 0;
-                
+
                 int temp_grid[N][N];
                 memcpy(temp_grid, puzzle, sizeof(int) * N * N);
-                
+
                 int solutions = count_solutions(temp_grid, 0, 2);
-                
+
                 if (solutions == 1)
                 {
                     current_holes++;
@@ -272,7 +272,6 @@ void puzzle_generate(int grid[N][N], int puzzle[N][N])
 // src_cnf: 固定规则CNF文件路径，dst_cnf: 输出文件路径，grid: 预填数字
 void generate_sudoku_cnf_with_given(const char *src_cnf, const char *dst_cnf, int grid[N][N])
 {
-    // 1. 复制原始CNF文件内容
     FILE *fin = fopen(src_cnf, "r");
     FILE *fout = fopen(dst_cnf, "w");
     if (!fin || !fout)
@@ -283,19 +282,53 @@ void generate_sudoku_cnf_with_given(const char *src_cnf, const char *dst_cnf, in
             fclose(fout);
         return;
     }
-    char buf[4096];
-    size_t n;
-    while ((n = fread(buf, 1, sizeof(buf), fin)) > 0)
-    {
-        fwrite(buf, 1, n, fout);
-    }
-    fclose(fin);
-    // 2. 追加预填数字规则
-    fprintf(fout, "\n");
+
+    char line[1024];
+    int original_clauses = 0;
+    int pre_filled_count = 0;
+    int line_count = 0;
+
+    // 首先计算预填充的数字数量
     for (int i = 0; i < N; ++i)
         for (int j = 0; j < N; ++j)
             if (grid[i][j])
+                pre_filled_count++;
+
+    // 读取并处理原文件
+    while (fgets(line, sizeof(line), fin))
+    {
+        line_count++;
+
+        // 如果是第二行（p cnf 行）
+        if (line_count == 2 && strncmp(line, "p cnf", 5) == 0)
+        {
+            int vars;
+            int clauses;
+            if (sscanf(line, "p cnf %d %d", &vars, &clauses) == 2)
+            {
+                original_clauses = clauses;
+                // 更新子句数量：原数量 + 预填充数字数量
+                fprintf(fout, "p cnf %d %d\n", vars, clauses + pre_filled_count);
+                continue;
+            }
+        }
+
+        // 复制其他行
+        fputs(line, fout);
+    }
+    fclose(fin);
+
+    // 追加预填数字规则（每个预填数字作为一个单文字子句）
+    for (int i = 0; i < N; ++i)
+    {
+        for (int j = 0; j < N; ++j)
+        {
+            if (grid[i][j])
+            {
                 fprintf(fout, "%d 0\n", VAR(i, j, grid[i][j] - 1));
+            }
+        }
+    }
     fclose(fout);
 }
 
