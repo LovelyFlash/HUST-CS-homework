@@ -175,6 +175,7 @@ const gridData = ref<GridItem[]>([]); //不及格学生表信息
 const majorMap = new Map<string, string>([
 	["ALL", "全部"],
 	["CS", "计算机"],
+	["TL", "图灵"],
 	["ACM", "ACM"],
 	["BSB", "本硕博(启明)"],
 	["IOT", "物联网"],

@@ -229,7 +229,7 @@ const redRate = ref<string>("");
 const yellowRate = ref<string>("");
 const requiredCreditExcludePublicElective = ref<string>("");
 const requiredCreditIncludePublicElective = ref<string>("");
-const majorMap = new Map<string, string>([["ALL", "全部"], ["CS", "计算机"], ["ACM", "ACM"], ["BSB", "本硕博(启明)"], ["IOT", "物联网"], ["XJ", "校交"], ["ZY", "卓越(创新)"], ["BD", "大数据"], ["IST", "智能"]]);
+const majorMap = new Map<string, string>([["ALL", "全部"],	["TL", "图灵"], ["CS", "计算机"], ["ACM", "ACM"], ["BSB", "本硕博(启明)"], ["IOT", "物联网"], ["XJ", "校交"], ["ZY", "卓越(创新)"], ["BD", "大数据"], ["IST", "智能"]]);
 
 interface uploadExcellent {
 	grade: number;

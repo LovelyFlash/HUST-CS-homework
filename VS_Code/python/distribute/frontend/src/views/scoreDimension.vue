@@ -98,6 +98,7 @@ const majorMap = new Map<string, string>([
 	["ALL", "全部"],
 	["CS", "计算机"],
 	["ACM", "ACM"],
+	["TL", "图灵"],
 	["BSB", "本硕博(启明)"],
 	["IOT", "物联网"],
 	["XJ", "校交"],

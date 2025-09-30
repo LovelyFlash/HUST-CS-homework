@@ -174,6 +174,7 @@ async def get_major_chart(
                     tmp_className = tmp_className.replace("IOT", "物联网")
                     tmp_className = tmp_className.replace("IST", "智能")
                     tmp_className = tmp_className.replace("ZY", "卓越(创新)")
+                    tmp_className = tmp_className.replace("TL", "图灵")
                     tmp_className = tmp_className.replace("XJ", "校交")
                     tmpDict["gradeNameList"][i] = tmp_className
 
@@ -185,6 +186,7 @@ async def get_major_chart(
                     tmp_className = tmp_className.replace("IOT", "物联网")
                     tmp_className = tmp_className.replace("IST", "智能")
                     tmp_className = tmp_className.replace("ZY", "卓越(创新)")
+                    tmp_className = tmp_className.replace("TL", "图灵")
                     tmp_className = tmp_className.replace("XJ", "校交")
                     tmpDict["classNameList"][i] = tmp_className
 

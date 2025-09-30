@@ -71,6 +71,7 @@ int displayMainMenu()
     cout << "3. 生成数独并输出挖空版\n";
     cout << "4. 直接求解一规约为SAT的数独CNF文件\n";
     cout << "5. 玩数独游戏\n";
+    cout << "6. 求解指定路径CNF文件\n";
     cout << "0. 退出\n";
     cout << "输入选项：";
     int op;
@@ -110,6 +111,32 @@ void solve_cnf_batch()
                 cout << time << "ms " << (result ? "SATISFIABLE" : "UNSATISFIABLE") << endl;
         }
     }
+}
+
+void solve_cnf_batch_1()
+{
+    cout << "请输入CNF文件路径：";
+    char path[500];
+    cin >> path;
+    cout << path << " -> ";
+    bool error = false;
+    bool result = false;
+    int time;
+    CNF cnf;
+    try
+    {
+        cnf.read(path);
+        cnf.solve();
+        result = cnf.flag;
+        time = cnf.ms;
+    }
+    catch (const char *e)
+    {
+        error = true;
+        cout << e << endl;
+    }
+    if (!error)
+        cout << time << "ms " << (result ? "SATISFIABLE" : "UNSATISFIABLE") << endl;
 }
 
 void generate_and_print_sudoku()
@@ -289,42 +316,11 @@ void display_game_interface()
     cout << "方向键: 移动光标  数字1-9: 填入数字\n";
     cout << "空格: 清空单元格  R: 重新开始\n";
     cout << "A: 显示答案      C: 检查答案\n";
-    cout << "ESC: 返回主菜单\n";
+    cout << "X: 返回主菜单\n";
     cout << "================================\n\n";
 
-    // 打印带选中状态的数独
-    for (int i = 0; i < N; i++)
-    {
-        if (i % 3 == 0 && i != 0)
-        {
-            cout << "│───┼───┼───┼───┼───┼───┼───┼───┼───│\n";
-        }
-        cout << "│";
-        for (int j = 0; j < N; j++)
-        {
-            // 设置颜色：选中的单元格用不同颜色
-            if (i == current_game.selected_row && j == current_game.selected_col)
-            {
-                cout << "\033[41m"; // 红色背景
-            }
-            else if (current_game.fixed_cells[i][j])
-            {
-                cout << "\033[1m"; // 粗体显示固定数字
-            }
-
-            if (current_game.user_grid[i][j] == 0)
-            {
-                cout << " · ";
-            }
-            else
-            {
-                cout << " " << current_game.user_grid[i][j] << " ";
-            }
-
-            cout << "\033[0m│"; // 重置颜色
-        }
-        cout << "\n";
-    }
+    // 使用精美的数独打印函数，带选中状态
+    print_beautiful_sudoku_with_selection(current_game.user_grid, current_game.selected_row, current_game.selected_col);
     cout << "\n";
 }
 
@@ -402,8 +398,8 @@ void handle_game_input()
         cout << "按任意键继续...";
         _getch();
         break;
-    case 27: // ESC键
-        return;
+    case 'X': // 退出
+        return ;
     }
 }
 
@@ -464,6 +460,9 @@ int main()
             break;
         case 5:
             play_sudoku_game();
+            break;
+        case 6:
+            solve_cnf_batch_1();
             break;
         default:
             cout << "无效选项，请重试。\n";
