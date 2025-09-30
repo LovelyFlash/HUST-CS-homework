@@ -8,7 +8,7 @@
 #include <cmath>
 #include <cstring>
 #include <windows.h>
-#define TIMELIMIT 20000
+#define TIMELIMIT 40000
 
 namespace mystl
 {

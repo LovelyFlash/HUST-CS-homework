@@ -23,6 +23,7 @@ from schemas.basic import Response200, Response400
 from database.redis import course_cache
 from core.config import config
 from utils.common import to_pinyin, create_form
+import re
 
 courseDim_router = APIRouter()
 
@@ -128,6 +129,7 @@ async def get_coursers_by_term_pass(
                         .filter(models.Students.stuID == row.stuID)
                         .first()
                     )
+                    # todo
                     failedStudentList.append(
                         [student.stuClass, row.stuID, student.stuName, row.score]
                     )
@@ -324,7 +326,7 @@ async def downFailedStudent(
     :param redis_store:
     :return:
     返回如下字段的 excel文件
-    ['序号', '班级', '学号', '姓名']
+    ["序号", "年级","班级", "学号", "姓名","开课学期","成绩"]
 
     """
 
@@ -341,7 +343,8 @@ async def downFailedStudent(
             .distinct()
             .all()
         )
-        FORM_HEADER = ["序号", "班级", "学号", "姓名", "成绩"]
+        # todo
+        FORM_HEADER = ["序号", "年级","班级", "学号", "姓名","开课学期","成绩"]
         FORM_DATA = []
         index = 1
         for row in ret:
@@ -350,8 +353,27 @@ async def downFailedStudent(
                 .filter(models.Students.stuID == row.stuID)
                 .first()
             )
+            # 班级格式转换
+            stu_class = student.stuClass
+            if "BD" in stu_class:
+                stu_class = "大数据" + stu_class[-4:]
+            elif "BSB" in stu_class:
+                stu_class = "本硕博" + stu_class[-4:]
+            elif "ZY" in stu_class:
+                stu_class = "卓越(创新)" + stu_class[-4:]
+            elif "IOT" in stu_class:
+                stu_class = "物联网" + stu_class[-4:]
+            elif "XJ" in stu_class:
+                stu_class = "校交" + stu_class[-4:]
+            elif "IST" in stu_class:
+                stu_class = "智能" + stu_class[-4:]
+            elif "TL" in stu_class:
+                stu_class = "图灵" + stu_class[-4:]
+            elif "CS" in stu_class:
+                stu_class = "计算机" + stu_class[-4:]
+            
             FORM_DATA.append(
-                [index, student.stuClass, row.stuID, student.stuName, row.score]
+                [index, row.grade, stu_class, row.stuID, student.stuName, row.term, row.score]
             )
             index += 1
         create_form(source_dir + failed_student_excel_name, FORM_DATA, FORM_HEADER)

@@ -13,3 +13,4 @@ from .course import (
     StudentInfoDownload,
     gradeFile,
 )
+from .classDim import ClassCreditExport

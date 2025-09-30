@@ -333,6 +333,8 @@ async def get_stuInfo_by_grade(db: Session, stuID, course_credit_dic, grade):
         failedStudentDict["stuClass"] = "校交" + res.stuClass[-4:]
     elif "IST" in res.stuClass:
         failedStudentDict["stuClass"] = "智能" + res.stuClass[-4:]
+    elif "TL" in res.stuClass:
+        failedStudentDict["stuClass"] = "图灵" + res.stuClass[-4:]
     elif "CS" in res.stuClass:
         failedStudentDict["stuClass"] = "计算机" + res.stuClass[-4:]
     failedStudentDict["totalWeightedScore"] = 0.0 # 只计算type=1,2,3

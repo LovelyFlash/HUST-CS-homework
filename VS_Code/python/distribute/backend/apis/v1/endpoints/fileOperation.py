@@ -266,6 +266,8 @@ async def weight_score_calculate(db: Session = Depends(get_db)):
             major = "IST"
         elif "计算机" in file:
             major = "CS"
+        elif "图灵" in file:
+            major = "TL"
         else:
             major = "ERR"
         print("专业: " + major)
@@ -357,6 +359,8 @@ async def operation_personal_info(db: Session, result: pd.DataFrame):
         stuClass = "XJ" + stuClassNumber
     elif "智能" in stuClass:
         stuClass = "IST" + stuClassNumber
+    elif "图灵" in stuClass:
+        stuClass = "TL" + stuClassNumber
     elif "计算机" in stuClass:
         stuClass = "CS" + stuClassNumber
     else:

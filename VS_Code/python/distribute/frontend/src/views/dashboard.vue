@@ -53,7 +53,7 @@ interface listItem {
 
 const name = localStorage.getItem('ms_username');
 const role: string = localStorage.getItem('is_superuser') == 'true' ? '超级管理员' : '普通用户';
-const majorMap = new Map<string, string>([["ALL", "全部"], ["CS", "计算机"], ["ACM", "ACM"], ["BSB", "本硕博(启明)"], ["IOT", "物联网"], ["XJ", "校交"], ["ZY", "卓越(创新)"], ["BD", "大数据"], ["IST", "智能"]]);
+const majorMap = new Map<string, string>([["ALL", "全部"], ["CS", "计算机"],["TL", "图灵"], ["ACM", "ACM"], ["BSB", "本硕博(启明)"], ["IOT", "物联网"], ["XJ", "校交"], ["ZY", "卓越(创新)"], ["BD", "大数据"], ["IST", "智能"]]);
 const dataset = ref<listItem[][]>([]);
 
 const getData = () => {
