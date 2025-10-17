@@ -128,7 +128,13 @@ const items = [
 		index: '/studentInformationS',
 		title: '学生信息(精简)',
 		permiss: '1'
-	}, {
+	},{
+		icon: 'Memo',
+		index: '/classCreditStatistics',
+		title: '班级学分统计',
+		permiss: '1'
+	}, 
+	{
 		icon: 'DataAnalysis',
 		index: '/failureAnalysis',
 		title: '不及格分析',

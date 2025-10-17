@@ -12,5 +12,5 @@ from .course import (
     StudentInfoConfig,
     StudentInfoDownload,
     gradeFile,
+    ClassCreditExport,
 )
-from .classDim import ClassCreditExport

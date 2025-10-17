@@ -148,6 +148,9 @@ export const fetchClassesData = (term: String) => {
 	});
 };
 
+
+
+
 export const fetchMajorData = () => {
 	return request({
 		url: "proxy/apis/v1/scores/major/chart",
@@ -200,6 +203,7 @@ export const fetchStudentClassData = () => {
 	});
 };
 
+
 export const fetchAnalysisData = (term: String, classesName: String) => {
 	return request({
 		url: "proxy/apis/v1/students/analysis",
@@ -211,6 +215,24 @@ export const fetchAnalysisData = (term: String, classesName: String) => {
 	});
 };
 
+export const fetchCrediData = (term: String, classesName: String) => {
+	return request({
+		url: "proxy/apis/v1/credits/class/export",
+		method: "post",
+		data: {
+			term: term,
+			className: classesName,
+		},
+	});
+};
+export const downloadCreditData = (data: object) => {
+	return request({
+		url: "proxy/apis/v1/credits/class/export",
+		method: "post",
+		data: data,
+		responseType: "arraybuffer",
+	})
+}
 export const fetchUsersData = () => {
 	return request({
 		url: "proxy/apis/v1/users",

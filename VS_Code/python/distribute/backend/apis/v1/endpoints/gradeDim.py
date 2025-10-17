@@ -161,7 +161,11 @@ async def download_grade_file_by_term(queryItem: schemas.gradeFile, db: Session=
     fileName = grade + "_grade_" + term + "_term.xlsx"
     FORM_HEADER = ["学号", "姓名", "班级", "不及格科目数", "不及格科目名"]
     FORM_DATA = []
-    stuIDList = db.query(models.Scores).filter(models.Scores.grade==grade, models.Scores.term==term, models.Scores.score < 60).with_entities(models.Scores.stuID).order_by(models.Scores.stuID).distinct().all()
+    stuIDList = db.query(models.Scores).filter(
+        models.Scores.grade==grade,
+        models.Scores.term==term,
+        models.Scores.score < 60
+    ).with_entities(models.Scores.stuID).order_by(models.Scores.stuID).distinct().all()
     print(stuIDList)
     if len(stuIDList) == 0:
         return HTTPException()
@@ -181,5 +185,65 @@ async def download_grade_file_by_term(queryItem: schemas.gradeFile, db: Session=
             failName += name + ","
         failName = failName.rstrip(",")
         FORM_DATA.append([stuID, stuName, stuClass, failNumber, failName])
+    create_form(config.SAVE_FAILED_STUDENT_BY_TERM_FILE_DIR + fileName, FORM_DATA, FORM_HEADER)
+    return FileResponse(path=config.SAVE_FAILED_STUDENT_BY_TERM_FILE_DIR + fileName, filename=fileName)
+
+@gradeDim_router.post("/course/fail/download")
+async def download_course_fail_file_by_term(queryItem: schemas.BaseQuery, db: Session=Depends(get_db)):
+    term = str(queryItem.term)
+    fileName = "course_fail_" + term + "_term.xlsx"
+    FORM_HEADER = ["年级","专业", "开课学期", "序号", "必修课课程名","开课年级", "未通过学生名单"]
+    FORM_DATA = []
+    courses = db.query(models.Courses).filter(
+        models.Courses.term == term,
+        # models.Courses.type.in_([1, 2]),  # 1,2为必修课类型
+    ).with_entities(models.Courses.courseName).order_by(models.Courses.courseName).all()
+    print(courses)
+    if len(courses) == 0:
+        return HTTPException()
+    print(courses)
+    number=1
+    
+    for row in courses:
+        courseName=row[0]
+        course:models.Courses = db.query(models.Courses).filter(
+            models.Courses.courseName==courseName,
+            models.Courses.term==term
+        ).first()
+        failScoreList: list[models.Scores] = db.query(models.Scores).filter(
+            models.Scores.courseName==courseName,
+            models.Scores.term==term,
+            models.Scores.score < 60
+        ).with_entities(models.Scores.stuID,models.Scores.major).order_by(models.Scores.stuID,models.Scores.major).distinct().all()
+        ScoreList: list[models.Scores] = db.query(models.Scores).filter(
+            models.Scores.courseName==courseName,
+            models.Scores.term==term,
+        ).with_entities(models.Scores.major).order_by(models.Scores.major).distinct().all()
+        failStuList = []
+        for score in failScoreList:
+            stuID = score[0]
+            student: models.Students = db.query(models.Students).filter(models.Students.stuID==stuID).first()
+            failStuList.append(student.stuName)
+        failStuStr = ','.join(failStuList)
+        Grade='20'+course.grade+'级'
+        if ((course.term % 10) == 1):
+            Term='秋季学期'
+        else:
+            Term='春季学期'
+        if(int(course.term/10) == 1):
+            grade='大一'
+        elif(int(course.term/10) == 2):
+            grade='大二'
+        elif(int(course.term/10) == 3):
+            grade='大三'
+        else:
+            grade='大四'
+        major=[]
+        for i in ScoreList:
+            if i[0] not in major:
+                major.append(i[0])
+        majorstr = ','.join(major)
+        FORM_DATA.append([Grade,majorstr,Term,number,course.courseName,grade,failStuStr])
+        number += 1
     create_form(config.SAVE_FAILED_STUDENT_BY_TERM_FILE_DIR + fileName, FORM_DATA, FORM_HEADER)
     return FileResponse(path=config.SAVE_FAILED_STUDENT_BY_TERM_FILE_DIR + fileName, filename=fileName)

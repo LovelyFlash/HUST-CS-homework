@@ -1,9 +1,11 @@
+// 导入vue相关函数和插件
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import VueSetupExtend from 'vite-plugin-vue-setup-extend';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+// 
 export default defineConfig({
 	base: './',
 	plugins: [
@@ -25,11 +27,11 @@ export default defineConfig({
 		host: '0.0.0.0',
 		port: 3000,
 		proxy: {
-		  '/proxy': {
-			target: 'http://127.0.0.1:8888',	//实际请求地址
-			changeOrigin: true,
-			rewrite: (path) => path.replace(/^\/proxy/, '')
-		  },
+			'/proxy': {
+				target: 'http://127.0.0.1:8888',	//实际请求地址
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/proxy/, '')
+			},
 		}
-	  }
+	}
 });

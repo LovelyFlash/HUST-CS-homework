@@ -16,4 +16,5 @@
 4. 使用"Anaconda3-2023.09-0-Windows-x86_64.exe"安装包将Anaconda3安装到任意位置，在安装时先选择"Just Me(Recommended)"，再选择"Add Anaconda3 to my PATH environment variable"、"Register Anaconda3 as my default Python 3.11"两个选项，其余任意，再将"fastapi_env.tar.gz"压缩包拷贝到安装路径下的envs文件夹(如"D:\Anaconda3\envs")并解压
 5. 使用"node-v18.17.1-x64.msi"安装包将node安装到任意位置
 6. 双击打开setup.cmd两次，即同时出现两个窗口，等待运行结束 (若未成功可右键点击文件，选择"以管理员权限运行")
+```经过xyk修改后setup.cmd之后，应该不再需要双击两次出现两个窗口。如无法正常运行，请按照README2和setup.cmd内部注释进行修改```
 7. 最后回到distribute文件夹，点击start.bat启动

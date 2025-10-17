@@ -41,3 +41,7 @@ class StudentInfoDownload(BaseModel):
 class gradeFile(BaseModel):
     grade: str = Field(default="21", description="年级")
     term: str = Field(default="11", description="学期")
+
+class ClassCreditExport(BaseModel):
+    term: str = Field(..., description="学期")
+    className: str = Field(..., description="班级名称")

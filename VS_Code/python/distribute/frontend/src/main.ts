@@ -1,9 +1,12 @@
-import {createApp} from 'vue'
+//引入creatapp创建应用
+import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import ElementPlus from 'element-plus'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+//引入app根组件
 import App from './App.vue'
+//引入路由器
 import router from './router'
 import { usePermissStore } from './store/permiss'
 import 'element-plus/dist/index.css'
@@ -13,6 +16,7 @@ import './assets/css/icon.css'
 const app = createApp(App)
 
 app.use(createPinia())
+//使用路由器
 app.use(router)
 app.use(ElementPlus, {
     locale: zhCn,
@@ -25,7 +29,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 const permiss = usePermissStore()
 app.directive('permiss', {
     mounted(el, binding) {
-        if(!permiss.key.includes(String(binding.value))){
+        if (!permiss.key.includes(String(binding.value))) {
             el['hidden'] = true;
         }
     }

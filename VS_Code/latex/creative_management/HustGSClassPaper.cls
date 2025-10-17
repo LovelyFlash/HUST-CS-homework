@@ -153,7 +153,7 @@
 
 %设置页眉样式
 \newcommand{\headstyle}{
-	\fancyhead[C]{\huawenzhongsong \zihao{5} 华 \space 中 \space 科 \space 技 \space 大 \space 学 \space 研 \space 究 \space 生 \space 课 \space 程 \space 论 \space 文}
+	\fancyhead[C]{\huawenzhongsong \zihao{5} 华 \space 中 \space 科 \space 技 \space 大 \space 学 \space 本 \space 科 \space 生 \space 课 \space 程 \space 论 \space 文}
 }
 
 %设置页脚样式
@@ -784,7 +784,7 @@
 
 	\vspace*{\HGSCP@blanklines}
 	
-	\leftline{\zihao{4} \songti \bfseries 研 \space 究 \space 生 \space 签 \space 字 \space \underline{\makebox[8em]{}}}
+	\leftline{\zihao{4} \songti \bfseries 本 \space 科 \space 生 \space 签 \space 字 \space \underline{\makebox[8em]{}}}
 	
 	\clearpage
 }
@@ -803,7 +803,7 @@
 		pdfinfo={
 			Title={\@title},
 			Author={\@author},
-			Subject={华中科技大学研究课程论文}
+			Subject={华中科技大学本科生课程论文}
 		}
 	}
 }

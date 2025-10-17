@@ -124,7 +124,18 @@ const routes:RouteRecordRaw[] = [
                     keepAlive: true,
                 },
                 component: () => import ( /* webpackChunkName: "charts" */ "../views/studentInformation_simple.vue")
-            },{
+            },
+            {
+                path: "/classCreditStatistics",
+                name: "classCreditStatistics",
+                meta: {
+                    title: '班级学分统计',
+                    permiss: '1',
+                    keepAlive: true,
+                },
+                component: () => import ( /* webpackChunkName: "dashboard" */ "../views/classCreditStatistics.vue")
+            },
+            {
                 path: "/failureAnalysis",
                 name: "failureAnalysis",
                 meta: {
