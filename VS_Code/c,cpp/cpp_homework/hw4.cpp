@@ -70,7 +70,9 @@ public:
         return *this;
     }
 
-    MAT & operator+(const MAT )
+    MAT &operator+()(const MAT &a,const MAT &b){
+        for(int i=0;i<a.r*a.c;i++)
+    }
 
     int *operator[](int row)
     {
