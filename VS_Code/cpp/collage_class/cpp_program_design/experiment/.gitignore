@@ -1,0 +1,21 @@
+# Build outputs
+build/
+bin/
+obj/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# VS Code
+.vscode/
+
+# Logs and temp
+*.log
+*.tmp
+
+# OS
+Thumbs.db
+.DS_Store
