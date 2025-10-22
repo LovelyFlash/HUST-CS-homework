@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
 #include <crtdbg.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class MAT
@@ -22,10 +22,10 @@ public:
     ~MAT()
     {
         delete[] e;
-        cout << "正在释放该元素空间" << endl,
+        cout << "正在释放元素空间" << endl;
     }
 
-    MAT(MAT &&other) : r(other.r), c(other.c), e(other.e)
+    MAT(MAT &&other) noexcept : r(other.r), c(other.c), e(other.e)
     {
         cout << "正在移动构造" << endl;
         other.e = nullptr;
@@ -54,7 +54,7 @@ public:
         return *this;
     }
 
-    MAT &operator=(MAT &&other)
+    MAT &operator=(MAT &&other) noexcept
     {
         cout << "正在移动赋值" << endl;
         if (this != &other)
@@ -70,22 +70,30 @@ public:
         return *this;
     }
 
-    MAT &operator+()(const MAT &a,const MAT &b){
-        for(int i=0;i<a.r*a.c;i++)
-    }
-
     int *operator[](int row)
     {
+        cout << "正在取回第" << row << "行首元素：";
         return e + (row - 1) * c;
     }
 
     int &operator()(int row, int col)
     {
+        cout << "正在访问第" << row + 1 << "行第" << col + 1 << "列的元素" << endl;
         return e[row * c + col];
+    }
+
+    MAT operator+(MAT &other)
+    {
+        cout << "正在将矩阵相加" << endl;
+        MAT tem(r, c);
+        for (int i = 0; i < r * c; i++)
+            tem.e[i] = (*this).e[i] + other.e[i];
+        return tem;
     }
 
     MAT &operator++()
     {
+        cout << "正在运行前置++" << endl;
         for (int i = 0; i < r * c; i++)
             e[i]++;
         return *this;
@@ -93,21 +101,24 @@ public:
 
     MAT operator++(int)
     {
+        cout << "正在运行后置++" << endl;
         MAT tem(*this);
         ++(*this);
         return tem;
     }
 
-    int sum(MAT &m)
+    int sum()
     {
+        cout << "矩阵中所有元素之和:";
         int res = 0;
         for (int i = 0; i < r * c; i++)
-            res += m.e[i];
+            res += e[i];
         return res;
     }
 
-    void print()
+    void print(string s)
     {
+        cout << "正在打印矩阵：" << s << endl;
         cout << "row = " << r << ", col = " << c << endl;
         for (int i = 0; i < r; i++)
         {
@@ -124,19 +135,20 @@ void test()
     for (int i = 0; i < 4; i++)
         for (int j = 0; j < 5; j++)
             a(i, j) = i * 5 + j;
-    cout << "Matrix: a" << endl;
-    a.print();
+    a.print("a");
     cout << "a[2] = " << *a[2] << endl;
+    cout << a.sum() << endl;
     MAT b, c;
     b = c = a;
     ++b;
-    cout << "Matrix: b" << endl;
-    b.print();
-    c(b);
-    cout << "Matrix: c++" << endl;
-    (c++).print();
-    cout << "Matrix: c" << endl;
-    c.print();
+    b.print("b");
+    c = std::move(b);
+    (c++).print("c++");
+    MAT d(std::move(c));
+    d.print("d");
+    MAT e;
+    e = a + a + d;
+    e.print("e");
 }
 
 int main()
