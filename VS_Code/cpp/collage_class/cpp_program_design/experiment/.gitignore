@@ -1,21 +1,25 @@
-# Build outputs
-build/
-bin/
-obj/
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.dylib
+**/CMakeCache.txt
+**/CMakeFiles
+**/cmake_install.cmake
+**/MakeFile
+**/Testing
+**/CTestTestfile.cmake
+**/build
+**/.DS_Store
+**/.history
+**/*.a
+**/*.lib
+**/*.exe
+**/.*.swp
+**/.vscode/*
+src/main
+tags
+tests/googletest
 
-# VS Code
-.vscode/
+cmake-build-debug
 
-# Logs and temp
-*.log
-*.tmp
-
-# OS
-Thumbs.db
-.DS_Store
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
