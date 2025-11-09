@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Executor.hpp"
+#include "cmder/Command.hpp"
+
+#include <memory>
 #include <string>
 
 namespace adas
@@ -12,11 +14,9 @@ namespace adas
     {
     public:
         // 构造函数
-        explicit ExecutorImpl(const Pose &pose) noexcept;
-
+        explicit ExecutorImpl(const Pose &pose, CmderOrchestrator *orchestrator) noexcept;
         // 默认析构函数
         ~ExecutorImpl() noexcept = default;
-
         // 不能拷贝
         ExecutorImpl(const ExecutorImpl &) = delete;
         // 不能赋值
@@ -29,38 +29,7 @@ namespace adas
 
     private:
         // 私有数据成员，汽车当前姿态
-        Pose pose;
-        bool fast_mode;
-        void Move(void) noexcept;
-        void TurnLeft(void) noexcept;
-        void TurnRight(void) noexcept;
-
-        class MoveCommand final // 定义 一个 嵌套 类 MoveCommand，完成 Move动作（ M指令）
-        {
-        public:
-            // 执行 Move动作，需要 委托 ExecutorImp&执行 器 来完成动作
-            void DoOperate(ExecutorImpl &executor) const noexcept
-            {
-                executor.Move();
-            }
-        };
-
-        class TurnLeftCommand final
-        {
-        public:
-            void DoOperate(ExecutorImpl &executor) const noexcept
-            {
-                executor.TurnLeft();
-            }
-        };
-
-        class TurnRightCommand final 
-        {
-        public:
-            void DoOperate(ExecutorImpl &executor) const noexcept
-            {
-                executor.TurnRight();
-            }
-        };
+        PoseHandler poseHandler;
+        std::unique_ptr<CmderOrchestrator> orchestrator;
     };
 }
