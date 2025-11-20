@@ -4,27 +4,21 @@ using namespace std;
 
 int main()
 {
-    int k;
-    map<char, vector<int>> mp;
     string n;
-    cin >> n >> k;
-    for (int i = 0; i < n.length(); i++)
-        mp[n[i]].push_back(i);
-    int n0 = mp['0'].size();
-    if (n0)
+    int s, i;
+    cin >> n >> s;
+    while (s)
     {
-        while ((mp['0'].back() - n0 + 1) >= k)
-            mp['0'].pop_back();
-        n.erase(n.begin(), n.begin() + mp['0'].back());
-        k -= mp['0'].back() + 1;
+        for (i = 0; n[i] <= n[i + 1];)
+            // 找高峰期
+            i++;
+        n.erase(i, 1);
+        s--;
     }
-    for (int i = 9; i >= 0 && k > 0; i--)
-        while (!mp[i + '0'].empty() && k > 0)
-        {
-            n.erase(n.begin() + mp[i + '0'].back());
-            mp[i + '0'].pop_back();
-            k--;
-        }
+    while (n[0] == '0' && n.size() > 1)
+        // 处理前导零，注意如果长度是1就不能再删了。
+        n.erase(0, 1);
+
     cout << n;
     return 0;
 }
