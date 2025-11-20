@@ -4,27 +4,32 @@ using namespace std;
 
 int main()
 {
-    int n;
+    int n, t;
     cin >> n;
-    int a[n];
+    map<int, int> a;
     for (int i = 0; i < n; i++)
-        cin >> a[i];
-    sort(a, a + n);
-    vector<int> man;
-    int ans = n;
-    for (int i = 1, j = 1; i < n; i++)
     {
-        if (a[i] == a[i - 1] + 1)
-            ++j;
-        else
-        {
-            man.push_back(j);
-            j = 1;
-        }
+        cin >> t;
+        ++a[t];
     }
-    for (int i : man)
-        if (i < ans)
-            ans = i;
+
+    int ans = n;
+    while (!a.empty())
+    {
+        int man = 1, first = a.begin()->first;
+        while (a[first + 1] >= a[first])
+        {
+            ++man;
+            --a[first];
+            ++first;
+        }
+        --a[first];
+        if (man < ans)
+            ans = man;
+        while (a.begin()->second == 0 && !a.empty())
+            a.erase(a.begin());
+    }
+
     cout << ans;
     return 0;
 }
