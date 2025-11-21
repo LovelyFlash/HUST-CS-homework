@@ -5,13 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
-            "name": "RunoobTest",
-            "request": "launch",
-            "mainClass": "RunoobTest",
-            "projectName": ""
-        },
-        {
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",

@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "*.c": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "random": "cpp",
+        "chrono": "cpp",
+        "span": "cpp"
     }
 }
